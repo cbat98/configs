@@ -2,6 +2,7 @@ oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh
 
 $repos = "D:\dev\repos"
 $workingFolder = "$repos\TechOps-Shared\Team\charlieb"
+$configs = "$repos\configs"
  
 # Functions  
 function Test-Administrator
