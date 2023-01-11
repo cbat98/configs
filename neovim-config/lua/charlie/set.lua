@@ -23,3 +23,4 @@ vim.opt.updatetime = 50
 
 --vim.opt.clipboard="unnamed"
 vim.opt.ff="unix"
+vim.opt.mouse=""
