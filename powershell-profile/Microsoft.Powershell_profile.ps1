@@ -37,6 +37,7 @@ $env:path += ";" + "c:\ffmpeg"
 $env:path += ";" + "C:\Program Files\Neovim\bin\"
 $env:path += ";" + "C:\msys64\mingw64\bin\"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
+$env:path += ";" + "C:\Program Files\LLVM\bin"
 $env:psmodulePath = $modulePath + $env:psmodulePath
   
   
