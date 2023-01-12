@@ -48,4 +48,27 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    use('tpope/vim-surround')
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {
+        'ggandor/leap.nvim',
+        config = function () require('leap').add_default_mappings() end
+    }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function() require('gitsigns').setup() end
+    }
 end)
