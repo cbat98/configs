@@ -25,7 +25,10 @@ function whereAmI {
 }
 
 function listJustNames {
-	return Get-ChildItem -Force | Select-Object -Property Name
+    param (
+        [parameter(Mandatory=$false)][string]$path=".\"
+    )
+	return Get-ChildItem -path $path -Force | Select-Object -Property Name
 }
    
 # Variables
