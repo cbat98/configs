@@ -37,9 +37,9 @@ $modulePath = $workingFolder + "\Modules;"
 $env:path += $workingFolderPath
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "c:\ffmpeg"
-$env:path += ";" + "C:\Program Files\Neovim\bin\"
 $env:path += ";" + "C:\msys64\mingw64\bin\"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
+$env:path += ";" + "C:\tools\neovim\nvim-win64\bin"
 $env:path += ";" + "C:\Program Files\LLVM\bin"
 $env:psmodulePath = $modulePath + $env:psmodulePath
   
