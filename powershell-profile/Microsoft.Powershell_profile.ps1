@@ -30,7 +30,7 @@ function List-JustNames {
 # Variables
 $workingFolderPath = ";" + $workingFolder + "\Common"
 
-$modulePath = $workingFolder + "\Modules;"
+$modulePath = $workingFolder + "\Modules"
 $env:psmodulePath = $modulePath + $env:psmodulePath
 
 $env:path += $workingFolderPath
