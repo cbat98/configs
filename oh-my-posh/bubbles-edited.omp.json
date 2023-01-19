@@ -31,6 +31,20 @@
           "leading_diamond": " \ue0b6",
           "properties": {
             "branch_icon": "",
+            "fetch_status": true,
+            "fetch_bare_info": true
+          },
+          "style": "diamond",
+          "template": "{{if .IsBare}}Git{{end}}",
+          "trailing_diamond": "\ue0b4",
+          "type": "git"
+        },
+        {
+          "background": "#29315A",
+          "foreground": "#43CCEA",
+          "leading_diamond": " \ue0b6",
+          "properties": {
+            "branch_icon": "",
             "fetch_status": true
           },
           "style": "diamond",
