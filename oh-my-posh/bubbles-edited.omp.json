@@ -34,8 +34,8 @@
             "fetch_status": true
           },
           "style": "diamond",
-          //"template": "{{ .HEAD }} - {{ .Ahead }}\u25B2 {{ .Behind }}\u25BC",
-          "template": "{{ .HEAD }} {{ .Working }} {{ .Staging }} {{ .BranchStatus }}",
+          //"template": "{{ .HEAD }} {{ .Working }} {{ .Staging }} {{ .BranchStatus }}",
+          "template": "{{ .HEAD }}{{if eq .Working.String \"\"}}{{else}} {{.Working}}{{end}}",
           "trailing_diamond": "\ue0b4",
           "type": "git"
         },
