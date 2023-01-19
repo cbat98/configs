@@ -35,7 +35,7 @@
           },
           "style": "diamond",
           //"template": "{{ .HEAD }} - {{ .Ahead }}\u25B2 {{ .Behind }}\u25BC",
-          "template": "{{ .HEAD }} {{ .Working }} {{ .Staging }}{{ .BranchStatus }}",
+          "template": "{{ .HEAD }} {{ .Working }} {{ .Staging }} {{ .BranchStatus }}",
           "trailing_diamond": "\ue0b4",
           "type": "git"
         },

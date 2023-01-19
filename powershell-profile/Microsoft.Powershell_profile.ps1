@@ -1,4 +1,4 @@
-oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh\themes\bubbles-edit.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh\themes\bubbles-edited.omp.json | Invoke-Expression
 
 $repos = "D:\dev\repos"
 $workingFolder = "$repos\TechOps-Shared\Team\charlieb"
