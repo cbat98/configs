@@ -9,7 +9,7 @@ function Test-Administrator {
     return (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 }
   
-function setTitle {
+function Set-Title {
     $Title = ""
     
     if (Test-Administrator) {
@@ -19,7 +19,7 @@ function setTitle {
     $host.ui.RawUI.WindowTitle = $env:computername + "-" + $PID + $Title
 }
   
-function listJustNames {
+function List-JustNames {
     param (
         [Parameter(Mandatory=$false)][string]$path=".\"
     )
@@ -49,11 +49,11 @@ $logLocation = [environment]::getfolderpath("mydocuments") +"\PSLogs"
 $fullLogFile = $logLocation + "\" + $fileName
   
 #Processes 
-setTitle
+Set-Title
    
 Set-ExecutionPolicy -scope Process bypass
   
-if (!(test-path $logLocation)) {
+if (!(Test-Path $logLocation)) {
     New-Item -ItemType Directory -Force -Path $logLocation
     Write-Host "Created $($logLocation)" -foreground yellow
 }
@@ -66,7 +66,7 @@ if (Test-Path($ChocolateyProfile)) {
 
 oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh\themes\bubbles-edited.omp.json | Invoke-Expression
   
-Set-Alias ll listJustNames
+Set-Alias ll List-JustNames
 Set-Alias grep findstr
 
 Start-Transcript -Path $fullLogFile -Force  -NoClobber
