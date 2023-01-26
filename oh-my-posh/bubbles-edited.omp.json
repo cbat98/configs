@@ -35,7 +35,7 @@
             "fetch_bare_info": true
           },
           "style": "diamond",
-          "template": "{{if .IsBare}}Git{{end}}",
+          "template": "{{if .IsBare}}Bare{{end}}",
           "trailing_diamond": "\ue0b4",
           "type": "git"
         },
