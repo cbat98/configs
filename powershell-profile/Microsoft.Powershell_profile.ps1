@@ -1,6 +1,6 @@
 $repos = "D:\dev\repos"
-$workingFolder = "$repos\TechOps-Shared\Team\charlieb"
-$configs = "$repos\configs"
+$workingFolder = "$repos\misc\TechOps-Shared\Team\charlieb"
+$configs = "$repos\misc\configs"
  
 # Functions  
 function Test-Administrator {
@@ -64,7 +64,7 @@ if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
 }
 
-oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh\themes\bubbles-edited.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
   
 Set-Alias ll List-JustNames
 Set-Alias grep findstr
