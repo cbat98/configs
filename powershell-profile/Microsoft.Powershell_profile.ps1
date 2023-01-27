@@ -68,5 +68,6 @@ oh-my-posh init pwsh --config C:\Users\cbatten\AppData\Local\Programs\oh-my-posh
   
 Set-Alias ll List-JustNames
 Set-Alias grep findstr
+Set-Alias sln .\*.sln
 
 Start-Transcript -Path $fullLogFile -Force  -NoClobber
