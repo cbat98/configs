@@ -19,7 +19,7 @@ function Set-Title {
     $host.ui.RawUI.WindowTitle = $env:computername + "-" + $PID + $Title
 }
   
-function List-JustNames {
+function Get-JustNames {
     param (
         [Parameter(Mandatory=$false)][string]$path=".\"
     )
@@ -42,10 +42,10 @@ $env:path += ";" + "C:\tools\neovim\nvim-win64\bin"
 $env:path += ";" + "C:\Program Files\LLVM\bin"
   
 $dateStamp = Get-Date
-$fileDateStamp = $dateStamp.tostring("yyyy-MM-dd")
+$fileDateStamp = $dateStamp.ToString("yyyy-MM-dd")
 $fileName = $fileDateStamp + " - PS Console Output - $($env:username) - $($pid).log"
 
-$logLocation = [environment]::getfolderpath("mydocuments") +"\PSLogs"
+$logLocation = [Environment]::GetFolderPath("MyDocuments") +"\PSLogs"
 $fullLogFile = $logLocation + "\" + $fileName
   
 #Processes 
@@ -61,7 +61,7 @@ if (!(Test-Path $logLocation)) {
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
 if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
+    Import-Module -Name "$ChocolateyProfile"
 }
 
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
