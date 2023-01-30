@@ -21,4 +21,4 @@ require 'nvim-treesitter.configs'.setup {
   },
 }
 
-require "nvim-treesitter.install".compilers = { "clang", "gcc" }
+require "nvim-treesitter.install".compilers = { "gcc", "clang" }
