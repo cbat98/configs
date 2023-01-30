@@ -66,7 +66,7 @@ if (Test-Path($ChocolateyProfile)) {
 
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
   
-Set-Alias ll List-JustNames
+Set-Alias ll Get-JustNames 
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
 
