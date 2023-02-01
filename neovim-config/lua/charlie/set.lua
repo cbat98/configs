@@ -21,5 +21,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.ff="unix"
 vim.opt.mouse=""
