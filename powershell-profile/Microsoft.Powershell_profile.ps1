@@ -18,14 +18,6 @@ function Set-Title {
 
     $host.ui.RawUI.WindowTitle = $env:computername + "-" + $PID + $Title
 }
-  
-function Get-JustNames {
-    param (
-        [Parameter(Mandatory=$false)][string]$path=".\"
-    )
-
-	return Get-ChildItem -path $path -Force | Select-Object -Property Name
-}
    
 # Variables
 $workingFolderPath = ";" + $workingFolder + "\Common"
@@ -66,7 +58,6 @@ if (Test-Path($ChocolateyProfile)) {
 
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
   
-Set-Alias ll Get-JustNames 
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
 
