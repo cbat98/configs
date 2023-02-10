@@ -1,7 +1,7 @@
 $repos = "D:\dev\repos"
 $workingFolder = "$repos\misc\TechOps-Shared\Team\charlieb"
 $configs = "$repos\misc\configs"
-$tools = "D:\dev\tools"
+$tools = "D:\tools"
  
 # Functions  
 function Test-Administrator {
