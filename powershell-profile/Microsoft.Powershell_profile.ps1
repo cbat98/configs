@@ -1,5 +1,5 @@
-$repos = "D:\dev\repos"
-$workingFolder = "$repos\misc\TechOps-Shared\Team\charlieb"
+$repos = "F:\Repos"
+$workingFolder = "$repos\work\techops\TechOps-Shared\Team\charlieb"
 $configs = "$repos\misc\configs"
 $tools = "D:\tools"
  
