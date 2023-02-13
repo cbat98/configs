@@ -1,4 +1,4 @@
-$repos = "F:\Repos"
+$repos = "G:\Repos"
 $workingFolder = "$repos\work\techops\TechOps-Shared\Team\charlieb"
 $configs = "$repos\misc\configs"
 $tools = "D:\tools"
@@ -33,6 +33,7 @@ $env:path += ";" + "C:\msys64\mingw64\bin\"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
 $env:path += ";" + "C:\tools\neovim\nvim-win64\bin"
 $env:path += ";" + "C:\Program Files\LLVM\bin"
+$env:path += ";" + "C:\msys64\ucrt64\bin"
   
 $dateStamp = Get-Date
 $fileDateStamp = $dateStamp.ToString("yyyy-MM-dd")
