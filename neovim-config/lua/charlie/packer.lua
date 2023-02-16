@@ -14,9 +14,9 @@ return require('packer').startup(function(use)
 
 	use('navarasu/onedark.nvim')
 
-	use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+	use({'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }})
 
-	use('theprimeagen/harpoon')
+	-- use('theprimeagen/harpoon')
 
 	use('tpope/vim-fugitive')
 
@@ -36,21 +36,21 @@ return require('packer').startup(function(use)
 			{'hrsh7th/cmp-nvim-lua'},
 
 			-- Snippets
-			{'L3MON4D3/LuaSnip'},
+			-- {'L3MON4D3/LuaSnip'},
 		}
 	}
 
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    -- use {
+    --     "windwp/nvim-autopairs",
+    --     config = function() require("nvim-autopairs").setup {} end
+    -- }
 
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    -- use {
+    --     'numToStr/Comment.nvim',
+    --     config = function()
+    --         require('Comment').setup()
+    --     end
+    -- }
 
     use {
         'ggandor/leap.nvim',
@@ -62,12 +62,12 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end
     }
 
-    use {
-        'norcalli/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup()
-        end
-    }
+    -- use {
+    --     'norcalli/nvim-colorizer.lua',
+    --     config = function()
+    --         require('colorizer').setup()
+    --     end
+    -- }
 
     use ('dstein64/vim-startuptime')
 end)
