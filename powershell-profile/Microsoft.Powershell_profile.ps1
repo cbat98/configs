@@ -26,6 +26,8 @@ $workingFolderPath = ";" + $workingFolder + "\Common"
 $modulePath = $workingFolder + "\Modules"
 $env:psmodulePath = $modulePath + $env:psmodulePath
 
+$env:path = "C:\Program Files\Notepad++" + ";" + $env:path
+
 $env:path += $workingFolderPath
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "c:\ffmpeg"
