@@ -65,5 +65,6 @@ oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invo
   
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
+Set-Alias cb Set-Clipboard
 
 Start-Transcript -Path $fullLogFile -Force  -NoClobber
