@@ -1,8 +1,8 @@
 param (
     [Parameter(Mandatory=$false)]
-    [string]$email = "test@microlise.com",
+    [string]$email = "microlise@microlise.com",
     [Parameter(Mandatory=$false)]
-    [string]$password = "QAMicrolise123!"
+    [string]$password = "Password123"
 )
 
 function GetToken {
