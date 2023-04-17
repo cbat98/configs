@@ -1,12 +1,18 @@
 param (
-    [Parameter(Mandatory=$false)]
-    [string]$email = "microlise@microlise.com",
-    [Parameter(Mandatory=$false)]
-    [string]$password = "Password123"
+    [Parameter()]
+    [switch]$Demo,
+    [Parameter()]
+    [string]$Email,
+    [Parameter()]
+    [string]$Password
 )
 
 function GetToken {
     param (
+        [Parameter(Mandatory=$true)]
+        [string]$tenant,
+        [Parameter(Mandatory=$true)]
+        [string]$client_id,
         [Parameter(Mandatory=$true)]
         [string]$email,
         [Parameter(Mandatory=$true)]
@@ -14,18 +20,16 @@ function GetToken {
         [Parameter(Mandatory=$false)]
         [string]$response_type = "token",
         [Parameter(Mandatory=$false)]
-        [string]$client_id = "iIEWwXq9a29FJPqpbcKQxAbMgdJQKiuQ",
-        [Parameter(Mandatory=$false)]
         [string]$scope = "openid email",
         [Parameter(Mandatory=$false)]
         [string]$redirect_uri = "https://localhost"
     )
 
-    $uri = "https://microlise-test.eu.auth0.com/authorize?response_type=$response_type&client_id=$client_id&scope=$scope&redirect_uri=$redirect_uri"
+    $uri = "https://$tenant.eu.auth0.com/authorize?response_type=$response_type&client_id=$client_id&scope=$scope&redirect_uri=$redirect_uri"
     $response1 = Invoke-WebRequest -Method "GET" -Uri $uri -MaximumRedirection 0 -SessionVariable session -ErrorAction Ignore
     $state = ($response1.Headers.Location -split "state=")[1] 
 
-    $uri = "https://microlise-test.eu.auth0.com/u/login/identifier?state=$state"
+    $uri = "https://$tenant.eu.auth0.com/u/login/identifier?state=$state"
     $body = @{
         "state" = "$state";
         "username" = "$email";
@@ -37,7 +41,7 @@ function GetToken {
     }
     Invoke-WebRequest -Method "POST" -Uri $uri -WebSession $session -Body $body -ContentType "application/x-www-form-urlencoded" -MaximumRedirection 9 | Out-Null
 
-    $uri = "https://microlise-test.eu.auth0.com/u/login/password?state=$state"
+    $uri = "https://$tenant.eu.auth0.com/u/login/password?state=$state"
     $body = @{
         "state" = "$state";
         "username" = "$email";
@@ -51,5 +55,23 @@ function GetToken {
     }
 }
 
-$token = GetToken -email $email -password $password
+if ($demo.IsPresent) {
+    $tenant = "microlise-demo"
+    $client_id = "kjuA6qqOfegjrVhFn16JUe5ZZT5Gf4VE"
+
+    if ($email -eq "")  {
+        $email = "demo@microlise.com"
+        $password = "DemoMicrolise123!"
+    }
+} else {
+    $tenant = "microlise-test"
+    $client_id = "iIEWwXq9a29FJPqpbcKQxAbMgdJQKiuQ"
+
+    if ($email -eq "") {
+        $email = "microlise@microlise.com"
+        $password = "Password123"
+    }
+}
+
+$token = GetToken -tenant $tenant -client_id $client_id -email $email -password $password
 return "Bearer $token"
