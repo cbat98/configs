@@ -63,6 +63,8 @@ if ($demo.IsPresent) {
         $email = "demo@microlise.com"
         $password = "DemoMicrolise123!"
     }
+
+    Write-Host "Generating a token for $email in the demo environment"
 } else {
     $tenant = "microlise-test"
     $client_id = "iIEWwXq9a29FJPqpbcKQxAbMgdJQKiuQ"
@@ -71,7 +73,9 @@ if ($demo.IsPresent) {
         $email = "microlise@microlise.com"
         $password = "Password123"
     }
+
+    Write-Host "Generating a token for $email in the lab environment"
 }
 
 $token = GetToken -tenant $tenant -client_id $client_id -email $email -password $password
-return "Bearer $token"
+return "`nBearer $token"
