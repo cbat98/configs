@@ -60,8 +60,9 @@ if ($demo.IsPresent) {
     $client_id = "kjuA6qqOfegjrVhFn16JUe5ZZT5Gf4VE"
 
     if ($email -eq "")  {
-        $email = "demo@microlise.com"
-        $password = "DemoMicrolise123!"
+        $creds = IMPORT-CLIXML -Path "$env:USERPROFILE\demo-aries.creds"
+        $email = $creds.UserName
+        $password = $creds.GetNetworkCredential().Password
     }
 
     Write-Host "Generating a token for $email in the demo environment"
@@ -70,8 +71,9 @@ if ($demo.IsPresent) {
     $client_id = "iIEWwXq9a29FJPqpbcKQxAbMgdJQKiuQ"
 
     if ($email -eq "") {
-        $email = "microlise@microlise.com"
-        $password = "Password123"
+        $creds = IMPORT-CLIXML -Path "$env:USERPROFILE\lab-aries.creds"
+        $email = $creds.UserName
+        $password = $creds.GetNetworkCredential().Password
     }
 
     Write-Host "Generating a token for $email in the lab environment"
