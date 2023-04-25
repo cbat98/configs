@@ -1,6 +1,6 @@
 $repos = "G:\Repos"
 $workingFolder = "$repos\work\techops\TechOps-Shared\Team\charlieb"
-$configs = "$repos\misc\configs"
+$configs = "$repos\configs"
 $tools = "D:\tools"
  
 # Functions  
