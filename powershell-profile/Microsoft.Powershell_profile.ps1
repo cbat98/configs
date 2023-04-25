@@ -1,5 +1,4 @@
 $repos = "G:\Repos"
-$workingFolder = "$repos\work\techops\TechOps-Shared\Team\charlieb"
 $configs = "$repos\configs"
 $tools = "D:\tools"
  
@@ -21,10 +20,6 @@ function Set-Title {
 }
    
 # Variables
-$workingFolderPath = ";" + $workingFolder + "\Common"
-
-$modulePath = $workingFolder + "\Modules"
-$env:psmodulePath = $modulePath + $env:psmodulePath
 
 $env:path = "C:\Program Files\Notepad++" + ";" + $env:path
 
