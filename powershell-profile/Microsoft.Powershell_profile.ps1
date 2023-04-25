@@ -24,23 +24,18 @@ function Set-Title {
 $env:path = "C:\Program Files\Notepad++" + ";" + $env:path
 
 $env:path += ";" + "$configs\powershell-profile\path"
-$env:path += $workingFolderPath
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
-$env:path += ";" + "c:\ffmpeg"
-$env:path += ";" + "C:\msys64\mingw64\bin\"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
 $env:path += ";" + "C:\tools\neovim\nvim-win64\bin"
-$env:path += ";" + "C:\Program Files\LLVM\bin"
-$env:path += ";" + "C:\msys64\ucrt64\bin"
   
 $dateStamp = Get-Date
 $fileDateStamp = $dateStamp.ToString("yyyy-MM-dd")
-$fileName = $fileDateStamp + " - PS Console Output - $($env:username) - $($pid).log"
+$fileName = $fileDateStamp + "-PSConsoleOutput-$($env:username)-$($pid).log"
 
 $logLocation = [Environment]::GetFolderPath("MyDocuments") +"\PSLogs"
 $fullLogFile = $logLocation + "\" + $fileName
   
-#Processes 
+#Processes
 Set-Title
    
 Set-ExecutionPolicy -scope Process bypass
@@ -48,12 +43,6 @@ Set-ExecutionPolicy -scope Process bypass
 if (!(Test-Path $logLocation)) {
     New-Item -ItemType Directory -Force -Path $logLocation
     Write-Host "Created $($logLocation)" -foreground yellow
-}
-  
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module -Name "$ChocolateyProfile"
 }
 
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
