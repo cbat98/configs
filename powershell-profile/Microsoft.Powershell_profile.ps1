@@ -26,7 +26,7 @@ $env:path = "C:\Program Files\Notepad++" + ";" + $env:path
 $env:path += ";" + "$configs\powershell-profile\path"
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
-$env:path += ";" + "C:\tools\neovim\nvim-win64\bin"
+$env:path += ";" + "C:\Users\Charlie\scoop\shims\"
   
 $dateStamp = Get-Date
 $fileDateStamp = $dateStamp.ToString("yyyy-MM-dd")
