@@ -9,7 +9,7 @@ function Test-Administrator {
     return (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 }
   
-function Set-Title {
+function Set-WindowTitle {
     $Title = ""
     
     if (Test-Administrator) {
@@ -27,27 +27,12 @@ $env:path += ";" + "$configs\powershell-profile\path"
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
   
-$dateStamp = Get-Date
-$fileDateStamp = $dateStamp.ToString("yyyy-MM-dd")
-$fileName = $fileDateStamp + "-PSConsoleOutput-$($env:username)-$($pid).log"
-
-$logLocation = [Environment]::GetFolderPath("MyDocuments") +"\PSLogs"
-$fullLogFile = $logLocation + "\" + $fileName
-  
-#Processes
-Set-Title
+Set-WindowTitle
    
 Set-ExecutionPolicy -scope Process bypass
   
-if (!(Test-Path $logLocation)) {
-    New-Item -ItemType Directory -Force -Path $logLocation
-    Write-Host "Created $($logLocation)" -foreground yellow
-}
-
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
   
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
 Set-Alias cb Set-Clipboard
-
-Start-Transcript -Path $fullLogFile -Force  -NoClobber
