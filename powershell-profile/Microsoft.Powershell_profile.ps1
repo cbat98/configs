@@ -12,6 +12,6 @@ Set-Alias cb Set-Clipboard
   
 Set-ExecutionPolicy -scope Process bypass
 
-Impot-Module -Name "Terminal-Icons"
+Import-Module -Name "Terminal-Icons"
 
 oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
