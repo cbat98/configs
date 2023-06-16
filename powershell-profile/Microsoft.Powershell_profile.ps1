@@ -10,6 +10,7 @@ $env:path += ";" + "C:\Program Files\Couchbase\Server\bin\"
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
 Set-Alias cb Set-Clipboard
+Set-Alias lg lazygit.exe
   
 Set-ExecutionPolicy -scope Process bypass
 
