@@ -15,4 +15,4 @@ Set-ExecutionPolicy -scope Process bypass
 
 Import-Module -Name "Terminal-Icons"
 
-oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
+# oh-my-posh init pwsh --config $configs\oh-my-posh\bubbles-edited.omp.json | Invoke-Expression
