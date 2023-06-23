@@ -11,6 +11,7 @@ Set-Alias grep findstr
 Set-Alias sln .\*.sln
 Set-Alias cb Set-Clipboard
 Set-Alias lg lazygit.exe
+Set-Alias vim nvim.exe
   
 Set-ExecutionPolicy -scope Process bypass
 
