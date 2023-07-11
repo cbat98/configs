@@ -12,6 +12,8 @@ Set-Alias sln .\*.sln
 Set-Alias cb Set-Clipboard
 Set-Alias lg lazygit.exe
 Set-Alias vim nvim.exe
+Set-Alias zip Compress-Archive
+Set-Alias unzip Expand-Archive
   
 Set-ExecutionPolicy -scope Process bypass
 
