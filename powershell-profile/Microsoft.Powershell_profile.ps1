@@ -5,7 +5,6 @@ $env:path = "C:\Program Files\Notepad++" + ";" + $env:path
 $env:path += ";" + "$configs\powershell-profile\path"
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
-$env:path += ";" + "C:\Program Files\Couchbase\Server\bin\"
 
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
