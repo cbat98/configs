@@ -1,4 +1,4 @@
-$packages = Get-Content -Path "packages.txt"
+$packages = Get-Content -Path "$PSScriptRoot\packages.txt"
 
 $extraPackages = @()
 $newPackages = @()
