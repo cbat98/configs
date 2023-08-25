@@ -2,7 +2,6 @@
 fd
 ffmpeg
 gcc
-kicad
 lazygit
 make
 neovim
