@@ -4,6 +4,7 @@ $configs = "$repos\configs"
 $env:path = "C:\Program Files\Notepad++" + ";" + $env:path
 $env:path += ";" + (Get-Item "Env:ProgramFiles(x86)").Value + "\Git\bin"
 $env:path += ";" + "C:\Program Files\GitHub CLI\"
+$env:path += ";" + "$configs\scoop\"
 
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
