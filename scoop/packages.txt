@@ -1,0 +1,12 @@
+7zip
+fd
+ffmpeg
+gcc
+kicad
+lazygit
+make
+neovim
+nvm
+oh-my-posh
+ripgrep
+zig
