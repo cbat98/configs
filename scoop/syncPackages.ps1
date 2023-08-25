@@ -1,9 +1,11 @@
 $packages = Get-Content -Path "packages.txt"
+ 
+$packageList = $packages -join " "
 
-scoop install ($packages -join " ")
+Invoke-Expression -Command "scoop.ps1 install $packageList"
 
-scoop update
+Invoke-Expression -Command "scoop.ps1 update"
 
-scoop update *
+Invoke-Expression -Comman "scoop.ps1 update *"
 
-scoop cleanup *
+Invoke-Expression -Comman "scoop.ps1 cleanup *"
