@@ -12,7 +12,11 @@ $installedPackages | ForEach-Object {
 
 	if (!$packages.Contains($_)) {
 		$extraPackages += $_
-	} else {
+	}
+}
+
+$packages | ForEach-Object {
+	if (!$installedPackages.Contains($_)) {
 		$newPackages += $_
 	}
 }
@@ -31,12 +35,16 @@ if ($extraPackages.count -gt 0) {
 if ($newPackages.count -gt 0) {
 	Write-Host "`nFound packages to install" 
 	Write-Host "`nNew apps:"
-	Write-Host $newPackages
+	Write-Host ($newPackages -join ", ")
 
-	Invoke-Expression -Command "scoop.ps1 install $newPackages"
-
-	Invoke-Expression -Command "scoop.ps1 update"
-	Invoke-Expression -Comman "scoop.ps1 update *"
-
-	Invoke-Expression -Comman "scoop.ps1 cleanup *"
+	$installNewPackages = Read-Host -Prompt "`nDo you want these to be installed? (y/N)"
+	if ($installNewPackages -eq "y") {
+		Invoke-Expression -Command "scoop.ps1 install $($newPackages -join ' ')"
+	}
 }
+
+Write-Host "`nUpdating all applications"
+
+Invoke-Expression -Command "scoop.ps1 update"
+Invoke-Expression -Comman "scoop.ps1 update *"
+Invoke-Expression -Comman "scoop.ps1 cleanup *"
