@@ -1,11 +1,11 @@
 function Get-ExtraPackages {
 	$extraPackages = @()
 
-	$installedPackages | ForEach-Object {
-		Write-Host "$_"
+	foreach($package in $installedPackages) {
+ 		Write-Host "$package"
 
-		if (!$packages.Contains($_)) {
-			$extraPackages += $_
+		if (!$packages.Contains($package)) {
+			$extraPackages += $package
 		}
 	}
 
@@ -15,9 +15,9 @@ function Get-ExtraPackages {
 function Get-NewPackages {
 	$newPackages = @()
 
-	$packages | ForEach-Object {
-		if (!$installedPackages.Contains($_)) {
-			$newPackages += $_
+	foreach ($package in $packages) {
+		if (!$installedPackages.Contains($package)) {
+			$newPackages += $package
 		}
 	}	
 
