@@ -73,6 +73,7 @@ function Update-Scoop {
 $manifestPath = "$PSScriptRoot\manifest.json"
 $manifest = Get-Content -Path $manifestPath | ConvertFrom-Json
 
+$buckets = $manifest | Select-Object -ExpandProperty "buckets"
 $packages = $manifest | Select-Object -ExpandProperty "packages"
 
 Sync-Packages
