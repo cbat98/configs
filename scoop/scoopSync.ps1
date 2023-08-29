@@ -70,7 +70,10 @@ function Update-Scoop {
 	Invoke-Expression -Command "scoop.ps1 cleanup *"
 }
 
-$packages = Get-Content -Path "$PSScriptRoot\manifest.json" | ConvertFrom-Json | Select-Object -ExpandProperty "packages"
+$manifestPath = "$PSScriptRoot\manifest.json"
+$manifest = Get-Content -Path $manifestPath | ConvertFrom-Json
+
+$packages = $manifest | Select-Object -ExpandProperty "packages"
 
 Sync-Packages
 Update-Scoop
