@@ -24,7 +24,7 @@ function Get-NewPackages {
 	return $newPackages
 }
 
-function Remove-OldPackages {
+function Remove-ExtraPackages {
 	if ($extraPackages.count -gt 0) {
 		Write-Host "`nFound extra packages not in packages.txt"
 		Write-Host "`nExtra apps:"
@@ -58,7 +58,7 @@ function Sync-Packages {
 	$extraPackages = Get-ExtraPackages
 	$newPackages = Get-NewPackages
 
-	Remove-OldPackages
+	Remove-ExtraPackages
 	Install-NewPackages
 }
 
