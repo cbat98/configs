@@ -9,3 +9,4 @@ nvm
 oh-my-posh
 ripgrep
 zig
+wiztree
