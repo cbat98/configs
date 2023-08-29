@@ -11,3 +11,4 @@ ripgrep
 zig
 wiztree
 audacity
+notepadplusplus
