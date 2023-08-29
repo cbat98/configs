@@ -1,3 +1,9 @@
+function Add-Buckets {
+	foreach ($bucket in $buckets) {
+		Invoke-Expression -Command "scoop.ps1 bucket add $bucket"
+	}
+}
+
 function Get-ExtraPackages {
 	$extraPackages = @()
 
@@ -76,5 +82,6 @@ $manifest = Get-Content -Path $manifestPath | ConvertFrom-Json
 $buckets = $manifest | Select-Object -ExpandProperty "buckets"
 $packages = $manifest | Select-Object -ExpandProperty "packages"
 
+Add-Buckets
 Sync-Packages
 Update-Scoop
