@@ -1,4 +1,8 @@
 {
+	"buckets":[
+		"main",
+		"extras"
+	],
 	"packages": [
 		"7zip",
 		"fd",
