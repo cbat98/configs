@@ -46,5 +46,5 @@ if ($newPackages.count -gt 0) {
 Write-Host "`nUpdating all applications"
 
 Invoke-Expression -Command "scoop.ps1 update"
-Invoke-Expression -Comman "scoop.ps1 update *"
-Invoke-Expression -Comman "scoop.ps1 cleanup *"
+Invoke-Expression -Command "scoop.ps1 update *"
+Invoke-Expression -Command "scoop.ps1 cleanup *"
