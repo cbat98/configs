@@ -1,5 +1,5 @@
 {
-	"common": [
+	"packages": [
 		"7zip",
 		"fd",
 		"ffmpeg",

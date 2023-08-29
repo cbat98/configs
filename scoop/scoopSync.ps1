@@ -1,4 +1,4 @@
-$packages = Get-Content -Path "$PSScriptRoot\manifest.json" | ConvertFrom-Json | Select-Object -ExpandProperty "common"
+$packages = Get-Content -Path "$PSScriptRoot\manifest.json" | ConvertFrom-Json | Select-Object -ExpandProperty "packages"
 
 $extraPackages = @()
 $newPackages = @()
