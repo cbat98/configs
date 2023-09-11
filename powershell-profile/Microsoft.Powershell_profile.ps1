@@ -1,3 +1,7 @@
+function List-AllFiles {
+    eza -la
+}
+
 $repos = "G:\Repos"
 $configs = "$repos\configs"
 
@@ -14,6 +18,7 @@ Set-Alias -Name vim   -Value nvim.exe
 Set-Alias -Name zip   -Value Compress-Archive
 Set-Alias -Name unzip -Value Expand-Archive
 Set-Alias -Name ls    -Value eza    -Option AllScope
+Set-Alias -Name ll    -Value List-AllFiles
 Set-Alias -Name cat   -Value bat    -Option AllScope
   
 Set-ExecutionPolicy -scope Process bypass
