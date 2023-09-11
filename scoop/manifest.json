@@ -1,7 +1,8 @@
 {
 	"buckets":[
 		"main",
-		"extras"
+		"extras",
+        "nerd-fonts"
 	],
 	"packages": [
 		"7zip",
@@ -10,6 +11,7 @@
 		"fd",
 		"ffmpeg",
         "gcc",
+        "jetbrains-mono",
 		"lazygit",
         "make",
 		"neovim",
