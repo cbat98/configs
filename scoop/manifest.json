@@ -11,7 +11,7 @@
 		"fd",
 		"ffmpeg",
         "gcc",
-        "jetbrains-mono",
+        "JetBrainsMono-NF-Mono",
 		"lazygit",
         "make",
 		"neovim",
