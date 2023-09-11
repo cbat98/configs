@@ -9,7 +9,7 @@ $env:path += ";" + "$configs\scoop\"
 Set-Alias grep findstr
 Set-Alias sln .\*.sln
 Set-Alias cb Set-Clipboard
-Set-Alias lg eza
+Set-Alias lg lazygit
 Set-Alias vim nvim.exe
 Set-Alias zip Compress-Archive
 Set-Alias unzip Expand-Archive
