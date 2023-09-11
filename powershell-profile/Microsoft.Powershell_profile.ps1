@@ -13,6 +13,8 @@ Set-Alias lg lazygit
 Set-Alias vim nvim.exe
 Set-Alias zip Compress-Archive
 Set-Alias unzip Expand-Archive
+Set-Alias ls eza -Option AllScope
+Set-Alias cat bat -Option AllScope
   
 Set-ExecutionPolicy -scope Process bypass
 
