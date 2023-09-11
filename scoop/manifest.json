@@ -5,6 +5,8 @@
 	],
 	"packages": [
 		"7zip",
+        "bat",
+        "eza",
 		"fd",
 		"ffmpeg",
         "gcc",
