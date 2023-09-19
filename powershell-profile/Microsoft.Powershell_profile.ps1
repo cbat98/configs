@@ -1,5 +1,9 @@
 function List-AllFiles {
-    eza -la
+    param (
+        [Parameter()][string]$directory="./"
+    )
+
+    eza -la $directory
 }
 
 $repos = "G:\Repos"
