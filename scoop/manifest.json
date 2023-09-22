@@ -1,25 +1,25 @@
 {
-	"buckets":[
-		"main",
-		"extras",
+    "buckets":[
+        "main",
+        "extras",
         "nerd-fonts"
-	],
-	"packages": [
-		"7zip",
+    ],
+    "packages": [
+        "7zip",
         "bat",
         "eza",
-		"fd",
-		"ffmpeg",
+        "fd",
+        "ffmpeg",
         "gcc",
-		"lazygit",
+        "lazygit",
         "make",
-		"neovim",
-		"nvm",
-		"oh-my-posh",
-		"ripgrep",
-		"wiztree",
-		"audacity",
-		"notepadplusplus",
+        "neovim",
+        "nvm",
+        "oh-my-posh",
+        "ripgrep",
+        "wiztree",
+        "audacity",
+        "notepadplusplus",
         "winfetch"
-	]
+    ]
 }
