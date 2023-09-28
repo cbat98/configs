@@ -65,7 +65,7 @@
       "type": "prompt"
     }
   ],
-  "console_title_template": "{{if .Root}}(Admin){{end}} {{.PWD}}",
+  "console_title_template": "{{ .UserName }}@{{ .HostName }} {{ .PWD }}",
   "transient_prompt": {
     "foreground": "#B48EAD",
     "foreground_templates": [
