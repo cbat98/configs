@@ -6,11 +6,11 @@
       "segments": [
         {
           "foreground_templates": [
-              "{{ if contains \"linux\" .OS }}#6192bf{{ end }}",
+              "{{ if contains \"arch\" .OS }}#6192bf{{ end }}",
               "#BF616A"
           ],
           "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} {{ .OS }} ",
+          "template": "{{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
