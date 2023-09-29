@@ -5,9 +5,12 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#BF616A",
+          "foreground_templates": [
+              "{{ if contains \"linux\" .OS }}#6192bf{{ end }}",
+              "#BF616A"
+          ],
           "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "template": "{{ .UserName }}@{{ .HostName }} {{ .OS }} ",
           "type": "session"
         },
         {
