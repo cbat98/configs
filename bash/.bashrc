@@ -16,3 +16,4 @@ alias lg='lazygit'
 
 # oh my posh
 eval "$(oh-my-posh init bash --config '/home/charlie/repos/configs/oh-my-posh/material-edit.omp.json')"
+source /usr/share/nvm/init-nvm.sh
