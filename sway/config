@@ -74,7 +74,7 @@ input * {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+shift+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -218,5 +218,7 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+bindsym --no-warn $mod+d exec wofi --show run
 
 include /etc/sway/config.d/*
