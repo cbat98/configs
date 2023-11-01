@@ -219,6 +219,6 @@ bar {
     }
 }
 
-bindsym --no-warn $mod+d exec wofi --show run
+bindsym $mod+d exec wofi --show run
 
 include /etc/sway/config.d/*
