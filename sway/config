@@ -220,5 +220,6 @@ bar {
 }
 
 bindsym $mod+d exec wofi --show run
+bindsym $mod+shift+p exec /home/charlie/.config/sway/powermenu.sh
 
 include /etc/sway/config.d/*
