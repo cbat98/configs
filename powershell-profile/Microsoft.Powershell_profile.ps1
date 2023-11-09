@@ -1,4 +1,4 @@
-function List-AllFiles {
+function Get-AllFilesAsList {
     param (
         [Parameter()][string]$directory="./"
     )
@@ -22,7 +22,7 @@ Set-Alias -Name vim   -Value nvim.exe
 Set-Alias -Name zip   -Value Compress-Archive
 Set-Alias -Name unzip -Value Expand-Archive
 Set-Alias -Name ls    -Value eza    -Option AllScope
-Set-Alias -Name ll    -Value List-AllFiles
+Set-Alias -Name ll    -Value Get-AllFilesAsList
 Set-Alias -Name cat   -Value bat    -Option AllScope
   
 Set-ExecutionPolicy -scope Process bypass
