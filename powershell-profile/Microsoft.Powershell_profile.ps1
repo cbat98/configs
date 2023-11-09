@@ -27,6 +27,6 @@ Set-Alias -Name cat   -Value bat    -Option AllScope
   
 # Set-ExecutionPolicy -scope Process bypass
 
-Import-Module -Name "Terminal-Icons"
+# Import-Module -Name "Terminal-Icons"
 
 oh-my-posh init pwsh --config "$configs\oh-my-posh\material-edit.omp.json" | Invoke-Expression
