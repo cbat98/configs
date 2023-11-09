@@ -25,7 +25,7 @@ Set-Alias -Name ls    -Value eza    -Option AllScope
 Set-Alias -Name ll    -Value Get-AllFilesAsList
 Set-Alias -Name cat   -Value bat    -Option AllScope
   
-Set-ExecutionPolicy -scope Process bypass
+# Set-ExecutionPolicy -scope Process bypass
 
 Import-Module -Name "Terminal-Icons"
 
