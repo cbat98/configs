@@ -12,13 +12,12 @@ $configs = "$repos\configs"
 $env:path = "C:\Users\charlie\scoop\apps\notepadplusplus\current" + ";" + $env:path
 $env:path += ";" + "$configs\scoop\"
 
-Set-Alias -Name grep  -Value findstr
-Set-Alias -Name sln   -Value .\*.sln
-Set-Alias -Name cb    -Value Set-Clipboard
+# Set-Alias -Name grep  -Value findstr
+# Set-Alias -Name sln   -Value .\*.sln
+# Set-Alias -Name cb    -Value Set-Clipboard
 Set-Alias -Name lg    -Value lazygit
-Set-Alias -Name vim   -Value nvim.exe
-Set-Alias -Name zip   -Value Compress-Archive
-Set-Alias -Name unzip -Value Expand-Archive
+# Set-Alias -Name zip   -Value Compress-Archive
+# Set-Alias -Name unzip -Value Expand-Archive
 Set-Alias -Name ls    -Value eza    -Option AllScope
 Set-Alias -Name ll    -Value Get-AllFilesAsList
 Set-Alias -Name cat   -Value bat    -Option AllScope
