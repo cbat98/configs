@@ -23,6 +23,7 @@
         "winfetch",
         "yed",
         "rufus",
-        "windows-terminal"
+        "windows-terminal",
+        "vlc"
     ]
 }
