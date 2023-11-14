@@ -62,6 +62,7 @@ output * bg #232323 solid_color
 input * {
     xkb_layout "gb"
     natural_scroll "enabled"
+    scroll_factor 0.5
 }
 
 ### Key bindings
