@@ -27,6 +27,8 @@
         "windows-terminal",
         "vlc",
         "orca",
-        "lf"
+        "lf",
+        "less",
+        "temurin8-jre"
     ]
 }
