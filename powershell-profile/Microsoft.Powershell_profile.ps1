@@ -14,6 +14,7 @@ $repos = "G:\Repos"
 $configs = "$repos\configs"
 
 $env:path = "C:\Users\charlie\scoop\apps\notepadplusplus\current" + ";" + $env:path
+$env:path += ";" + "$configs\powershell-profile\path"
 $env:path += ";" + "$configs\scoop\"
 
 Set-Alias -Name lg    -Value lazygit
