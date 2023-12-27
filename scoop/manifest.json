@@ -2,7 +2,8 @@
     "buckets":[
         "main",
         "extras",
-        "nerd-fonts"
+        "nerd-fonts",
+        "java"
     ],
     "packages": [
         "7zip",
