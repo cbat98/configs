@@ -29,6 +29,9 @@
         "orca",
         "lf",
         "less",
-        "temurin8-jre"
+        "temurin8-jre",
+        "winscp",
+        "dnspy",
+        "sd-card-formatter"
     ]
 }
