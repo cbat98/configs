@@ -32,7 +32,7 @@ function Get-NewPackages {
 
 function Remove-ExtraPackages {
 	if ($extraPackages.count -gt 0) {
-		Write-Host "`nFound extra packages not in packages.txt"
+		Write-Host "`nFound extra packages not in manifest.json"
 		Write-Host "`nExtra apps:"
 		Write-Host ($extraPackages -join ", ")
 
