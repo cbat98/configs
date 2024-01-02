@@ -1,37 +1,53 @@
 {
-    "buckets":[
-        "main",
-        "extras",
-        "nerd-fonts",
-        "java"
-    ],
-    "packages": [
-        "7zip",
-        "bat",
-        "eza",
-        "fd",
-        "ffmpeg",
-        "gcc",
-        "lazygit",
-        "make",
-        "neovim",
-        "nvm",
-        "oh-my-posh",
-        "ripgrep",
-        "wiztree",
-        "audacity",
-        "notepadplusplus",
-        "winfetch",
-        "yed",
-        "rufus",
-        "windows-terminal",
-        "vlc",
-        "orca",
-        "lf",
-        "less",
-        "temurin8-jre",
-        "winscp",
-        "dnspy",
-        "sd-card-formatter"
-    ]
+    "hosts": {
+        "common": {
+            "buckets": [
+                "main",
+                "extras",
+                "java"
+            ],
+            "packages": [
+                "7zip",
+                "bat",
+                "eza",
+                "fd",
+                "ffmpeg",
+                "gcc",
+                "lazygit",
+                "make",
+                "neovim",
+                "oh-my-posh",
+                "ripgrep",
+                "wiztree",
+                "notepadplusplus",
+                "winfetch",
+                "yed",
+                "windows-terminal",
+                "vlc",
+                "lf",
+                "less",
+                "temurin8-jre",
+                "winscp"
+            ]
+        },
+        "charlie-pc": {
+            "buckets": [
+            ],
+            "packages": [
+                "audacity",
+                "rufus",
+                "sd-card-formatter",
+                "blender"
+            ]
+        },
+        "mcs411a": {
+            "buckets": [
+            ],
+            "packages": [
+                "nvm",
+                "orca",
+                "dnspy"
+            ]
+        }
+    }
 }
