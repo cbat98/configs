@@ -79,8 +79,12 @@ function Update-Scoop {
 $manifestPath = "$PSScriptRoot\manifest.json"
 $manifest = Get-Content -Path $manifestPath | ConvertFrom-Json
 
-$buckets = $manifest | Select-Object -ExpandProperty "buckets"
-$packages = $manifest | Select-Object -ExpandProperty "packages"
+$hostname = $env:COMPUTERNAME
+$commonManifest = $manifest.hosts.common
+$hostManifest = $manifest.hosts | Select-Object -ExpandProperty $hostname
+
+$buckets = ($commonManifest.buckets + $hostManifest.buckets) | Sort-Object -Unique
+$packages = ($commonManifest.packages + $hostManifest.packages) | Sort-Object -Unique
 
 Add-Buckets
 Sync-Packages
