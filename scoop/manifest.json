@@ -26,7 +26,8 @@
                 "vlc",
                 "less",
                 "temurin8-jre",
-                "winscp"
+                "winscp",
+                "nvm"
             ]
         },
         "charlie-pc": {
@@ -44,7 +45,6 @@
             "buckets": [
             ],
             "packages": [
-                "nvm",
                 "orca",
                 "dnspy"
             ]
