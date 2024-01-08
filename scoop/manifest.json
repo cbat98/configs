@@ -31,19 +31,18 @@
             ]
         },
         "charlie-pc": {
-            "buckets": [
-            ],
+            "buckets": [],
             "packages": [
                 "audacity",
                 "rufus",
                 "sd-card-formatter",
                 "blender",
-                "inkscape"
+                "inkscape",
+                "prusaslicer"
             ]
         },
         "mcs411a": {
-            "buckets": [
-            ],
+            "buckets": [],
             "packages": [
                 "orca",
                 "dnspy"
