@@ -1,3 +1,0 @@
-# CONFIGS
-* Powershell
-* Neovim
