@@ -38,7 +38,9 @@
                 "sd-card-formatter",
                 "blender",
                 "inkscape",
-                "prusaslicer"
+                "prusaslicer",
+                "ventoy",
+                "qbittorrent"
             ]
         },
         "mcs411a": {
