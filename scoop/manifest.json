@@ -47,7 +47,8 @@
             "buckets": [],
             "packages": [
                 "orca",
-                "dnspy"
+                "dnspy",
+                "adb"
             ]
         }
     }
