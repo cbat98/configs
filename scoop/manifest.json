@@ -48,7 +48,8 @@
             "packages": [
                 "orca",
                 "dnspy",
-                "adb"
+                "adb",
+                "vysor"
             ]
         }
     }
