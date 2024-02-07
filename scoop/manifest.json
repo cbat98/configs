@@ -27,7 +27,8 @@
                 "less",
                 "temurin8-jre",
                 "winscp",
-                "nvm"
+                "nvm",
+                "pwsh"
             ]
         },
         "charlie-pc": {
