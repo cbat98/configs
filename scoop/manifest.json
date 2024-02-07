@@ -28,7 +28,8 @@
                 "temurin8-jre",
                 "winscp",
                 "nvm",
-                "pwsh"
+                "pwsh",
+                "deno"
             ]
         },
         "charlie-pc": {
