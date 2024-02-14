@@ -31,7 +31,8 @@
                 "pwsh",
                 "deno",
                 "dark",
-                "innounp"
+                "innounp",
+                "nu"
             ]
         },
         "charlie-pc": {
