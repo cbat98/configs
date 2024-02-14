@@ -29,7 +29,9 @@
                 "winscp",
                 "nvm",
                 "pwsh",
-                "deno"
+                "deno",
+                "dark",
+                "innounp"
             ]
         },
         "charlie-pc": {
