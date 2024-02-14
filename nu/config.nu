@@ -838,3 +838,8 @@ $env.config = {
         }
     ]
 }
+
+# My additions
+const omp_init = $nu.default-config-dir + "\\oh-my-posh.nu"
+oh-my-posh init nu --config ($env.appconfigs + "\\oh-my-posh\\material-edit.omp.json") --print | save $omp_init --force
+source $omp_init
