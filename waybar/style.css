@@ -68,7 +68,10 @@ button:hover {
 
 #battery.critical:not(.charging) {
     background-color: #eb4d4b;
-    color: #ffffff;
+}
+ #battery.charging {
+    background-color: #4be9eb;
+    color: #545454;
 }
 
 label:focus {
@@ -81,7 +84,6 @@ label:focus {
 
 #pulseaudio.muted {
     background-color: #eb4d4b;
-    color: #ffffff;
 }
 
 #tray > .passive {
