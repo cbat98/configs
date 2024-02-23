@@ -6,7 +6,7 @@
                 "extras",
                 "java"
             ],
-            "packages": [
+            "apps": [
                 "7zip",
                 "bat",
                 "eza",
@@ -37,7 +37,7 @@
         },
         "charlie-pc": {
             "buckets": [],
-            "packages": [
+            "apps": [
                 "audacity",
                 "rufus",
                 "sd-card-formatter",
@@ -49,7 +49,7 @@
         },
         "mcs411a": {
             "buckets": [],
-            "packages": [
+            "apps": [
                 "orca",
                 "dnspy",
                 "adb",
