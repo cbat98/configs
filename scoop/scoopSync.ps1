@@ -14,5 +14,14 @@ $targetApps = ($commonManifest.apps + $hostManifest.apps) | Sort-Object -Unique
 
 Write-Host "--ScoopSync--"
 
+Write-Host ""
+scoop update
+
 Sync-Buckets -TargetBuckets $targetBuckets
 Sync-Apps -TargetApps $targetApps
+
+Write-Host "`nUpdating all apps"
+scoop update *
+
+Write-Host "`nCleaning up"
+scoop cleanup *
