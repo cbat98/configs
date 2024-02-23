@@ -48,9 +48,10 @@ function Add-Buckets {
 
 function Sync-Buckets {
     param(
-        [Parameter(Mandatory)][string[]]$InstalledBuckets,
         [Parameter(Mandatory)][string[]]$TargetBuckets
     )
+    
+    $installedBuckets = $(scoop bucket list | Select-Object -ExpandProperty "Name")
 
     Write-Host "`nInstalled buckets:"
     Write-Host $($InstalledBuckets -join ", ")
