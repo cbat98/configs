@@ -9,6 +9,8 @@
             "apps": [
                 "7zip",
                 "bat",
+				"less",
+				"vcredist2022",
                 "eza",
                 "fd",
                 "ffmpeg",
@@ -32,11 +34,16 @@
                 "deno",
                 "dark",
                 "innounp",
-                "jq"
+                "jq",
+				"git",
+				"obs-studio",
+				"sysinternals"
             ]
         },
         "charlie-pc": {
-            "buckets": [],
+            "buckets": [
+				"games"
+			],
             "apps": [
                 "audacity",
                 "rufus",
@@ -44,7 +51,9 @@
                 "blender",
                 "inkscape",
                 "prusaslicer",
-                "qbittorrent"
+                "qbittorrent",
+				"steam",
+				"firefox"
             ]
         },
         "mcs411a": {
