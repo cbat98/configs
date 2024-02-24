@@ -23,7 +23,6 @@
                 "wiztree",
                 "notepadplusplus",
                 "winfetch",
-                "yed",
                 "windows-terminal",
                 "vlc",
                 "temurin8-jre",
@@ -59,7 +58,8 @@
                 "orca",
                 "dnspy",
                 "adb",
-                "vysor"
+                "vysor",
+                "yed"
             ]
         }
     }
