@@ -6,7 +6,7 @@ function Open-Explorer {
     explorer .
 }
 
-$repos = "G:\Repos"
+$repos = "d:\repos"
 $configs = "$repos\configs"
 
 $env:path = "C:\Users\charlie\scoop\apps\notepadplusplus\current" + ";" + $env:path
@@ -19,4 +19,4 @@ Set-Alias -Name cat    -Value bat    -Option AllScope
 Set-Alias -Name ll     -Value Get-AllFilesAsList
 Set-Alias -Name oex    -Value Open-Explorer
 
-(@(& 'C:/Users/Charlie/scoop/apps/oh-my-posh/current/oh-my-posh.exe' init pwsh --config='G:\Repos\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
+(@(& 'C:/Users/Charlie/scoop/apps/oh-my-posh/current/oh-my-posh.exe' init pwsh --config='d:\repos\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
