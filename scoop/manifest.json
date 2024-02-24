@@ -37,13 +37,12 @@
                 "jq",
                 "git",
                 "obs-studio",
-                "sysinternals"
+                "sysinternals",
+                "everything"
             ]
         },
         "charlie-pc": {
-            "buckets": [
-                "games"
-            ],
+            "buckets": [],
             "apps": [
                 "audacity",
                 "rufus",
@@ -52,7 +51,6 @@
                 "inkscape",
                 "prusaslicer",
                 "qbittorrent",
-                "steam",
                 "firefox"
             ]
         },
