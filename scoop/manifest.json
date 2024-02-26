@@ -36,7 +36,8 @@
                 "git",
                 "obs-studio",
                 "sysinternals",
-                "everything"
+                "everything",
+                "slack"
             ]
         },
         "charlie-pc": {
