@@ -37,7 +37,9 @@
                 "obs-studio",
                 "sysinternals",
                 "everything",
-                "slack"
+                "slack",
+                "hwinfo",
+                "powertoys"
             ]
         },
         "charlie-pc": {
