@@ -46,7 +46,7 @@
 
     "clock": {
         "timezone": "Europe/London",
-        "format": "{:%H:%M:%S %Y-%m-%d}"
+        "format": "{:%Y-%m-%d %H:%M:%S}"
     },
 
     "tray": {
