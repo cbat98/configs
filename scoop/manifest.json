@@ -14,9 +14,7 @@
                 "eza",
                 "fd",
                 "ffmpeg",
-                "gcc",
                 "lazygit",
-                "make",
                 "neovim",
                 "oh-my-posh",
                 "ripgrep",
@@ -27,11 +25,6 @@
                 "vlc",
                 "temurin8-jre",
                 "winscp",
-                "nvm",
-                "pwsh",
-                "deno",
-                "dark",
-                "innounp",
                 "jq",
                 "git",
                 "obs-studio",
@@ -39,7 +32,8 @@
                 "everything",
                 "slack",
                 "hwinfo",
-                "powertoys"
+                "powertoys",
+				"dark"
             ]
         },
         "charlie-pc": {
