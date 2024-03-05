@@ -33,7 +33,13 @@
                 "slack",
                 "hwinfo",
                 "powertoys",
-				"dark"
+                "dark",
+                "make",
+                "unzip",
+                "gcc",
+                "wget",
+				"gzip",
+				"mingw",
             ]
         },
         "charlie-pc": {
