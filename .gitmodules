@@ -1,0 +1,3 @@
+[submodule "kickstart.nvim"]
+	path = neovim
+	url = git@github.com:cbat98/kickstart.nvim.git
