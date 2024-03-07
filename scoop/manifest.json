@@ -38,8 +38,8 @@
                 "unzip",
                 "gcc",
                 "wget",
-				"gzip",
-				"mingw",
+                "gzip",
+                "mingw"
             ]
         },
         "charlie-pc": {
