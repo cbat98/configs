@@ -31,7 +31,7 @@ function Add-Apps {
     $missingApps = $TargetApps | Where-Object { $_ -notin $InstalledApps }
 
     if ($missingApps.Count -gt 0) {
-        Write-Host "`nFound $($missingApps.Count) app(s) not in manifest:" -ForegroundColor Yellow
+        Write-Host "`nFound $($missingApps.Count) app(s) not installed:" -ForegroundColor Yellow
         Write-Host "--> $($missingApps -Join `", `")" -ForegroundColor Yellow
 
         $addApps = Read-Host -Prompt "`nWould you like to add this/these (y/n)"

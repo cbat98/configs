@@ -31,7 +31,7 @@ function Add-Buckets {
     $missingBuckets = $TargetBuckets | Where-Object { $_ -notin $InstalledBuckets }
 
     if ($missingBuckets.Count -gt 0) {
-        Write-Host "`nFound $($missingBuckets.Count) bucket(s) not in manifest:" -ForegroundColor Yellow
+        Write-Host "`nFound $($missingBuckets.Count) bucket(s) not installed:" -ForegroundColor Yellow
         Write-Host "--> $($missingBuckets -Join `", `")" -ForegroundColor Yellow
 
         $addBuckets = Read-Host -Prompt "`nWould you like to add this/these (y/n)"
