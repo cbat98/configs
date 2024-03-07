@@ -38,9 +38,11 @@
                 "unzip",
                 "gcc",
                 "wget",
-				"cacert",
+                "cacert",
                 "gzip",
-                "mingw"
+                "mingw",
+                "dotnet-sdk",
+                "pwsh"
             ]
         },
         "charlie-pc": {
