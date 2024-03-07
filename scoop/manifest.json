@@ -38,6 +38,7 @@
                 "unzip",
                 "gcc",
                 "wget",
+				"cacert",
                 "gzip",
                 "mingw"
             ]
