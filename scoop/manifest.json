@@ -42,7 +42,9 @@
                 "gzip",
                 "mingw",
                 "dotnet-sdk",
-                "pwsh"
+                "pwsh",
+                "nvm",
+                "deno"
             ]
         },
         "charlie-pc": {
