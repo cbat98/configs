@@ -1,3 +1,6 @@
 [submodule "kickstart.nvim"]
 	path = neovim
 	url = git@github.com:cbat98/kickstart.nvim.git
+[submodule "wofi"]
+	path = wofi
+	url = https://github.com/dracula/wofi.git
