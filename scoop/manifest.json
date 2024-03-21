@@ -67,7 +67,8 @@
                 "dnspy",
                 "adb",
                 "vysor",
-                "yed"
+                "yed",
+                "linqpad"
             ]
         }
     }
