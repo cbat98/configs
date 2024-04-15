@@ -22,3 +22,4 @@ Set-Alias -Name oex    -Value Open-Explorer
 (@(& 'C:/Users/Charlie/scoop/apps/oh-my-posh/current/oh-my-posh.exe' init pwsh --config='d:\repos\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
 
 Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Headers @{accept="text/plain"}
+Write-Host ""
