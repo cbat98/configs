@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# If running in tty1, start Hyprland
-if [ "$(tty)" = "/dev/tty1" ] && which Hyprland > /dev/null 2>&1; then
-    exec Hyprland
-fi
-
 alias grep='grep --color=auto'
 
 alias ls='eza'
