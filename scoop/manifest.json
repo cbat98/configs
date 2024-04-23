@@ -43,8 +43,7 @@
                 "mingw",
                 "dotnet-sdk",
                 "pwsh",
-                "nvm",
-                "deno"
+                "nvm"
             ]
         },
         "charlie-pc": {
