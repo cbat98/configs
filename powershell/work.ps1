@@ -18,7 +18,7 @@ $repos = "D:\dev\repos"
 $configs = "$repos\misc\configs"
 
 $env:path = "C:\Users\cbatten\scoop\apps\notepadplusplus\current" + ";" + $env:path
-$env:path += ";" + "$repos\misc\TechOps-Shared\Team\CharlieB\Common"
+$env:path += ";" + "$repos\microlise-pocs\techops-shared\team\charlieb\common"
 $env:path += ";" + "$configs\powershell\path"
 $env:path += ";" + "$configs\scoop\"
 
