@@ -14,7 +14,7 @@ function Open-Explorer {
     explorer .
 }
 
-$repos = "D:\dev\repos"
+$repos = "D:\repos"
 $configs = "$repos\misc\configs"
 
 $env:path = "C:\Users\cbatten\scoop\apps\notepadplusplus\current" + ";" + $env:path
@@ -29,7 +29,7 @@ Set-Alias -Name ll     -Value Get-AllFilesAsList
 Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
 Set-Alias -Name oex    -Value Open-Explorer
   
-(@(& 'C:/Users/cbatten/scoop/apps/oh-my-posh/current/oh-my-posh.exe' init pwsh --config='D:\dev\repos\misc\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
+(@(& 'C:/Users/cbatten/scoop/apps/oh-my-posh/current/oh-my-posh.exe' init pwsh --config='D:\repos\misc\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
 
 Write-Host "$(Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Headers @{accept="text/plain"})`n"
 Write-Host ""
