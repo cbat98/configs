@@ -27,6 +27,7 @@ $url = "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records/{dns_re
 $response = Invoke-RestMethod -Method Get -Uri $url -Headers $headers
 $dnsEntry = $response.result
 
+$oldIp = $dnsEntry.content
 $dnsEntry.content = $NewIP
 
 $response = Invoke-RestMethod -Method Put -Uri $url -Headers $headers -Body ($dnsEntry | ConvertTo-Json) -ContentType "application/json"
@@ -34,3 +35,6 @@ $response = Invoke-RestMethod -Method Put -Uri $url -Headers $headers -Body ($dn
 if (-not $response.success) {
     Write-Error $response
 }
+
+Write-Host "$($response.result.name): $oldIp" -ForegroundColor Red
+Write-Host "$($response.result.name): $($response.result.content)" -ForegroundColor Green
