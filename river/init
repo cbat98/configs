@@ -142,3 +142,12 @@ riverctl rule-add -app-id "bar" csd
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 4 -outer-padding 0 &
+
+# Custom
+riverctl keyboard-layout gb
+
+riverctl input pointer-2-10-TPPS/2_IBM_TrackPoint 
+riverctl focus-follows-cursor normal
+
+riverctl map normal Super R spawn "wofi --show drun"
+riverctl map normal Super E spawn "nemo"
