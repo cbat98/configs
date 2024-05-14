@@ -152,7 +152,7 @@ riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad natural-scroll enabled
 riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad accel-profile none
 riverctl focus-follows-cursor normal
 
-riverctl map normal Super R spawn "wofi --show drun"
+riverctl map normal Super R spawn "tofi-drun --fuzzy-match true"
 
 riverctl spawn "waybar"
 riverctl spawn "kitty"
