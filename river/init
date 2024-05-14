@@ -150,4 +150,3 @@ riverctl input pointer-2-10-TPPS/2_IBM_TrackPoint
 riverctl focus-follows-cursor normal
 
 riverctl map normal Super R spawn "wofi --show drun"
-riverctl map normal Super E spawn "nemo"
