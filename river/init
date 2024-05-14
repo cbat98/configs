@@ -146,7 +146,8 @@ rivertile -view-padding 4 -outer-padding 4 &
 # Custom
 riverctl keyboard-layout gb
 
-riverctl input pointer-2-10-TPPS/2_IBM_TrackPoint 
+riverctl input pointer-2-10-TPPS/2_IBM_TrackPoint natural-scroll disabled
+riverctl input pointer-2-10-TPPS/2_IBM_TrackPoint accel-profile none
 riverctl focus-follows-cursor normal
 
 riverctl map normal Super R spawn "wofi --show drun"
