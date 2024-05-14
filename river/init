@@ -155,3 +155,4 @@ riverctl focus-follows-cursor normal
 riverctl map normal Super R spawn "wofi --show drun"
 
 riverctl spawn "waybar"
+riverctl spawn "kitty"
