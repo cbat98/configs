@@ -13,8 +13,8 @@
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super+Shift Return spawn kitty
 
-# Super+Q to close the focused view
-riverctl map normal Super Q close
+# Super+C to close the focused view
+riverctl map normal Super C close
 
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
