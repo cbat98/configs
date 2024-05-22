@@ -156,3 +156,31 @@ properties:
       settings:
         id: LLVM.LLVM
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: cmake
+      directives:
+        description: Install CMake
+      settings:
+        id: Kitware.CMake
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: unzip
+      directives:
+        description: Install unzip
+      settings:
+        id: GnuWin32.UnZip
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: nvm
+      directives:
+        description: Install nvm
+      settings:
+        id: CoreyButler.NVMforWindows
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: deno
+      directives:
+        description: Install Deno
+      settings:
+        id: DenoLand.Deno
+        source: winget
