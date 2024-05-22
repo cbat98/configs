@@ -1,0 +1,74 @@
+{
+    "hosts": {
+        "common": {
+            "buckets": [
+                "main",
+                "extras",
+                "java"
+            ],
+            "apps": [
+                "7zip",
+                "bat",
+                "less",
+                "vcredist2022",
+                "eza",
+                "fd",
+                "ffmpeg",
+                "lazygit",
+                "neovim",
+                "oh-my-posh",
+                "ripgrep",
+                "wiztree",
+                "notepadplusplus",
+                "winfetch",
+                "windows-terminal",
+                "vlc",
+                "temurin8-jre",
+                "winscp",
+                "jq",
+                "git",
+                "obs-studio",
+                "sysinternals",
+                "everything",
+                "slack",
+                "hwinfo",
+                "powertoys",
+                "dark",
+                "make",
+                "unzip",
+                "gcc",
+                "wget",
+                "cacert",
+                "gzip",
+                "mingw",
+                "dotnet-sdk",
+                "pwsh",
+                "nvm",
+                "deno"
+            ]
+        },
+        "charlie-pc": {
+            "buckets": [],
+            "apps": [
+                "audacity",
+                "rufus",
+                "sd-card-formatter",
+                "blender",
+                "inkscape",
+                "prusaslicer",
+                "qbittorrent",
+                "discord"
+            ]
+        },
+        "mcs411a": {
+            "buckets": [],
+            "apps": [
+                "orca",
+                "dnspy",
+                "adb",
+                "vysor",
+                "yed"
+            ]
+        }
+    }
+}
