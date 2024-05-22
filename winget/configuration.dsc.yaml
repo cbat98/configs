@@ -149,3 +149,10 @@ properties:
       settings:
         id: Microsoft.DotNet.SDK.8
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: llvm
+      directives:
+        description: Install LLVM
+      settings:
+        id: LLVM.LLVM
+        source: winget
