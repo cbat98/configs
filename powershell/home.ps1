@@ -17,9 +17,7 @@ function Open-Explorer {
 $repos = "d:\repos"
 $configs = "$repos\configs"
 
-$env:path = "C:\Users\charlie\scoop\apps\notepadplusplus\current" + ";" + $env:path
 $env:path += ";" + "$configs\powershell\path"
-$env:path += ";" + "$configs\scoop\"
 
 Set-Alias -Name lg     -Value lazygit
 Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
