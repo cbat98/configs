@@ -22,9 +22,6 @@ $env:path += ";" + "$configs\powershell\path"
 $env:path += ";" + "$configs\scoop\"
 
 Set-Alias -Name lg     -Value lazygit
-Set-Alias -Name ls     -Value eza    -Option AllScope
-Set-Alias -Name cat    -Value bat    -Option AllScope
-Set-Alias -Name ll     -Value Get-AllFilesAsList
 Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
 Set-Alias -Name oex    -Value Open-Explorer
 
