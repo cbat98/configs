@@ -14,15 +14,10 @@
                 "jq",
                 "sysinternals",
                 "dark",
-                "make",
-                "unzip",
-                "gcc",
                 "wget",
                 "cacert",
                 "gzip",
                 "mingw",
-                "nvm",
-                "deno"
             ]
         },
         "charlie-pc": {
