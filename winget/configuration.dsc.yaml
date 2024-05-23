@@ -4,190 +4,136 @@ properties:
   resources:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: bat
-      directives:
-        description: Install bat
       settings:
         id: sharkdp.bat
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: neovim
-      directives:
-        description: Install Neovim
       settings:
         id: Neovim.Neovim
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: eza
-      directives:
-        description: Install eza
       settings:
         id: eza-community.eza
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: fd
-      directives:
-        description: Install fd
       settings:
         id: sharkdp.fd
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: ffmpeg
-      directives:
-        description: Install ffmpeg
       settings:
         id: Gyan.FFmpeg
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: lazygit
-      directives:
-        description: Install lazygit
       settings:
         id: JesseDuffield.lazygit
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: ohmyposh
-      directives:
-        description: Install OhMyPosh
       settings:
         id: JanDeDobbeleer.OhMyPosh
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: ripgrep
-      directives:
-        description: Install ripgrep
       settings:
         id: BurntSushi.ripgrep.GNU
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: wiztree
-      directives:
-        description: Install WizTree
       settings:
         id: AntibodySoftware.WizTree
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: notepad++
-      directives:
-        description: Install Notepad++
       settings:
         id: Notepad++.Notepad++
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: neofetch
-      directives:
-        description: Install neofetch
       settings:
         id: nepnep.neofetch-win
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: windows-terminal
-      directives:
-        description: Install Windows Terminal
       settings:
         id: Microsoft.WindowsTerminal
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: vlc
-      directives:
-        description: Install VLC Media Player
       settings:
         id: VideoLAN.VLC
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: git
-      directives:
-        description: Install git
       settings:
         id: Git.Git
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: obs
-      directives:
-        description: Install OBS Studio
       settings:
         id: OBSProject.OBSStudio
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: everything
-      directives:
-        description: Install Voidtools Everything
       settings:
         id: voidtools.Everything
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: slack
-      directives:
-        description: Install Slack
       settings:
         id: SlackTechnologies.Slack
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: hwinfo
-      directives:
-        description: Install HWiNFO
       settings:
         id: REALiX.HWiNFO
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: powertoys
-      directives:
-        description: Install PowerToys
       settings:
         id: Microsoft.PowerToys
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: powershell7
-      directives:
-        description: Install PowerShell 7+
       settings:
         id: Microsoft.PowerShell
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: dotnet-sdk-8
-      directives:
-        description: Install .NET SDK 8
       settings:
         id: Microsoft.DotNet.SDK.8
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: llvm
-      directives:
-        description: Install LLVM
       settings:
         id: LLVM.LLVM
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: cmake
-      directives:
-        description: Install CMake
       settings:
         id: Kitware.CMake
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: unzip
-      directives:
-        description: Install unzip
       settings:
         id: GnuWin32.UnZip
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: nvm
-      directives:
-        description: Install nvm
       settings:
         id: CoreyButler.NVMforWindows
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: deno
-      directives:
-        description: Install Deno
       settings:
         id: DenoLand.Deno
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: rdcman
-      directives:
-        description: Install RDCMan
       settings:
         id: Microsoft.SysInternals.RDCMan
         source: winget
