@@ -184,3 +184,10 @@ properties:
       settings:
         id: DenoLand.Deno
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: rdcman
+      directives:
+        description: Install RDCMan
+      settings:
+        id: Microsoft.SysInternals.RDCMan
+        source: winget
