@@ -5,9 +5,15 @@
       "alignment": "left",
       "segments": [
         {
+          "foreground": "#DDBB00",
+          "style": "plain",
+          "template": "{{ if .Root }}[Admin] {{ end }}",
+          "type": "session"
+        },
+        {
           "foreground_templates": [
-              "{{ if contains \"arch\" .OS }}#6192bf{{ end }}",
-              "#BF616A"
+            "{{ if contains \"arch\" .OS }}#6192bf{{ end }}",
+            "#BF616A"
           ],
           "style": "plain",
           "template": "{{ .UserName }}@{{ .HostName }} ",
