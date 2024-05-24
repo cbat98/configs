@@ -68,6 +68,5 @@
       "type": "prompt"
     }
   ],
-  "console_title_template": "{{ .UserName }}@{{ .HostName }} {{ .PWD }}",
   "version": 2
 }
