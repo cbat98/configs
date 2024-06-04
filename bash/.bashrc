@@ -7,11 +7,6 @@
 
 alias grep='grep --color=auto'
 
-alias ls='eza'
-alias ll='eza -la'
-
-alias cat='bat'
-
 alias lg='lazygit'
 
 # oh my posh
