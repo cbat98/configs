@@ -1,4 +1,3 @@
-Maps:
 unmapAll
 
 map j scrollDown
@@ -13,8 +12,3 @@ map / enterFindMode
 map n performFind
 map N performBackwardsFind
 map ? showHelp
-
-
-Exclusions:
-https?://www.youtube.com/*
-https?://cad.onshape.com/*
