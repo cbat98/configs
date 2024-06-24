@@ -3,4 +3,4 @@ param (
     [string]$directory=".\"
 )
 
-Invoke-Expression "fd -H -t d \.git$ $directory" | Split-Path
+Invoke-Expression "fd -H -t d -t f \.git$ $directory" | Split-Path
