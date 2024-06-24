@@ -164,3 +164,9 @@ properties:
         id: Microsoft.SysInternals.RDCMan
         source: winget
         allowPrerelease: true
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: zig
+      settings:
+        id: zig.zig
+        source: winget
+        allowPrerelease: true
