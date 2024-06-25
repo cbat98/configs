@@ -24,8 +24,7 @@ if ($Prune) {
     $gitArguments += "--prune"
 }
 
-$errors = $repos | ForEach-Object -Parallel {
-    $gitArguments = $using:gitArguments
+$errors = $repos | ForEach-Object -Process {
     $command = "git -C $_ $($gitArguments -join " ")"
 
     $output = Invoke-Expression -Command $command
