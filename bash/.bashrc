@@ -8,6 +8,7 @@
 alias grep='grep --color=auto'
 
 alias lg='lazygit'
+alias ff='fastfetch -c all.jsonc'
 
 # oh my posh
 eval "$(oh-my-posh init bash --config '/home/charlie/repos/configs/oh-my-posh/material-edit.omp.json')"
