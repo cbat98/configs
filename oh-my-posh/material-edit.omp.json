@@ -1,26 +1,35 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "superuser": "#DDBB00",
+    "win": "#BF616A",
+    "linux": "#6192BF",
+    "path": "#81A1C1",
+    "git": "#6C6C6C",
+    "execTime": "#A3BE8C",
+    "shell": "#B48EAD"
+  },
   "blocks": [
     {
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#DDBB00",
+          "foreground": "p:superuser",
           "style": "plain",
           "template": "{{ if .Root }}[Admin] {{ end }}",
           "type": "session"
         },
         {
           "foreground_templates": [
-            "{{ if contains \"arch\" .OS }}#6192bf{{ end }}",
-            "#BF616A"
+            "{{ if contains \"arch\" .OS }}p:linux{ end }}",
+            "p:win"
           ],
           "style": "plain",
           "template": "{{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
-          "foreground": "#81A1C1",
+          "foreground": "p:path",
           "properties": {
             "style": "full"
           },
@@ -29,7 +38,7 @@
           "type": "path"
         },
         {
-          "foreground": "#6C6C6C",
+          "foreground": "p:git",
           "properties": {
             "branch_ahead_icon": "<#88C0D0>\u21e1 </>",
             "branch_behind_icon": "<#88C0D0>\u21e3 </>",
@@ -44,7 +53,7 @@
           "type": "git"
         },
         {
-          "foreground": "#A3BE8C",
+          "foreground": "p:execTime",
           "properties": {
             "style": "austin",
             "always_enabled": false,
@@ -62,7 +71,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#B48EAD",
+          "foreground": "p:shell",
           "style": "plain",
           "type": "time",
           "template": "[{{ .CurrentDate | date .Format }}] ",
@@ -71,7 +80,7 @@
           }
         },
         {
-          "foreground": "#B48EAD",
+          "foreground": "p:shell",
           "properties": {
             "always_enabled": true
           },
