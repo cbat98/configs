@@ -27,6 +27,3 @@ Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
 Set-Alias -Name oex    -Value Open-Explorer
   
 (@(& 'oh-my-posh.exe' init pwsh --config='D:\repos\misc\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
-
-Write-Host "$(Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Headers @{accept="text/plain"})`n"
-Write-Host ""
