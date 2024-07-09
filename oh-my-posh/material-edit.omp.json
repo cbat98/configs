@@ -63,6 +63,15 @@
       "segments": [
         {
           "foreground": "#B48EAD",
+          "style": "plain",
+          "type": "time",
+          "template": "[{{ .CurrentDate | date .Format }}] ",
+          "properties": {
+            "time_format": "15:04:05"
+          }
+        },
+        {
+          "foreground": "#B48EAD",
           "properties": {
             "always_enabled": true
           },
