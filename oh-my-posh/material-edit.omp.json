@@ -21,7 +21,7 @@
         },
         {
           "foreground_templates": [
-            "{{ if contains \"arch\" .OS }}p:linux{ end }}",
+            "{{ if contains \"arch\" .OS }}p:linux{{ end }}",
             "p:win"
           ],
           "style": "plain",
