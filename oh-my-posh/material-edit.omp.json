@@ -21,8 +21,8 @@
         },
         {
           "foreground_templates": [
-            "{{ if contains \"arch\" .OS }}p:linux{{ end }}",
-            "p:win"
+            "{{if contains \"windows\" .OS}}p:win{{end}}",
+            "p:linux"
           ],
           "style": "plain",
           "template": "{{ .UserName }}@{{ .HostName }} ",
