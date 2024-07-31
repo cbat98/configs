@@ -7,7 +7,8 @@ param (
 
 Write-Host "Finding repositories in $MainRepositoryFolder and subfolders"
 
-$repos = Invoke-Expression -Command "$($PSCommandPath | Split-Path -Parent)\Get-AllRepositories.ps1 $MainRepositoryFolder -ErrorAction SilentlyContinue"
+$repos = Invoke-Expression -Command "$PSScriptRoot\Get-AllRepositories.ps1 $MainRepositoryFolder -ErrorAction SilentlyContinue" `
+| Sort-Object -Property @{Expression = { Split-Path -Path $_ -Leaf }}
 
 Write-Host "Found $($repos.Count) repositories:"
 foreach ($repo in $repos) {
