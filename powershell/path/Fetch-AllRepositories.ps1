@@ -29,7 +29,8 @@ $errors = $repos | ForEach-Object -Process {
 
     $output = Invoke-Expression -Command $command
     if ($null -ne $output -and $output -ne "") {
-        Write-Host "$(Split-Path -Path $_ -Leaf) - $output"
+        Write-Host -ForegroundColor Yellow -Object "[$(Split-Path -Path $_ -Leaf)]"
+        Out-String -InputObject $output | Write-Host
     }
 
     if ($lastexitcode -ne 0) {
