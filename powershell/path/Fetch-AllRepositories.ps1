@@ -26,11 +26,12 @@ if ($Prune) {
 }
 
 $errors = $repos | ForEach-Object -Process {
-    $command = "git -C $_ $($gitArguments -join " ")"
+    Write-Host -ForegroundColor Yellow -Object "[$(Split-Path -Path $_ -Leaf)]"
 
+    $command = "git -C $_ $($gitArguments -join " ")"
     $output = Invoke-Expression -Command $command
+
     if ($null -ne $output -and $output -ne "") {
-        Write-Host -ForegroundColor Yellow -Object "[$(Split-Path -Path $_ -Leaf)]"
         Out-String -InputObject $output | Write-Host
     }
 
