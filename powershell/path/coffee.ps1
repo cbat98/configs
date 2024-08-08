@@ -14,3 +14,5 @@ write-host @'
    \             y'
     `-.._____..-'
 '@
+
+& "$PSScriptRoot\YouSpinMeRound.ps1"
