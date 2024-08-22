@@ -1,5 +1,5 @@
 param (
-    [Parameter()][int32]$Radius = 150,
+    [Parameter()][int32]$Radius = 300,
     [Parameter()][double]$Speed = 2.5,
     [Parameter()][int32]$Framerate = 60,
     [Parameter()][int32]$Duration = -1
@@ -39,7 +39,7 @@ Add-Type -AssemblyName System.Windows.Forms
 $buffer = CalibrateBuffer -Iterations 10 -WaitPerIteration 150
 
 $initialXPos = [System.Windows.Forms.Cursor]::Position.X
-$initialYPos = [System.Windows.Forms.Cursor]::Position.Y + $Radius
+$initialYPos = [System.Windows.Forms.Cursor]::Position.Y
 
 $msPerFrame = 1000 / $Framerate
 $realSpeed = (1 / $Speed) * 25
@@ -51,7 +51,7 @@ for ($i = 0; $i -ne ($Framerate * $Duration); $i++) {
     $stopwatch.Start()
 
     $xOffset = $Radius * [System.Math]::Sin($i / $realSpeed)
-    $yOffset = $Radius * [System.Math]::Cos($i / $realSpeed + [math]::pi)
+    $yOffset = ($Radius / 2) * [System.Math]::Sin(2 * $i / $realSpeed)
 
     MoveMouse -XPos ($initialXPos + $xOffset) -YPos ($initialYPos + $yOffset)
 
