@@ -44,6 +44,9 @@
 	  ll = "eza -la";
 	  lt = "eza -TL 2";
 	};
+	initExtra = ''
+	  eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${/home/charlie/repos/configs/oh-my-posh/material-edit.omp.json})"
+	'';
       };
       bat.enable = true;
       btop.enable = true;
