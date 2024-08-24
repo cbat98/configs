@@ -39,6 +39,7 @@
 	enableCompletion = true;
 	shellAliases = {
 	  cat = "bat";
+	  lg = "lazygit";
 	  ll = "eza -la";
 	  lt = "eza -TL 2";
 	};
@@ -49,7 +50,6 @@
         enable = true;
 	enableBashIntegration = true;
 	git = true;
-	icons = true;
       };
       firefox = {
         enable = true;
