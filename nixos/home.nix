@@ -29,6 +29,7 @@
 	lazygit
 	neovim
 	pavucontrol
+        tldr
 	xclip
       ];
       stateVersion = "24.05";
