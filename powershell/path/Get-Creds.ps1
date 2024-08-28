@@ -1,6 +1,13 @@
 param (
     [Parameter(Mandatory)][string]$CredentialName,
-    [Parameter()][string]$CredentialsFolder="$env:USERPROFILE/Credentials"
+    [Parameter()][string]$CredentialsFolder = "$env:USERPROFILE/Credentials",
+    [Parameter()][switch]$Copy
 )
 
-Import-Clixml -Path (Join-Path -Path $CredentialsFolder -ChildPath "$CredentialName.creds")
+$credential = Import-Clixml -Path (Join-Path -Path $CredentialsFolder -ChildPath "$CredentialName.creds")
+
+if ($Copy) {
+    $credential.GetNetworkCredential().Password | Set-Clipboard
+}
+
+return $credential
