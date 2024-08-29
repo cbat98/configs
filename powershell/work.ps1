@@ -20,7 +20,7 @@ $configs = "$repos\misc\configs"
 $env:path += ";" + "$repos\microlise-pocs\techops-shared\team\charlieb\common"
 $env:path += ";" + "$configs\powershell\path"
 
-. "$repos\tfs\tfs-scripts\TFSApiHelpers.ps1"
+. "$repos\azdo\tfs-scripts\TFSApiHelpers.ps1"
 
 Set-Alias -Name lg     -Value lazygit
 Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
