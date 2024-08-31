@@ -103,6 +103,10 @@
 	  name = "Monaspace Neon";
 	  size = 12;
 	};
+	extraConfig = ''
+          background_opacity 0.8
+          enable_audio_bell no
+	'';
       };
     };
   };
