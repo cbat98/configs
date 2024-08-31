@@ -101,7 +101,7 @@
 	font = {
 	  package = pkgs.monaspace;
 	  name = "Monaspace Neon";
-	  size = 11;
+	  size = 12;
 	};
       };
     };
