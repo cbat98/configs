@@ -65,6 +65,8 @@
       variant = "";
     };
   };
+
+  services.picom.enable = true;
   
   services.displayManager.defaultSession = "none+i3";
 
