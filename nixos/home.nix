@@ -28,9 +28,11 @@
         fastfetch
 	lazygit
 	neovim
+	nodejs_20
 	pavucontrol
 	ripgrep
         tldr
+	unzip
 	xclip
       ];
       stateVersion = "24.05";
