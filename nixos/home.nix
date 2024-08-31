@@ -2,6 +2,10 @@
 
 { config, pkgs, ... }:
 
+let
+  unstablePkgs = import <nixos-unstable> {};
+  configDir = /home/charlie/repos/configs;
+in
 {
   imports = [
     <home-manager/nixos>
@@ -23,11 +27,15 @@
     home = {
       username = "charlie";
       homeDirectory = "/home/charlie";
+      file = {
+      ".config/nvim".source = "${configDir}/neovim";
+      };
       packages = with pkgs; [
 	alsa-utils
+	deno
         fastfetch
 	lazygit
-	neovim
+	unstablePkgs.neovim
 	nodejs_20
 	pavucontrol
 	ripgrep
