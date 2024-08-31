@@ -29,6 +29,7 @@
 	lazygit
 	neovim
 	pavucontrol
+	ripgrep
         tldr
 	xclip
       ];
