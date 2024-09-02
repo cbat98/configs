@@ -27,9 +27,6 @@ in
     home = {
       username = "charlie";
       homeDirectory = "/home/charlie";
-      file = {
-      ".config/nvim".source = "${configDir}/neovim";
-      };
       packages = with pkgs; [
 	alsa-utils
 	deno
