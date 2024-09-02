@@ -48,6 +48,7 @@ in
 	enableCompletion = true;
 	shellAliases = {
 	  cat = "bat";
+	  fs = "du -h --max-depth=1";
 	  lg = "lazygit";
 	  ll = "eza -la";
 	  lt = "eza -TL 2";
