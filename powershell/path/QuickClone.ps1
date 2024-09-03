@@ -14,7 +14,7 @@ Write-Host "Type " -NoNewline
 Write-Host "``exit``" -ForegroundColor Red -NoNewline
 Write-Host " to leave"
 
-$cmd = "pwsh -NoExit -Command `"git -C $SourceFolder clone $RepoUrl $repoPath; Set-Location -Path $repoPath`""
+$cmd = "pwsh -NoExit -Command `"git -C $SourceFolder clone $RepoUrl $repoPath --depth 1; Set-Location -Path $repoPath`""
 Invoke-Expression $cmd
 
 Remove-Item -Path $repoPath -Recurse -Force
