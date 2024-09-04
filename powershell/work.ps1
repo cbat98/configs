@@ -4,14 +4,10 @@ function Get-AllFilesAsList {
 
 function Get-AllFilesTreeDepth {
     param (
-        [Parameter()][string]$depth=2
+        [Parameter()][string]$depth = 2
     )
 
     Invoke-Expression -Command "eza -TL $depth"
-}
-
-function Open-Explorer {
-    explorer .
 }
 
 $repos = "D:\repos"
@@ -22,9 +18,8 @@ $env:path += ";" + "$configs\powershell\path"
 
 . "$repos\azdo\tfs-scripts\TFSApiHelpers.ps1"
 
-Set-Alias -Name lg     -Value lazygit
-Set-Alias -Name lt     -Value Get-AllFilesTreeDepth
-Set-Alias -Name oex    -Value Open-Explorer
+Set-Alias -Name lg -Value lazygit
+Set-Alias -Name lt -Value Get-AllFilesTreeDepth
   
 (@(& 'oh-my-posh.exe' init pwsh --config='D:\repos\misc\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
 
