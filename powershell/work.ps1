@@ -18,6 +18,8 @@ $env:path += ";" + "$configs\powershell\path"
 
 . "$repos\azdo\tfs-scripts\TFSApiHelpers.ps1"
 
+Import-Module -Name Microsoft.WinGet.CommandNotFound
+
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
   
