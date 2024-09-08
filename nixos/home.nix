@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 let
-  unstablePkgs = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
   configDir = /home/charlie/repos/configs;
 in
 {
@@ -32,10 +32,11 @@ in
 	deno
         fastfetch
 	lazygit
-	unstablePkgs.neovim
 	nodejs_20
 	pavucontrol
 	ripgrep
+        unstable.neovim
+        unstable.prusa-slicer
         tldr
 	unzip
 	xclip
