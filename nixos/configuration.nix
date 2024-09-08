@@ -55,6 +55,8 @@
     options = "--delete-older-than 7d";
   };
 
+  services.libinput.touchpad.naturalScrolling = true;
+
   # Configure X11
   services.xserver = {
     enable = true;
