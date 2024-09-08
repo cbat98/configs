@@ -40,6 +40,9 @@ in
 	unzip
 	xclip
       ];
+      sessionVariables = {
+        GTK_THEME = "Adwaita-dark";
+      };
       stateVersion = "24.05";
     };
     programs = {
