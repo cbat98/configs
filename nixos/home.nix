@@ -30,11 +30,13 @@ in
       packages = with pkgs; [
 	alsa-utils
 	deno
+        cargo
         fastfetch
 	lazygit
 	nodejs_20
 	pavucontrol
 	ripgrep
+        gccgo14
         unstable.neovim
         unstable.prusa-slicer
         tldr
