@@ -19,7 +19,7 @@ in
         modifier = "Mod4";
         gaps = {
           inner = 10;
-          outer = 5;
+          outer = 2;
         };
         terminal = "kitty";
       };
