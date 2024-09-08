@@ -16,6 +16,13 @@ in
       enable = true;
       package = pkgs.i3-gaps;
       config = {
+        fonts = {
+          names = [
+            "Monaspace Neon"
+          ];
+          style = "Normal";
+          size = 8.0;
+        };
         modifier = "Mod4";
         gaps = {
           inner = 10;
