@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./home.nix
     ];
@@ -14,7 +15,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -69,7 +70,7 @@
   };
 
   services.picom.enable = true;
-  
+
   services.displayManager.defaultSession = "none+i3";
 
   console.keyMap = "uk";
@@ -101,7 +102,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  wget
   ];
 
 
