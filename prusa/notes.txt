@@ -1,0 +1,7 @@
+Default extrusion width = 0.48mm
+  Other extrusion widths = 0mm
+E-Steps calibration
+  Asked for = 100mm @ 1mm/s
+  Got = 90mm
+  Stock e-steps = 380.0mm
+  New e-steps = 413.94mm
