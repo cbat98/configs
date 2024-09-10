@@ -7,6 +7,9 @@ E-Steps calibration
   New e-steps = 413.94mm
 Z-Offset = -1.45mm
 
+Generic PLA
+  Pressure Advance = >0.15
+
 --
 Send: M503
 Recv: echo:; Linear Units:
