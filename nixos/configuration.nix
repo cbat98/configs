@@ -92,6 +92,13 @@
     # packages = with pkgs; [ ];
   };
 
+  security.sudo = {
+    enable = true;
+    extraConfig = ''
+      %wheel ALL=(ALL) NOPASSWD: ALL
+    '';
+  };
+
   # Enable automatic login for the user.
   services.getty.autologinUser = "charlie";
 
