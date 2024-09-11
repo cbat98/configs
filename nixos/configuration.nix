@@ -22,6 +22,14 @@
   ];
 
   networking.hostName = "charlie-nixlt"; # Define your hostname.
+  networking = {
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
