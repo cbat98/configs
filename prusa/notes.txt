@@ -9,6 +9,8 @@ Z-Offset = -1.45mm
 
 Generic PLA
   Pressure Advance = 0.18
+  Extruder temp = 210
+  Bed temp = 45
 
 --
 Send: M503
