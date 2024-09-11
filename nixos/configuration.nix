@@ -95,7 +95,11 @@
   users.users.charlie = {
     isNormalUser = true;
     description = "Charlie B";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
     # packages = with pkgs; [ ];
   };
 
@@ -138,6 +142,17 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  virtualisation.docker = {
+    enable = true;
+    daemon = {
+      settings = {
+        userland-proxy = false;
+        experimental = true;
+        ipv6 = false;
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
