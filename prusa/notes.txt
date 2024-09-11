@@ -8,9 +8,9 @@ E-Steps calibration
 Z-Offset = -1.45mm
 
 Generic PLA
-  Pressure Advance = 0.18
   Extruder temp = 210
   Bed temp = 45
+  Pressure advance = 0.18
 
 --
 Send: M503
