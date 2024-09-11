@@ -40,6 +40,7 @@ in
         deno
         fastfetch
         gccgo14
+        jq
         lazygit
         unstable.neovim
         nodejs_20
