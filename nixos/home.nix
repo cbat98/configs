@@ -23,6 +23,16 @@ in
           style = "Normal";
           size = 8.0;
         };
+        modes = {
+          resize = {
+            Down = "resize grow height 5 px or 5 ppt";
+            Escape = "mode default";
+            Left = "resize shrink width 5 px or 5 ppt";
+            Return = "mode default";
+            Right = "resize grow width 5 px or 5 ppt";
+            Up = "resize shrink height 5 px or 5 ppt";
+          };
+        };
         modifier = "Mod4";
         gaps = {
           inner = 10;
