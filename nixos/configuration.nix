@@ -63,6 +63,8 @@
     options = "--delete-older-than 7d";
   };
 
+  services.resolved.enable = true;
+
   services.libinput.touchpad.naturalScrolling = true;
 
   # Configure X11
