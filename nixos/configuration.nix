@@ -30,6 +30,7 @@
       "8.8.8.8"
       "8.8.4.4"
     ];
+    resolvconf.enable = true;
   };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
