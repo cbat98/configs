@@ -49,6 +49,7 @@ in
         cargo
         deno
         fastfetch
+        fd
         gccgo14
         jq
         lazygit
