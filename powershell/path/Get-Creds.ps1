@@ -4,6 +4,10 @@ param (
     [Parameter()][switch]$Copy
 )
 
+if (-not (Test-Path -Path $CredentialsFolder)) {
+    throw "Path: $CredentialsFolder does not exist"
+}
+
 if (-not $CredentialName) {
     return Get-ChildItem -Path $CredentialsFolder
 }
