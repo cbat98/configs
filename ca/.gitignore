@@ -1,0 +1,13 @@
+**/newcerts/*
+!**/newcerts/.gitkeep
+
+**/private/*
+!**/private/.gitkeep
+
+**/requests/*
+!**/requests/.gitkeep
+
+index.txt.attr
+index.txt.attr.old
+index.txt.old
+serial.old
