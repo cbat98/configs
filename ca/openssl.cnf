@@ -1,0 +1,56 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = /home/charlie/myCA
+certs             = $dir/certs
+crl_dir           = $dir/crl
+new_certs_dir     = $dir/newcerts
+database          = $dir/index.txt
+serial            = $dir/serial
+private_key       = $dir/private/ca.key.pem
+certificate       = $dir/certs/ca.cert.pem
+default_days      = 379
+default_md        = sha256
+preserve          = no
+policy            = policy_strict
+
+[ policy_strict ]
+countryName             = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = match
+
+[ req ]
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+string_mask        = utf8only
+
+[ req_distinguished_name ]
+countryName = Country Name (2 letter code)
+countryName_default = GB
+stateOrProvinceName = State or Province Name (full name)
+stateOrProvinceName_default = Rutland
+localityName = Locality Name (eg, city)
+localityName_default = Oakham
+organizationName = Organization Name (eg, company)
+organizationName_default = chrl
+commonName = Common Name (e.g. server FQDN or YOUR name)
+commonName_default = $ENV::CN
+commonName_max = 64
+emailAddress = Email Address (user@example.com)
+emailAddress_default = c@chrl.uk
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = $ENV::CN
+
+[ usr_cert ]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
