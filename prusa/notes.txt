@@ -5,7 +5,7 @@ E-Steps calibration
   Got = 90mm
   Stock e-steps = 380.0mm
   New e-steps = 413.94mm
-Z-Offset = -1.45mm
+Z-Offset = -1.75mm
 Solid Layers
   Top = 6
   Bottom = 5
