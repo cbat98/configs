@@ -12,7 +12,7 @@ Solid Layers
 
 Generic PLA
   Extruder temp = 210
-  Bed temp = 45
+  Bed temp = 60
   Pressure advance = 0.18
 
 --
