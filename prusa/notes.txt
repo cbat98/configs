@@ -6,6 +6,9 @@ E-Steps calibration
   Stock e-steps = 380.0mm
   New e-steps = 413.94mm
 Z-Offset = -1.45mm
+Solid Layers
+  Top = 6
+  Bottom = 5
 
 Generic PLA
   Extruder temp = 210
