@@ -53,6 +53,7 @@ in
         gccgo14
         jq
         lazygit
+        lf
         unstable.neovim
         nodejs_20
         pavucontrol
