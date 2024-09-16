@@ -9,5 +9,5 @@ if (-not (Test-Path -Path $CredentialsFolder)) {
 
 $Credential = Get-Credential
 
-$credFilePath = Join-Path -Path $CredentialsFolder -ChildPath $CredentialName -AdditionalChildPath ".xml"
+$credFilePath = Join-Path -Path $CredentialsFolder -ChildPath "$CredentialName.xml"
 $Credential | Export-Clixml -Path $credFilePath
