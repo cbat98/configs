@@ -1,12 +1,8 @@
 Default extrusion width = 0.48mm
   Other extrusion widths = 0mm
 E-Steps calibration
-  Asked for = 100mm @ 1mm/s
-  Got = 90mm
-  Stock e-steps = 380.0mm
-  New e-steps = 413.94mm
-    M92 E413.94
-Z-Offset = -2.41mm
+  M92 E412.37
+Z-Offset = -2.15mm
 Solid Layers
   Top = 6
   Bottom = 5
