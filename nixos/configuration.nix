@@ -11,8 +11,6 @@
       ./home.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   #
   # --- Meta Options -------------------------------------------
   #
@@ -22,25 +20,21 @@
     "flakes"
   ];
 
-  networking = {
-    hostName = "charlie-nixlt";
-    networkmanager.enable = true;
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
+  nix.optimise.automatic = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
-  services.blueman.enable = true;
   #
   # --- Pre Startup --------------------------------------------
   #
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   #
   # --- System Config ------------------------------------------
@@ -62,19 +56,40 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  nix.optimise.automatic = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+  console.keyMap = "uk";
+
+  networking = {
+    hostName = "charlie-nixlt";
+    networkmanager.enable = true;
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
   };
 
-  services.resolved.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
-  services.libinput.touchpad.naturalScrolling = true;
+  security.sudo = {
+    enable = true;
+    extraConfig = ''
+      %wheel ALL=(ALL) NOPASSWD: ALL
+    '';
+  };
+
+  environment.systemPackages = with pkgs; [
+    vim
+  ];
+
   #
   # --- Services -----------------------------------------------
   #
+
+  services.resolved.enable = true;
+  services.openssh.enable = true;
+  services.getty.autologinUser = "charlie";
 
   services.xserver = {
     enable = true;
@@ -86,11 +101,8 @@
     };
   };
 
-  services.picom.enable = true;
-
   services.displayManager.defaultSession = "none+i3";
-
-  console.keyMap = "uk";
+  services.picom.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -100,9 +112,25 @@
     pulse.enable = true;
   };
 
+  virtualisation.docker = {
+    enable = true;
+    daemon = {
+      settings = {
+        userland-proxy = false;
+        experimental = true;
+        ipv6 = false;
+      };
+    };
+  };
+
+  services.libinput.touchpad.naturalScrolling = true;
+
+  services.blueman.enable = true;
+
   #
   # --- User Configuration -------------------------------------
   #
+
   users.users.charlie = {
     isNormalUser = true;
     description = "Charlie B";
@@ -117,37 +145,6 @@
     ./cert.pem
   ];
 
-  security.sudo = {
-    enable = true;
-    extraConfig = ''
-      %wheel ALL=(ALL) NOPASSWD: ALL
-    '';
-  };
-
-  services.getty.autologinUser = "charlie";
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    rquickshare
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  ];
-
-
-  services.openssh.enable = true;
-
-
-  virtualisation.docker = {
-    enable = true;
-    daemon = {
-      settings = {
-        userland-proxy = false;
-        experimental = true;
-        ipv6 = false;
-      };
-    };
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -155,5 +152,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
