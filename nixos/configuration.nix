@@ -15,6 +15,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  #
+  # --- Meta Options -------------------------------------------
+  #
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -36,12 +39,18 @@
   };
 
   services.blueman.enable = true;
+  #
+  # --- Pre Startup --------------------------------------------
+  #
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  #
+  # --- System Config ------------------------------------------
+  #
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -71,6 +80,9 @@
   services.resolved.enable = true;
 
   services.libinput.touchpad.naturalScrolling = true;
+  #
+  # --- Services -----------------------------------------------
+  #
 
   # Configure X11
   services.xserver = {
@@ -99,6 +111,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  #
+  # --- User Configuration -------------------------------------
+  #
   users.users.charlie = {
     isNormalUser = true;
     description = "Charlie B";
