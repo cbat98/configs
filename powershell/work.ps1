@@ -1,5 +1,5 @@
 function Get-AllFilesAsList {
-    eza -la
+    Invoke-Expression -Command "eza -la"
 }
 
 function Get-AllFilesTreeDepth {
@@ -21,6 +21,7 @@ $env:path += ";" + "$configs\powershell\path"
 Import-Module -Name Microsoft.WinGet.CommandNotFound
 
 Set-Alias -Name lg -Value lazygit
+Set-Alias -Name ll -Value Get-AllFilesAsList
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
   
 (@(& 'oh-my-posh.exe' init pwsh --config='D:\repos\misc\configs\oh-my-posh\material-edit.omp.json' --print) -join "`n") | Invoke-Expression
