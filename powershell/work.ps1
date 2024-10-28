@@ -13,7 +13,7 @@ function Get-AllFilesTreeDepth {
 $repos = "D:\repos"
 $configs = "$repos\misc\configs"
 
-$env:path += ";" + "$repos\microlise-pocs\techops-shared\team\charlieb\common"
+$env:path += ";" + "$repos\pocs\techops-shared\team\charlieb\common"
 $env:path += ";" + "$configs\powershell\path"
 
 . "$repos\azdo\tfs-scripts\TFSApiHelpers.ps1"
