@@ -38,6 +38,10 @@ function ParseGitStatus {
         $behind = [int]$splitted[1] * -1
     }
 
+    if ($trackedEdits + $untrackedEdits + $ahead + $behind -eq 0) {
+        return ""
+    }
+
     return "↑$ahead ↓$behind ~$trackedEdits ?$untrackedEdits"
 }
 
