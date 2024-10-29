@@ -13,13 +13,18 @@ function ParseGitStatus {
     $branchStatus = "# branch.ab"
 
     $command = "git -C $RepositoryPath status --branch --porcelain=2"
-    $line = [string](
-        Invoke-Expression -Command $command `
+    $status = Invoke-Expression -Command $command
+
+    $trackedEdits = ($status | Where-Object { $_.StartsWith("1") }).Count
+    $untrackedEdits = ($status | Where-Object { $_.StartsWith("?") }).Count
+
+    $commits = [string](
+        $status `
         | Where-Object { $_.StartsWith($branchStatus) -and $_.Length -gt $branchStatus.Length } `
         | Select-Object -First 1
     )
 
-    $splitted = $line.Substring($branchStatus.Length + 1).Split(" ")
+    $splitted = $commits.Substring($branchStatus.Length + 1).Split(" ")
 
     $ahead = "+0"
     $behind = "-0"
@@ -29,10 +34,10 @@ function ParseGitStatus {
         $behind = $splitted[1]
     }
 
-    return "$ahead $behind"
+    return "$ahead $behind ~$trackedEdits ?$untrackedEdits"
 }
 
-$repos = & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
+return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
 | ForEach-Object -Process {
     $repo = $_
 
