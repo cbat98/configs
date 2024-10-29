@@ -1,6 +1,6 @@
 param (
     [Parameter(Mandatory=$false)]
-    [string]$directory=".\"
+    [string]$Directory=".\"
 )
 
 Invoke-Expression "fd -H -t d -t f \.git$ $directory" | Split-Path

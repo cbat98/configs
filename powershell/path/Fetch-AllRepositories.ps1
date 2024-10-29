@@ -1,49 +1,62 @@
 param (
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$Prune,
-    [Parameter(Mandatory=$false)]
-    [string]$MainRepositoryFolder="$repos"
+    [Parameter(Mandatory = $false)]
+    [string]$MainRepositoryFolder = "$repos"
 )
 
-Write-Host "Finding repositories in $MainRepositoryFolder and subfolders"
+function ParseGitStatus {
+    param (
+        [Parameter(Mandatory)][string]$RepositoryPath
+    )
 
-$repos = Invoke-Expression -Command "$PSScriptRoot\Get-AllRepositories.ps1 $MainRepositoryFolder -ErrorAction SilentlyContinue" `
-| Sort-Object -Property @{Expression = { Split-Path -Path $_ -Leaf }}
+    $branchStatus = "# branch.ab"
 
-Write-Host "Found $($repos.Count) repositories:"
-foreach ($repo in $repos) {
-    Write-Host "  $(Split-Path -Path $repo -Leaf)"
-}
-Write-Host
+    $command = "git -C $RepositoryPath status --branch --porcelain=2"
+    $line = [string](
+        Invoke-Expression -Command $command `
+        | Where-Object { $_.StartsWith($branchStatus) -and $_.Length -gt $branchStatus.Length } `
+        | Select-Object -First 1
+    )
 
-$gitArguments = @(
-    "fetch",
-    "--all"
-)
+    $splitted = $line.Substring($branchStatus.Length + 1).Split(" ")
 
-if ($Prune) {
-    $gitArguments += "--prune"
-}
+    $ahead = "+0"
+    $behind = "-0"
 
-$errors = $repos | ForEach-Object -Process {
-    Write-Host -ForegroundColor Yellow -Object "[$(Split-Path -Path $_ -Leaf)]"
-
-    $command = "git -C $_ $($gitArguments -join " ")"
-    $output = Invoke-Expression -Command $command
-
-    if ($null -ne $output -and $output -ne "") {
-        Out-String -InputObject $output | Write-Host
+    if ($splitted.Count -ge 2) {
+        $ahead = $splitted[0]
+        $behind = $splitted[1]
     }
 
-    if ($lastexitcode -ne 0) {
-        return 1
+    return "$ahead $behind"
+}
+
+$repos = & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
+| ForEach-Object -Process {
+    $repo = $_
+
+    $command = "git -C $repo rev-parse --abbrev-ref HEAD"
+
+    return [pscustomobject]@{
+        "Name"   = Split-Path -Path $repo -Leaf
+        "Path"   = $repo
+        "Branch" = Invoke-Expression -Command $command
+    }
+} | Sort-Object -Property Name `
+| ForEach-Object -Process {
+    $repo = $_
+    $command = "git -C $($repo.Path) fetch --all"
+
+    if ($Prune) {
+        $command += " --prune"
     }
 
-    return 0
-} `
-| Measure-Object -Sum `
-| Select-Object -ExpandProperty Sum
+    Invoke-Expression -Command $command | Out-Null
 
-$outputString = (Get-Date -UFormat "%Y-%m-%d - %H-%M-%S").ToString() + " - fetched $($repos.Count) repositories with $errors errors"
+    $status = ParseGitStatus -RepositoryPath $repo.Path
 
-Write-Host $outputString
+    Add-Member -InputObject $repo -MemberType NoteProperty -Name "Status" -Value $status
+
+    return $repo
+}
