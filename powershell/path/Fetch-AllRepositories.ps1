@@ -72,4 +72,4 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
     Add-Member -InputObject $repo -MemberType NoteProperty -Name "Status" -Value $status
 
     return $repo
-}
+} | Format-Table -AutoSize
