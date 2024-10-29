@@ -35,7 +35,7 @@ function ParseGitStatus {
 
     if ($splitted.Count -ge 2) {
         $ahead = [int]$splitted[0]
-        $behind = [int]$splitted[1]
+        $behind = [int]$splitted[1] * -1
     }
 
     return "↑$ahead ↓$behind ~$trackedEdits ?$untrackedEdits"
