@@ -24,6 +24,10 @@ function ParseGitStatus {
         | Select-Object -First 1
     )
 
+    if (-not $commits) {
+        return "<missing>"
+    }
+
     $splitted = $commits.Substring($branchStatus.Length + 1).Split(" ")
 
     $ahead = "+0"
