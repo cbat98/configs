@@ -30,15 +30,15 @@ function ParseGitStatus {
 
     $splitted = $commits.Substring($branchStatus.Length + 1).Split(" ")
 
-    $ahead = "+0"
-    $behind = "-0"
+    $ahead = "0"
+    $behind = "0"
 
     if ($splitted.Count -ge 2) {
-        $ahead = $splitted[0]
-        $behind = $splitted[1]
+        $ahead = [int]$splitted[0]
+        $behind = [int]$splitted[1]
     }
 
-    return "$ahead $behind ~$trackedEdits ?$untrackedEdits"
+    return "↑$ahead ↓$behind ~$trackedEdits ?$untrackedEdits"
 }
 
 return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
