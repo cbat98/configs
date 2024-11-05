@@ -1,44 +1,44 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
-    "execTime": "#A3BE8C",
-    "git": "#6C6C6C",
+    "superuser": "#DDBB00",
+    "win": "#BF616A",
     "linux": "#6192BF",
     "path": "#81A1C1",
-    "shell": "#B48EAD",
-    "superuser": "#DDBB00",
-    "win": "#BF616A"
+    "git": "#6C6C6C",
+    "execTime": "#A3BE8C",
+    "shell": "#B48EAD"
   },
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
+          "foreground": "p:superuser",
           "style": "plain",
           "template": "{{ if .Root }}[Admin] {{ end }}",
-          "foreground": "p:superuser",
           "type": "session"
         },
         {
-          "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
-          "type": "session",
           "foreground_templates": [
             "{{ if contains \"windows\" .OS }}p:win{{ end }}",
             "p:linux"
-          ]
+          ],
+          "style": "plain",
+          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
         },
         {
+          "foreground": "p:path",
           "properties": {
             "style": "full"
           },
           "style": "plain",
           "template": "{{ .Path }} ",
-          "foreground": "p:path",
           "type": "path"
         },
         {
+          "foreground": "p:git",
           "properties": {
             "branch_ahead_icon": "<#88C0D0>\u21e1 </>",
             "branch_behind_icon": "<#88C0D0>\u21e3 </>",
@@ -50,47 +50,47 @@
           },
           "style": "plain",
           "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#FFAFD7>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
-          "foreground": "p:git",
           "type": "git"
         },
         {
+          "foreground": "p:execTime",
           "properties": {
-            "always_enabled": false,
             "style": "austin",
+            "always_enabled": false,
             "threshold": 1000
           },
           "style": "plain",
           "template": " {{ .FormattedMs }} ",
-          "foreground": "p:execTime",
           "type": "executiontime"
         }
-      ]
+      ],
+      "type": "prompt"
     },
     {
-      "type": "prompt",
       "alignment": "left",
+      "newline": true,
       "segments": [
         {
+          "foreground": "p:shell",
+          "style": "plain",
+          "type": "time",
+          "template": "[{{ .CurrentDate | date .Format }}] ",
           "properties": {
             "time_format": "15:04:05"
-          },
-          "style": "plain",
-          "template": "[{{ .CurrentDate | date .Format }}] ",
-          "foreground": "p:shell",
-          "type": "time"
+          }
         },
         {
+          "foreground": "p:shell",
           "properties": {
             "always_enabled": true
           },
           "style": "plain",
-          "template": "{{ .Shell }} ❯ ",
-          "foreground": "p:shell",
+          "template": "{{ .Shell }} \u276f ",
           "type": "status"
         }
       ],
-      "newline": true
+      "type": "prompt"
     }
   ],
-  "version": 3
+  "version": 2
 }
