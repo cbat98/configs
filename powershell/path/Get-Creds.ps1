@@ -1,7 +1,7 @@
 param (
     [Parameter()][string]$CredentialName,
-    [Parameter()][string]$CredentialsFolder = "$env:USERPROFILE/credentials",
-    [Parameter()][switch]$Copy
+    [Parameter()][switch]$Copy,
+    [Parameter()][string]$CredentialsFolder = "$env:USERPROFILE/credentials"
 )
 
 if (-not (Test-Path -Path $CredentialsFolder)) {
