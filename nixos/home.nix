@@ -62,6 +62,7 @@ in
         tldr
         unzip
         xclip
+        dotnetCorePackages.dotnet_8.sdk
       ];
       sessionVariables = {
         GTK_THEME = "Adwaita-dark";

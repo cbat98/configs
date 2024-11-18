@@ -82,7 +82,6 @@
   boot.tmp.cleanOnBoot = true;
 
   environment.systemPackages = with pkgs; [
-    dotnetCorePackages.dotnet_8.sdk
     vim
   ];
 
