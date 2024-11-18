@@ -59,13 +59,33 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 } | Sort-Object -Property Name `
 | ForEach-Object -Process {
     $repo = $_
-    $command = "git -C $($repo.Path) fetch --all"
 
-    if ($Prune) {
-        $command += " --prune"
+    # BEGIN: TFS/AZDO Exclusion
+    $command = "git -C $($repo.Path) remote"
+    $remotes = Invoke-Expression -Command $command
+    # END
+
+    $remotes | ForEach-Object -Process {
+        # BEGIN: TFS/AZDO Exclusion
+        $remoteName = $_
+        $command = "git -C $($repo.Path) remote get-url $remoteName"
+        $url = Invoke-Expression -Command $command
+
+        if ($url -match "tfs.microlise.com" -or $url -match "azdo.microlise.com") {
+            return
+        }
+        $command = "git -C $($repo.Path) fetch $remoteName"
+        # END
+
+        #$command = "git -C $($repo.Path) fetch -all"
+
+        if ($Prune) {
+            $command += " --prune"
+        }
+
+        Invoke-Expression -Command $command | Out-Null
+
     }
-
-    Invoke-Expression -Command $command | Out-Null
 
     $status = ParseGitStatus -RepositoryPath $repo.Path
 
