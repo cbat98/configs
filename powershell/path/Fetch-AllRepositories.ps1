@@ -57,7 +57,7 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
         "Branch" = Invoke-Expression -Command $command
     }
 } | Sort-Object -Property Name `
-| ForEach-Object -Process {
+| ForEach-Object -ThrottleLimit 10 -Parallel {
     $repo = $_
 
     # BEGIN: TFS/AZDO Exclusion
@@ -84,8 +84,11 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
         }
 
         Invoke-Expression -Command $command | Out-Null
-
     }
+
+    return $repo
+} | ForEach-Object -Process {
+    $repo = $_
 
     $status = ParseGitStatus -RepositoryPath $repo.Path
 
