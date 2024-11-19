@@ -83,7 +83,7 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
             $command += " --prune"
         }
 
-        Invoke-Expression -Command $command | Out-Null
+        Invoke-Expression -Command $command *>&1 | out-null
     }
 
     return $repo
