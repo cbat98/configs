@@ -15,44 +15,6 @@
   # --- Meta Options -------------------------------------------
   #
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      prusa-slicer = prev.prusa-slicer.overrideAttrs (old: {
-        version = "2.8.1";
-        src = prev.fetchFromGitHub {
-          owner = "prusa3d";
-          repo = "PrusaSlicer";
-          rev = "version_2.8.1";
-          sha256 = "sha256-nMLZvvZLIOChCLn8A9sOph1lqWsHb00eTG8z98/l0C8=";
-        };
-        buildInputs = old.buildInputs ++ [
-          prev.webkitgtk_4_1
-        ];
-      });
-
-      opencascade-occt_7_6 = prev.opencascade-occt_7_6.overrideAttrs (old: {
-        version = "7.6.1";
-        src = prev.fetchFromGitHub {
-          owner = "Open-Cascade-SAS";
-          repo = "OCCT";
-          rev = "V7_6_1";
-          sha256 = "sha256-C02P3D363UwF0NM6R4D4c6yE5ZZxCcu5CpUaoTOxh7E=";
-        };
-      });
-
-      eigen = prev.eigen.overrideAttrs (old: {
-        name = "eigen-3.3.7";
-        src = prev.fetchurl {
-          url = "https://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz";
-          name = "eigen-3.3.7.tar.gz";
-          sha256 = "1nnh0v82a5xibcjaph51mx06mxbllk77fvihnd5ba0kpl23yz13y";
-        };
-        patches = [ ./include-dir.patch ];
-      });
-
-    })
-  ];
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -121,7 +83,6 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    prusa-slicer
   ];
 
   #
