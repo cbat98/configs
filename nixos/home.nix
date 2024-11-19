@@ -57,7 +57,6 @@ in
         unstable.neovim
         nodejs_20
         pavucontrol
-        unstable.prusa-slicer
         ripgrep
         tldr
         unzip
