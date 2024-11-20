@@ -45,7 +45,7 @@
         src = prev.fetchurl {
           url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.gz";
           name = "eigen-3.3.7.tar.gz";
-          sha256 = "d56fbad95abf993f8af608484729e3d87ef611dd85b3380a8bad1d5cbc373a57 ";
+          sha256 = "sha256-1W+62Vq/mT+K9ghIRynj2H72Ed2FszgKi60dXLw3Olc=";
         };
         patches = [ ./include-dir.patch ];
       });
