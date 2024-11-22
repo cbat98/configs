@@ -2,7 +2,7 @@ Default extrusion width = 0.48mm
   Other extrusion widths = 0mm
 E-Steps calibration
   M92 E412.37
-Z-Offset = -2.30mm
+Z-Offset = -2.35mm
 Solid Layers
   Top = 6
   Bottom = 5
