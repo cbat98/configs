@@ -59,20 +59,13 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 } | ForEach-Object -ThrottleLimit 10 -Parallel {
     $repo = $_
 
-    # BEGIN: TFS/AZDO Exclusion
-    $command = "git -C $($repo.Path) remote"
-    $remotes = Invoke-Expression -Command $command
-    # END
+    $command = "git -C $($repo.Path) fetch --all"
 
-    $remotes | ForEach-Object -Process {
-        $command = "git -C $($repo.Path) fetch -all"
-
-        if ($Prune) {
-            $command += " --prune"
-        }
-
-        Invoke-Expression -Command $command *>&1 | Out-Null
+    if ($Prune) {
+        $command += " --prune"
     }
+
+    Invoke-Expression -Command $command *>&1 | Out-Null
 
     return $repo
 } | Sort-Object -Property name | ForEach-Object -Process {
