@@ -61,10 +61,11 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 
     $command = "git -C $($repo.Path) fetch --all"
 
-    if ($Prune) {
+    if ($using:Prune) {
         $command += " --prune"
     }
 
+write-host -ForegroundColor magenta -Object $command
     Invoke-Expression -Command $command *>&1 | Out-Null
 
     return $repo
