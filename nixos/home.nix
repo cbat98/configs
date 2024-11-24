@@ -15,6 +15,9 @@ in {
       enable = true;
       settings = {
         "$mod" = "SUPER";
+        input = {
+          kb_layout = "gb";
+        };
         monitors = {
           monitor = ",preferred,auto,auto";
         };
