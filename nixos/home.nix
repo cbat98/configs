@@ -40,6 +40,9 @@ in
         };
         terminal = "kitty";
       };
+      extraConfig = ''
+        for_window [title="Volume Control"] floating enable
+      '';
     };
     home = {
       username = "charlie";
