@@ -110,7 +110,6 @@
   };
 
   services.displayManager.defaultSession = "hyprland";
-  services.picom.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -162,10 +161,6 @@
       "wheel"
     ];
   };
-
-  security.pki.certificateFiles = [
-    ./cert.pem
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
