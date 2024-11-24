@@ -96,7 +96,20 @@
   services.openssh.enable = true;
   services.getty.autologinUser = "charlie";
 
-  services.displayManager.defaultSession = "none+i3";
+  services.xserver = {
+    enable = true;
+    videoDrivers = ["intel"];
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
+  };
+
+  services.displayManager.defaultSession = "hyprland";
   services.picom.enable = true;
 
   security.rtkit.enable = true;
@@ -128,6 +141,13 @@
   services.libinput.touchpad.naturalScrolling = true;
 
   services.blueman.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+    };
+  };
 
   #
   # --- User Configuration -------------------------------------
