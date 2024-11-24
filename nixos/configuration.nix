@@ -81,6 +81,8 @@
 
   boot.tmp.cleanOnBoot = true;
 
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
+
   environment.systemPackages = with pkgs; [
     vim
   ];
@@ -123,6 +125,13 @@
         ipv6 = false;
       };
     };
+  };
+
+  services.upower = {
+    enable = true;
+    percentageCritical = 10;
+    percentageAction = 10;
+    criticalPowerAction = "Hibernate";
   };
 
   services.libinput.touchpad.naturalScrolling = true;
