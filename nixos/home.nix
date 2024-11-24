@@ -13,6 +13,47 @@ in {
   home-manager.users.charlie = {pkgs, ...}: {
     wayland.windowManager.hyprland = {
       enable = true;
+      settings = {
+        "$mod" = "SUPER";
+        monitors = {
+          monitor = ",preferred,auto,auto";
+        };
+        bind = [
+          "$mod, Q, exec, kitty"
+        ];
+        general = {
+          "gaps_in" = 5;
+          "gaps_out" = 20;
+          "border_size" = 2;
+          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+          "col.inactive_border" = "rgba(595959aa)";
+          "resize_on_border" = false;
+          "allow_tearing" = false;
+          "layout" = "dwindle";
+        };
+        decoration = {
+          "rounding" = 10;
+
+          "active_opacity" = 1.0;
+          "inactive_opacity" = 1.0;
+
+          shadow = {
+            "enabled" = true;
+            "range" = 4;
+            "render_power" = 3;
+            "color" = "rgba(1a1a1aee)";
+          };
+
+          # https://wiki.hyprland.org/Configuring/Variables/#blur
+          "blur" = {
+            "enabled" = true;
+            "size" = 3;
+            "passes" = 1;
+
+            "vibrancy" = 0.1696;
+          };
+        };
+      };
     };
     home = {
       username = "charlie";
@@ -22,6 +63,8 @@ in {
         alsa-utils
         cargo
         deno
+        dolphin
+        dotnetCorePackages.dotnet_8.sdk
         fastfetch
         fd
         gccgo14
@@ -35,7 +78,8 @@ in {
         ripgrep
         tldr
         unzip
-        dotnetCorePackages.dotnet_8.sdk
+        waybar
+        wofi
       ];
       sessionVariables = {
         GTK_THEME = "Adwaita-dark";
