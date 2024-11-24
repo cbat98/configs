@@ -1,17 +1,17 @@
 # home.nix
-
-{ config, pkgs, ... }:
-
-let
-  unstable = import <nixos-unstable> { };
-  configDir = /home/charlie/repos/configs;
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  unstable = import <nixos-unstable> {};
+  configDir = /home/charlie/repos/configs;
+in {
   imports = [
     <home-manager/nixos>
   ];
 
-  home-manager.users.charlie = { pkgs, ... }: {
+  home-manager.users.charlie = {pkgs, ...}: {
     xsession.windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
@@ -44,10 +44,12 @@ in
         for_window [title="Volume Control"] floating enable
       '';
     };
+
     home = {
       username = "charlie";
       homeDirectory = "/home/charlie";
       packages = with pkgs; [
+        alejandra
         alsa-utils
         cargo
         deno
@@ -58,9 +60,10 @@ in
         lazygit
         lf
         unstable.neovim
+        nixd
         nodejs_20
         pavucontrol
-        unstable.prusa-slicer
+        prusa-slicer
         ripgrep
         tldr
         unzip
@@ -84,8 +87,8 @@ in
           lt = "eza -TL 2";
         };
         initExtra = ''
-          	  eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/material-edit.omp.json)"
-          	'';
+          eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/material-edit.omp.json)"
+        '';
       };
       bat.enable = true;
       btop.enable = true;
@@ -117,9 +120,9 @@ in
           size = 11;
         };
         extraConfig = ''
-                    background_opacity 0.8
-                    enable_audio_bell no
-          	'';
+          background_opacity 0.8
+          enable_audio_bell no
+        '';
       };
     };
   };
