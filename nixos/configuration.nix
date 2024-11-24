@@ -96,16 +96,6 @@
   services.openssh.enable = true;
   services.getty.autologinUser = "charlie";
 
-  services.xserver = {
-    enable = true;
-    windowManager.i3.enable = true;
-    videoDrivers = ["intel"];
-    xkb = {
-      layout = "gb";
-      variant = "";
-    };
-  };
-
   services.displayManager.defaultSession = "none+i3";
   services.picom.enable = true;
 

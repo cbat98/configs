@@ -11,39 +11,6 @@ in {
   ];
 
   home-manager.users.charlie = {pkgs, ...}: {
-    xsession.windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      config = {
-        fonts = {
-          names = [
-            "Monaspace Neon"
-          ];
-          style = "Normal";
-          size = 8.0;
-        };
-        modes = {
-          resize = {
-            Down = "resize grow height 5 px or 5 ppt";
-            Escape = "mode default";
-            Left = "resize shrink width 5 px or 5 ppt";
-            Return = "mode default";
-            Right = "resize grow width 5 px or 5 ppt";
-            Up = "resize shrink height 5 px or 5 ppt";
-          };
-        };
-        modifier = "Mod4";
-        gaps = {
-          inner = 10;
-          outer = 2;
-        };
-        terminal = "kitty";
-      };
-      extraConfig = ''
-        for_window [title="Volume Control"] floating enable
-      '';
-    };
-
     home = {
       username = "charlie";
       homeDirectory = "/home/charlie";
@@ -65,7 +32,6 @@ in {
         ripgrep
         tldr
         unzip
-        xclip
         dotnetCorePackages.dotnet_8.sdk
       ];
       sessionVariables = {
