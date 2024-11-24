@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  unstable = import <nixos-unstable> {};
   configDir = /home/charlie/repos/configs;
 in {
   imports = [
@@ -59,11 +58,10 @@ in {
         jq
         lazygit
         lf
-        unstable.neovim
+        neovim
         nixd
         nodejs_20
         pavucontrol
-        prusa-slicer
         ripgrep
         tldr
         unzip
