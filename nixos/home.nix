@@ -11,6 +11,9 @@ in {
   ];
 
   home-manager.users.charlie = {pkgs, ...}: {
+    wayland.windowManager.hyprland = {
+      enable = true;
+    };
     home = {
       username = "charlie";
       homeDirectory = "/home/charlie";
