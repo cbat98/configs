@@ -1,15 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./home.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./home.nix
+  ];
 
   #
   # --- Meta Options -------------------------------------------
@@ -81,9 +81,10 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.kernelParams = ["mem_sleep_default=deep"];
 
   environment.systemPackages = with pkgs; [
+    prusa-slicer
     vim
   ];
 
@@ -98,7 +99,7 @@
   services.xserver = {
     enable = true;
     windowManager.i3.enable = true;
-    videoDrivers = [ "intel" ];
+    videoDrivers = ["intel"];
     xkb = {
       layout = "gb";
       variant = "";
