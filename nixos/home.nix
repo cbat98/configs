@@ -15,9 +15,6 @@ in {
       enable = true;
       settings = {
         "$mod" = "SUPER";
-        input = {
-          kb_layout = "gb";
-        };
         monitors = {
           monitor = ",preferred,auto,auto";
         };
@@ -89,6 +86,14 @@ in {
         misc = {
           force_default_wallpaper = -1;
           disable_hyprland_logo = false;
+        };
+        input = {
+          kb_layout = "gb";
+          follow_mouse = 1;
+          sensitivity = 0;
+          touchpad = {
+            natural_scroll = false;
+          };
         };
       };
     };
