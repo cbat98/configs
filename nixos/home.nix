@@ -36,8 +36,8 @@ in {
         };
         decoration = {
           rounding = 10;
-          "active_opacity" = 1.0;
-          "inactive_opacity" = 1.0;
+          active_opacity = 1.0;
+          inactive_opacity = 1.0;
           shadow = {
             enabled = true;
             range = 4;
@@ -81,14 +81,14 @@ in {
         };
         dwindle = {
           pseudotile = true;
-          "preserve_split" = true;
+          preserve_split = true;
         };
         master = {
-          "new_status" = "master";
+          new_status = "master";
         };
         misc = {
-          "force_default_wallpaper" = -1;
-          "disable_hyprland_logo" = false;
+          force_default_wallpaper = -1;
+          disable_hyprland_logo = false;
         };
       };
     };
