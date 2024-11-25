@@ -65,7 +65,6 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
         $command += " --prune"
     }
 
-write-host -ForegroundColor magenta -Object $command
     Invoke-Expression -Command $command *>&1 | Out-Null
 
     return $repo
