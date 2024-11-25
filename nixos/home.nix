@@ -18,9 +18,6 @@ in {
         monitors = {
           monitor = ",preferred,auto,auto";
         };
-        bind = [
-          "$mod, Q, exec, kitty"
-        ];
         general = {
           gaps_in = 5;
           gaps_out = 20;
@@ -102,6 +99,9 @@ in {
           name = "epic-mouse-v1";
           sensitivity = -0.5;
         };
+        bind = [
+          "$mod, Q, exec, kitty"
+        ];
       };
     };
     home = {
