@@ -15,9 +15,10 @@ in {
       enable = true;
       settings = {
         "$mod" = "SUPER";
-        monitors = {
-          monitor = ",preferred,auto,auto";
-        };
+        monitor = [
+          "eDP-1,1920x1080,0x0,1"
+          ",preferred,auto,auto"
+        ];
         general = {
           gaps_in = 5;
           gaps_out = 20;
