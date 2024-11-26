@@ -103,9 +103,9 @@ in {
           "$mod, Q, exec, kitty"
           "$mod, C, killactive,"
           "$mod, M, exit,"
-          "$mod, E, exec, $fileManager"
+          "$mod, E, exec, nemo"
           "$mod, V, togglefloating,"
-          "$mod, R, exec, $menu"
+          "$mod, R, exec, wofi --show drun"
           "$mod, P, pseudo, # dwindle"
           "$mod, J, togglesplit, # dwindle"
           "$mod, left, movefocus, l"
@@ -169,7 +169,6 @@ in {
         alsa-utils
         cargo
         deno
-        dolphin
         dotnetCorePackages.dotnet_8.sdk
         fastfetch
         fd
@@ -177,6 +176,7 @@ in {
         jq
         lazygit
         lf
+        nemo
         neovim
         nixd
         nodejs_20
