@@ -103,10 +103,6 @@ in {
   services.xserver = {
     enable = true;
     videoDrivers = ["intel"];
-    # displayManager.gdm = {
-    #   enable = true;
-    #   wayland = true;
-    # };
     xkb = {
       layout = "gb";
       variant = "";
