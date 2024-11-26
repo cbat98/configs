@@ -19,9 +19,13 @@ in {
           "eDP-1,1920x1080,0x0,1"
           ",preferred,auto,auto"
         ];
+        env = [
+          "XCURSOR_SIZE,24"
+          "QT_QPA_PLATFORMTHEME,qt5ct"
+        ];
         general = {
-          gaps_in = 5;
-          gaps_out = 20;
+          gaps_in = 2;
+          gaps_out = 1;
           border_size = 2;
           "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
           "col.inactive_border" = "rgba(595959aa)";
@@ -30,9 +34,13 @@ in {
           layout = "dwindle";
         };
         decoration = {
-          rounding = 10;
+          rounding = 5;
           active_opacity = 1.0;
           inactive_opacity = 1.0;
+          drop_shadow = true;
+          shadow_range = 4;
+          shadow_render_power = 3;
+          "col.shadow" = "rgba(1a1a1aee)";
           shadow = {
             enabled = true;
             range = 4;
@@ -82,37 +90,45 @@ in {
           new_status = "master";
         };
         misc = {
-          force_default_wallpaper = -1;
+          force_default_wallpaper = 1;
           disable_hyprland_logo = false;
         };
         input = {
           kb_layout = "gb";
           follow_mouse = 1;
-          sensitivity = 0;
+          sensitivity = 0.7;
+          accel_profile = "flat";
+          mouse_refocus = 0;
           touchpad = {
-            natural_scroll = false;
+            natural_scroll = true;
+            disable_while_typing = true;
           };
         };
         gestures = {
-          workspace_swipe = false;
+          workspace_swipe = true;
+          workspace_swipe_fingers = 3;
         };
         device = {
-          name = "epic-mouse-v1";
-          sensitivity = -0.5;
+          name = "tpps/2-ibm-trackpoint";
+          sensitivity = 0.3;
         };
         bind = [
-          "$mod, Q, exec, kitty"
-          "$mod, C, killactive,"
-          "$mod, M, exit,"
-          "$mod, E, exec, nemo"
-          "$mod, V, togglefloating,"
-          "$mod, R, exec, wofi --show drun"
-          "$mod, P, pseudo, # dwindle"
-          "$mod, J, togglesplit, # dwindle"
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
+          "$mod, RETURN, exec, $terminal"
+          "$mod, C, killactive, "
+          "$mod, M, exit, "
+          "$mod, E, exec, $fileManager"
+          "$mod, V, togglefloating, "
+          "$mod, R, exec, $menu"
+          "$mod, B, togglesplit, # dwindle"
+          "$mod, F, fullscreen"
+          "$mod, H, movefocus, l"
+          "$mod, J, movefocus, d"
+          "$mod, K, movefocus, u"
+          "$mod, L, movefocus, r"
+          "$mod SHIFT, H, movewindow, l"
+          "$mod SHIFT, J, movewindow, d"
+          "$mod SHIFT, K, movewindow, u"
+          "$mod SHIFT, L, movewindow, r"
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
           "$mod, 3, workspace, 3"
@@ -133,32 +149,11 @@ in {
           "$mod SHIFT, 8, movetoworkspace, 8"
           "$mod SHIFT, 9, movetoworkspace, 9"
           "$mod SHIFT, 0, movetoworkspace, 10"
-          "$mod, S, togglespecialworkspace, magic"
-          "$mod SHIFT, S, movetoworkspace, special:magic"
-          "$mod, mouse_down, workspace, e+1"
-          "$mod, mouse_up, workspace, e-1"
-        ];
-        bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-        ];
-        bindel = [
-          ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-          ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-          ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-        ];
-        bindl = [
-          ", XF86AudioNext, exec, playerctl next"
-          ", XF86AudioPause, exec, playerctl play-pause"
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-        ];
-        windowrulev2 = [
-          "suppressevent maximize, class:.*"
-          "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+          ",XF86AudioLowerVolume, exec, pamixer -d 5"
+          ",XF86AudioRaiseVolume, exec, pamixer -i 5"
+          ",XF86AudioMute, exec, pamixer -t"
+          ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ];
       };
     };
