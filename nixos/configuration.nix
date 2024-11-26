@@ -5,7 +5,11 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  session = "${pkgs.hyprland}/bin/Hyprland";
+  username = "charlie";
+in {
   imports = [
     ./hardware-configuration.nix
     ./home.nix
@@ -99,13 +103,27 @@
   services.xserver = {
     enable = true;
     videoDrivers = ["intel"];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    # displayManager.gdm = {
+    #   enable = true;
+    #   wayland = true;
+    # };
     xkb = {
       layout = "gb";
       variant = "";
+    };
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "${session}";
+        user = "${username}";
+      };
+      default_session = {
+        command = "${tuigreet} --asterisks --remember --remember-user-session --time --cmd ${session}";
+        user = "greeter";
+      };
     };
   };
 
