@@ -184,6 +184,7 @@ in {
         tldr
         unzip
         waybar
+        wl-clipboard
         wofi
       ];
       sessionVariables = {
