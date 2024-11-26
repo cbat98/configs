@@ -15,6 +15,9 @@ in {
       enable = true;
       settings = {
         "$mod" = "SUPER";
+        exec-once = [
+          "waybar"
+        ];
         monitor = [
           "eDP-1,1920x1080,0x0,1"
           ",preferred,auto,auto"
@@ -37,10 +40,6 @@ in {
           rounding = 5;
           active_opacity = 1.0;
           inactive_opacity = 1.0;
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
           shadow = {
             enabled = true;
             range = 4;
@@ -113,13 +112,13 @@ in {
           sensitivity = 0.3;
         };
         bind = [
-          "$mod, RETURN, exec, $terminal"
+          "$mod, RETURN, exec, kitty"
           "$mod, C, killactive, "
           "$mod, M, exit, "
-          "$mod, E, exec, $fileManager"
+          "$mod, E, exec, nemo"
           "$mod, V, togglefloating, "
-          "$mod, R, exec, $menu"
-          "$mod, B, togglesplit, # dwindle"
+          "$mod, R, exec, wofi --show drun"
+          "$mod, B, togglesplit, "
           "$mod, F, fullscreen"
           "$mod, H, movefocus, l"
           "$mod, J, movefocus, d"
