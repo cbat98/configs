@@ -235,7 +235,7 @@ in {
         font = {
           package = pkgs.monaspace;
           name = "Monaspace Neon";
-          size = 11;
+          size = 12;
         };
         extraConfig = ''
           background_opacity 0.8
