@@ -102,6 +102,10 @@ in {
         bind = [
           "$mod, Q, exec, kitty"
         ];
+        bindm = [
+          "$mainMod, mouse:272, movewindow"
+          "$mainMod, mouse:273, resizewindow"
+        ];
       };
     };
     home = {
