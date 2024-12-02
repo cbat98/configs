@@ -183,6 +183,7 @@ in {
         ripgrep
         tldr
         unzip
+        vlc
         wl-clipboard
         wofi
       ];
