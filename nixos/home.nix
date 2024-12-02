@@ -259,10 +259,10 @@ in {
               "hyprland/window"
             ];
             modules-right = [
+              "pulseaudio"
+              "network"
               "battery"
               "clock"
-              "network"
-              "pulseaudio"
             ];
             "battery" = {
               format = "BAT: {capacity}%";
