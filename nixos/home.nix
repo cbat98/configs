@@ -148,8 +148,6 @@ in {
           "$mod SHIFT, 8, movetoworkspace, 8"
           "$mod SHIFT, 9, movetoworkspace, 9"
           "$mod SHIFT, 0, movetoworkspace, 10"
-          ",XF86AudioLowerVolume, exec, pamixer -d 5"
-          ",XF86AudioRaiseVolume, exec, pamixer -i 5"
           ",XF86AudioMute, exec, pamixer -t"
           ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
           ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
@@ -157,6 +155,10 @@ in {
         bindm = [
           "$mod, mouse:272, movewindow"
           "$mod, mouse:273, resizewindow"
+        ];
+        binde = [
+          ",XF86AudioLowerVolume, exec, pamixer -d 2"
+          ",XF86AudioRaiseVolume, exec, pamixer -i 2"
         ];
       };
     };
