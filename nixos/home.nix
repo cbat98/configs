@@ -245,6 +245,7 @@ in {
         enable = true;
         settings = {
           mainBar = {
+            spacing = 20;
             layer = "top";
             position = "top";
             height = 30;
@@ -259,18 +260,26 @@ in {
             ];
             modules-right = [
               "battery"
-              "cpu"
               "clock"
-              "hyprland"
-              "keyboard-state"
-              "load"
-              "memory"
               "network"
               "pulseaudio"
-              "pulseaudio/slider"
-              "upower"
-              "user"
             ];
+            "battery" = {
+              format = "BAT: {capacity}%";
+              weighted-average = true;
+            };
+            "clock" = {
+              interval = 1;
+              format = "{:%H:%M:%S %d/%m/%Y}";
+              tooltip = false;
+            };
+            "network" = {
+              format = "{ipaddr} ({essid})";
+            };
+            "pulseaudio" = {
+              format = "VOL: {volume}%";
+              format-muted = "VOL: MUTE";
+            };
           };
         };
       };
