@@ -180,6 +180,7 @@ in {
         nixd
         nodejs_20
         pavucontrol
+        pamixer
         ripgrep
         tldr
         unzip
