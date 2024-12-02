@@ -249,32 +249,28 @@ in {
             position = "top";
             height = 30;
             output = [
-              "eDP-1"
-              "HDMI-A-1"
+              "*"
             ];
             modules-left = [
               "hyprland/workspaces"
-              "hyprland/submap"
             ];
             modules-center = [
               "hyprland/window"
             ];
             modules-right = [
-              "temperature"
+              "battery"
+              "cpu"
+              "clock"
+              "hyprland"
+              "keyboard-state"
+              "load"
+              "memory"
+              "network"
+              "pulseaudio"
+              "pulseaudio/slider"
+              "upower"
+              "user"
             ];
-
-            "sway/workspaces" = {
-              disable-scroll = true;
-              all-outputs = true;
-            };
-            "custom/hello-from-waybar" = {
-              format = "hello {}";
-              max-length = 40;
-              interval = "once";
-              exec = pkgs.writeShellScript "hello-from-waybar" ''
-                echo "from within waybar"
-              '';
-            };
           };
         };
       };
