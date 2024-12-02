@@ -168,6 +168,7 @@ in {
       packages = with pkgs; [
         alejandra
         alsa-utils
+        brightnessctl
         cargo
         deno
         dotnetCorePackages.dotnet_8.sdk
