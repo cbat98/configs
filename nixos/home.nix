@@ -283,6 +283,7 @@ in {
             "pulseaudio" = {
               format = "VOL: {volume}%";
               format-muted = "VOL: MUTE";
+              on-click = "pavucontrol";
             };
           };
         };
