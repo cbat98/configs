@@ -115,7 +115,7 @@ in {
           "$mod, RETURN, exec, kitty"
           "$mod, C, killactive, "
           "$mod, M, exit, "
-          "$mod, E, exec, nemo"
+          "$mod, E, exec, thunar"
           "$mod, V, togglefloating, "
           "$mod, R, exec, wofi --show drun"
           "$mod, B, togglesplit, "
@@ -175,10 +175,10 @@ in {
         fastfetch
         fd
         gccgo14
+        gnome-icon-theme
         jq
         lazygit
         lf
-        nemo
         neovim
         nixd
         nodejs_20
@@ -190,6 +190,7 @@ in {
         vlc
         wl-clipboard
         wofi
+        xfce.thunar
       ];
       sessionVariables = {
         GTK_THEME = "Adwaita-dark";
