@@ -249,7 +249,7 @@ in {
         enable = true;
         settings = {
           mainBar = {
-            spacing = 20;
+            spacing = 10;
             layer = "top";
             position = "top";
             height = 30;
