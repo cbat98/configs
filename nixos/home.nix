@@ -277,7 +277,7 @@ in {
             };
             "clock" = {
               interval = 1;
-              format = "{:%H:%M:%S %d/%m/%Y}";
+              format = "{:%d/%m/%Y %H:%M:%S}";
               tooltip = false;
             };
             "network" = {
