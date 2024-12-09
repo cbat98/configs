@@ -76,20 +76,6 @@ in {
     powerOnBoot = true;
   };
 
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "HP-Model";
-        location = "Back Room";
-        deviceUri = "usb://...";
-        model = "";
-        ppdOptions = {
-          PageSize = "A4";
-        };
-      }
-    ];
-  };
-
   security.sudo = {
     enable = true;
     extraConfig = ''
