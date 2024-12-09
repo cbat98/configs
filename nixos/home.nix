@@ -185,6 +185,7 @@ in {
         pavucontrol
         pamixer
         ripgrep
+        rquickshare
         simple-scan
         tldr
         unzip
