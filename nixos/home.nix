@@ -185,6 +185,7 @@ in {
         pavucontrol
         pamixer
         ripgrep
+        simple-scan
         tldr
         unzip
         vlc

@@ -76,6 +76,14 @@ in {
     powerOnBoot = true;
   };
 
+  hardware.sane = {
+    enable = true;
+    extraBackends = [
+      pkgs.hplipWithPlugin
+      pkgs.sane-airscan
+    ];
+  };
+
   security.sudo = {
     enable = true;
     extraConfig = ''
@@ -187,7 +195,9 @@ in {
     description = "Charlie B";
     extraGroups = [
       "docker"
+      "lp"
       "networkmanager"
+      "scanner"
       "wheel"
     ];
   };
