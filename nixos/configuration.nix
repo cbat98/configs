@@ -76,6 +76,20 @@ in {
     powerOnBoot = true;
   };
 
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "HP-Model";
+        location = "Back Room";
+        deviceUri = "usb://...";
+        model = "";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+  };
+
   security.sudo = {
     enable = true;
     extraConfig = ''
@@ -160,6 +174,22 @@ in {
     xwayland = {
       enable = true;
     };
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.gutenprint
+      pkgs.gutenprintBin
+      pkgs.hplip
+      pkgs.hplipWithPlugin
+    ];
   };
 
   #
