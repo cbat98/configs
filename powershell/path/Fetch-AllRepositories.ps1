@@ -25,7 +25,14 @@ function ParseGitStatus {
     )
 
     if (-not $commits) {
-        return "<missing>"
+        return [pscustomobject]@{
+            "Path"           = $RepositoryPath
+            "Ahead"          = 0
+            "Behind"         = 0
+            "TrackedEdits"   = 0
+            "UntrackedEdits" = 0
+            "Missing"        = $true
+        }
     }
 
     $splitted = $commits.Substring($branchStatus.Length + 1).Split(" ")
@@ -38,11 +45,30 @@ function ParseGitStatus {
         $behind = [int]$splitted[1] * -1
     }
 
-    if ($trackedEdits + $untrackedEdits + $ahead + $behind -eq 0) {
+    return [pscustomobject]@{
+        "Path"           = $RepositoryPath
+        "Ahead"          = $ahead
+        "Behind"         = $behind
+        "TrackedEdits"   = $trackedEdits
+        "UntrackedEdits" = $untrackedEdits
+        "Missing"        = $false
+    }
+}
+
+function FormatGitStatus {
+    param (
+        [Parameter(Mandatory)][psobject]$Repo
+    )
+
+    if ($Repo.Missing) {
+        return "<missing>"
+    }
+
+    if ($($Repo.trackedEdits) + $($Repo.untrackedEdits) + $($Repo.ahead) + $($Repo.behind) -eq 0) {
         return ""
     }
 
-    return "↑$ahead ↓$behind ~$trackedEdits ?$untrackedEdits"
+    return "↑$($Repo.ahead) ↓$($Repo.behind) ~$($Repo.trackedEdits) ?$($Repo.untrackedEdits)"
 }
 
 return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
@@ -71,7 +97,8 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 } | Sort-Object -Property name | ForEach-Object -Process {
     $repo = $_
 
-    $status = ParseGitStatus -RepositoryPath $repo.Path
+    $augmentedRepo = ParseGitStatus -RepositoryPath $repo.Path
+    $status = FormatGitStatus -Repo $augmentedRepo
 
     Add-Member -InputObject $repo -MemberType NoteProperty -Name "Status" -Value $status
 
