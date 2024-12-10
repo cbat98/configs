@@ -2,6 +2,8 @@ param (
     [Parameter(Mandatory = $false)]
     [switch]$Prune,
     [Parameter(Mandatory = $false)]
+    [switch]$Pull,
+    [Parameter(Mandatory = $false)]
     [string]$MainRepositoryFolder = "$repos"
 )
 
@@ -99,6 +101,24 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 
     $augmentedRepo = ParseGitStatus -RepositoryPath $repo.Path
     $status = FormatGitStatus -Repo $augmentedRepo
+
+    if ($augmentedRepo.Behind -gt 0 -and ($augmentedRepo.TrackedEdits + $augmentedRepo.UntrackedEdits -eq 0)) {
+        if ($Pull) {
+            $command = "git -C $($repo.Path) pull"
+            Invoke-Expression -Command $command *>&1 | Out-Null
+
+            $command = "git -C $($repo.Path) fetch --all"
+
+            if ($Prune) {
+                $command += " --prune"
+            }
+
+            Invoke-Expression -Command $command *>&1 | Out-Null
+
+            $augmentedRepo = ParseGitStatus -RepositoryPath $repo.Path
+            $status = FormatGitStatus -Repo $augmentedRepo
+        }
+    }
 
     Add-Member -InputObject $repo -MemberType NoteProperty -Name "Status" -Value $status
 
