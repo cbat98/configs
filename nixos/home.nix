@@ -184,6 +184,7 @@ in {
         nodejs_20
         pavucontrol
         pamixer
+        qbittorrent
         ripgrep
         rquickshare
         simple-scan
