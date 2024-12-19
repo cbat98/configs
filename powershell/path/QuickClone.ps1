@@ -4,7 +4,7 @@ param (
 )
 
 $repoName = $RepoUrl.Split("/")[-1].Split(".git")[0]
-$repoPath = Join-Path -Path $SourceFolder -ChildPath (Get-Random)
+$repoPath = Join-Path -Path $SourceFolder -ChildPath $("qc-$(Get-Random)")
 
 Write-Host "Repo: $repoName"
 
