@@ -68,6 +68,7 @@ in {
       enable = true;
       allowedTCPPorts = [
         22
+        9100
       ];
     };
     networkmanager.enable = true;
