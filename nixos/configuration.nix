@@ -64,6 +64,12 @@ in {
 
   networking = {
     hostName = "charlie-nixlt";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        22
+      ];
+    };
     networkmanager.enable = true;
     nameservers = [
       "1.1.1.1"
