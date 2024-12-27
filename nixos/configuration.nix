@@ -86,7 +86,7 @@ in {
   hardware.sane = {
     enable = true;
     extraBackends = [
-      pkgs.hplipWithPlugin
+      # pkgs.hplipWithPlugin
       pkgs.sane-airscan
     ];
   };
@@ -188,8 +188,8 @@ in {
     drivers = [
       pkgs.gutenprint
       pkgs.gutenprintBin
-      pkgs.hplip
-      pkgs.hplipWithPlugin
+      # pkgs.hplip
+      # pkgs.hplipWithPlugin
     ];
   };
 
