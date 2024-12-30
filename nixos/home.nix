@@ -186,7 +186,6 @@ in {
         pamixer
         qbittorrent
         ripgrep
-        rquickshare
         simple-scan
         tldr
         unzip
