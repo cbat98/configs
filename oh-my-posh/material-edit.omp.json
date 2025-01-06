@@ -57,7 +57,7 @@
           "properties": {
             "always_enabled": false,
             "style": "austin",
-            "threshold": 1000
+            "threshold": 250
           },
           "style": "plain",
           "template": " {{ .FormattedMs }} ",
