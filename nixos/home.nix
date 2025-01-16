@@ -183,6 +183,7 @@ in {
         nodejs_20
         pavucontrol
         pamixer
+        prusa-slicer
         qbittorrent
         ripgrep
         simple-scan
