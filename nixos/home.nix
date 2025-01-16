@@ -171,7 +171,6 @@ in {
         brightnessctl
         cargo
         deno
-        dotnetCorePackages.dotnet_8.sdk
         fastfetch
         fd
         gccgo14
