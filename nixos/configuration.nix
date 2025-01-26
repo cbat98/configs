@@ -27,9 +27,12 @@ in {
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "daily";
     options = "--delete-older-than 7d";
   };
 
