@@ -148,7 +148,6 @@ in {
       enable = true;
       enabledCollectors = ["systemd"];
     };
-    varnish.enable = true;
   };
 
   services.displayManager.defaultSession = "hyprland";
