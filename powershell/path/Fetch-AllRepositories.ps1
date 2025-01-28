@@ -122,5 +122,10 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
 
     Add-Member -InputObject $repo -MemberType NoteProperty -Name "Status" -Value $status
 
+    $command = "git -C $($repo.Path) branch | Measure-Object | Select-Object -ExpandProperty Count"
+    $localBranchCount = Invoke-Expression -Command $command
+    if ($localBranchCount -eq 1) { $localBranchCount = "" }
+    Add-Member -InputObject $repo -MemberType NoteProperty -Name "LocalBranchCount" -Value $localBranchCount
+
     return $repo
 } | Format-Table -AutoSize
