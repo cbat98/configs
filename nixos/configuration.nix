@@ -198,9 +198,6 @@ in {
   services.printing = {
     enable = true;
     drivers = [
-      pkgs.gutenprint
-      pkgs.gutenprintBin
-      pkgs.hplip
       pkgs.hplipWithPlugin
     ];
   };
