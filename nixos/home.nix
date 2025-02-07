@@ -173,8 +173,10 @@ in {
         deno
         fastfetch
         fd
+        feh
         gccgo14
         gnome-icon-theme
+        inkscape
         jq
         lazygit
         lf
