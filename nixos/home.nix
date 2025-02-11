@@ -195,6 +195,7 @@ in {
         wl-clipboard
         wofi
         xfce.thunar
+        zip
       ];
       sessionVariables = {
         GTK_THEME = "Adwaita-dark";
