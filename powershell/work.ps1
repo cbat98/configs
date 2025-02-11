@@ -10,8 +10,8 @@ function Get-AllFilesTreeDepth {
     Invoke-Expression -Command "eza -TL $depth"
 }
 
-function Start-Neovim {
-    Invoke-Expression -Command "nvim $args"
+function Start-CleanNeovim {
+    Invoke-Expression -Command "nvim --clean $args"
 }
 
 $repos = "D:\repos"
@@ -24,7 +24,7 @@ Set-Alias -Name ll -Value Get-AllFilesAsList
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
 
 if (Get-Command -Name "nvim") {
-    Set-Alias -Name vim -Value Start-Neovim
+    Set-Alias -Name vim -Value Start-CleanNeovim
 }
 
 & 'oh-my-posh.exe' init pwsh --config='D:\repos\misc\configs\oh-my-posh\material-edit.omp.json' | Invoke-Expression
