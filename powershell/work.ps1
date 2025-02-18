@@ -22,6 +22,7 @@ $env:path += ";" + "$configs\powershell\path"
 
 Set-Alias -Name ll -Value Get-AllFilesAsList
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
+Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 
 if (Get-Command -Name "nvim") {
     Set-Alias -Name vim -Value Start-CleanNeovim
