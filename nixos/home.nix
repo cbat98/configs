@@ -174,6 +174,7 @@ in {
         fastfetch
         fd
         feh
+        firefox
         gccgo14
         gnome-icon-theme
         inkscape
@@ -223,12 +224,6 @@ in {
         enable = true;
         enableBashIntegration = true;
         git = true;
-      };
-      firefox = {
-        enable = true;
-        policies = {
-          OfferToSaveLogins = false;
-        };
       };
       git = {
         enable = true;
