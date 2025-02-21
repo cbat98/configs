@@ -1,14 +1,6 @@
-Default extrusion width = 0.48mm
-  Other extrusion widths = 0mm
 E-Steps calibration
   M92 E420
-Z-Offset
- M851 Z-2.32mm
-Solid Layers
-  Top = 6
-  Bottom = 5
 
 Generic PLA
-  Extruder temp = 210
+  Extruder temp = 200
   Bed temp = 60
-  Pressure advance = 0.18
