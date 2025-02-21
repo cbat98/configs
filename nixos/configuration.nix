@@ -108,6 +108,7 @@ in {
   boot.kernelParams = ["mem_sleep_default=deep"];
 
   environment.systemPackages = with pkgs; [
+    google-chrome
     prusa-slicer
     vim
   ];
