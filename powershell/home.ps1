@@ -1,5 +1,5 @@
 function Get-AllFilesAsList {
-    eza -la
+    Invoke-Expression -Command "eza -la"
 }
 
 function Get-AllFilesTreeDepth {
@@ -10,8 +10,8 @@ function Get-AllFilesTreeDepth {
     Invoke-Expression -Command "eza -TL $depth"
 }
 
-function Start-Neovim {
-    Invoke-Expression -Command "nvim $args"
+function Start-CleanNeovim {
+    Invoke-Expression -Command "nvim --clean $args"
 }
 
 $repos = "D:\repos"
@@ -19,13 +19,13 @@ $configs = "$repos\configs"
 
 $env:path += ";" + "$configs\powershell\path"
 
-Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
+Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 
 if (Get-Command -Name "nvim") {
-    Set-Alias -Name vim -Value Start-Neovim
+    Set-Alias -Name vim -Value Start-CleanNeovim
 }
 
-& 'oh-my-posh.exe' init pwsh --config='$configs\oh-my-posh\material-edit.omp.json' | Invoke-Expression
+& 'oh-my-posh.exe' init pwsh --config="$configs\oh-my-posh\material-edit.omp.json" | Invoke-Expression
 
 Write-Host ""
