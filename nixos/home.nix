@@ -171,6 +171,7 @@ in {
         brightnessctl
         cargo
         deno
+        dotnet-sdk_9
         fastfetch
         fd
         feh
