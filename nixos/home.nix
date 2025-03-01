@@ -175,7 +175,6 @@ in {
         fastfetch
         fd
         feh
-        firefox
         gccgo14
         gnome-icon-theme
         inkscape
