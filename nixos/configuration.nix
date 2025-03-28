@@ -69,6 +69,7 @@ in {
 
   networking = {
     hostName = "charlie-nixlt";
+    enableIPv6 = false;
     firewall = {
       enable = true;
       allowedTCPPorts = [
