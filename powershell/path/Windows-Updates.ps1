@@ -1,4 +1,11 @@
-#Requires -RunAsAdministrator
+$currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+$isAdmin = $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+if (-not $isAdmin) {
+    write-host "Re-running script as administrator"
+    sudo pwsh -nologo -noprofile -noninteractive -file $pscommandpath $args
+    return
+}
 
 $logPath = "D:\logs\$(Get-Date -Format 'dd-MM-yy')-UpdateScript.log"
 
