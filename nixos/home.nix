@@ -15,8 +15,13 @@ in {
       enable = true;
       settings = {
         "$mod" = "SUPER";
+        "$terminal" = "kitty";
+        "$fileManager" = "thunar";
         exec-once = [
           "waybar"
+          "nm-applet"
+          "blueman-applet"
+          # Add other autostart programs here, e.g., "dunst" for notifications
         ];
         monitor = [
           "eDP-1,1920x1080,0x0,1"
@@ -25,16 +30,19 @@ in {
         env = [
           "XCURSOR_SIZE,24"
           "QT_QPA_PLATFORMTHEME,qt5ct"
+          "GTK_THEME,Adwaita-dark"
+          "CLUTTER_DEFAULT_THEME,Adwaita-dark"
         ];
         general = {
           gaps_in = 4;
           gaps_out = 8;
-          border_size = 1;
+          border_size = 2;
           "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
           "col.inactive_border" = "rgba(595959aa)";
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
+          apply_sens_to_raw = false;
         };
         decoration = {
           rounding = 5;
@@ -91,6 +99,7 @@ in {
         misc = {
           force_default_wallpaper = 1;
           disable_hyprland_logo = false;
+          focus_on_activate = true;
         };
         input = {
           kb_layout = "gb";
@@ -98,6 +107,8 @@ in {
           sensitivity = 0.7;
           accel_profile = "flat";
           mouse_refocus = 0;
+          repeat_rate = 25;
+          repeat_delay = 600;
           touchpad = {
             natural_scroll = true;
             disable_while_typing = true;
@@ -115,10 +126,10 @@ in {
           "blur, waybar"
         ];
         bind = [
-          "$mod, RETURN, exec, kitty"
+          "$mod, RETURN, exec, $terminal"
           "$mod, C, killactive, "
           "$mod, M, exit, "
-          "$mod, E, exec, thunar"
+          "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating, "
           "$mod, R, exec, wofi --show drun"
           "$mod, B, togglesplit, "
@@ -201,9 +212,6 @@ in {
         xfce.thunar
         zip
       ];
-      sessionVariables = {
-        GTK_THEME = "Adwaita-dark";
-      };
       stateVersion = "24.05";
     };
     programs = {
