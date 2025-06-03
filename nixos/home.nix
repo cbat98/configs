@@ -27,7 +27,6 @@ in {
           "waybar"
           "nm-applet"
           "blueman-applet"
-          # Add other autostart programs here, e.g., "dunst" for notifications
         ];
         monitor = [
           "eDP-1,1920x1080,0x0,1"
@@ -43,7 +42,7 @@ in {
           gaps_in = 4;
           gaps_out = 8;
           border_size = 2;
-          "col.active_border" = "rgba(f92672ff) rgba(a6e22eff) 45deg"; # Red -> Green
+          "col.active_border" = "rgba(f92672ff) rgba(a6e22eff) 45deg";
           "col.inactive_border" = "rgba(75715eff)";
           resize_on_border = false;
           allow_tearing = false;
@@ -270,12 +269,12 @@ in {
             min-height: 0;
           }
           window#waybar {
-            background: #272822; /* Monokai background */
-            color: #f8f8f2; /* Monokai foreground */
+            background: #272822;
+            color: #f8f8f2;
             opacity: 0.9;
           }
           #workspaces {
-            background: #3e3d32; /* Slightly lighter background */
+            background: #3e3d32;
             color: #f8f8f2;
             padding: 0px 10px;
             margin: 3px 5px;
@@ -283,7 +282,7 @@ in {
           }
           #workspaces button {
             padding: 0px 5px;
-            color: #75715e; /* Comment color */
+            color: #75715e;
             background: transparent;
             border: none;
             border-radius: 5px;
@@ -292,7 +291,7 @@ in {
             color: #f8f8f2;
           }
           #workspaces button.occupied {
-            color: #a6e22e; /* Green */
+            color: #a6e22e;
           }
           #window {
             background: transparent;
@@ -301,20 +300,20 @@ in {
             margin: 3px 5px;
           }
           #pulseaudio, #network, #battery, #clock, #cpu, #memory, #idle_inhibitor, #custom-updates {
-            background: #3e3d32; /* Slightly lighter background */
+            background: #3e3d32;
             color: #f8f8f2;
             padding: 0px 10px;
             margin: 3px 5px;
             border-radius: 10px;
           }
           #pulseaudio.muted {
-              color: #f92672; /* Red */
+              color: #f92672;
           }
           #battery.discharging {
-            color: #e6db74; /* Yellow */
+            color: #e6db74;
           }
           #battery.critical:not(.charging) {
-              color: #f92672; /* Red */
+              color: #f92672;
           }
         '';
         settings = {
@@ -385,9 +384,9 @@ in {
       style = ''
         window {
           margin: 0px;
-          border: 2px solid rgba(117, 113, 94, 0.5); /*Comment Color Border*/
-          background-color: rgba(39, 40, 34, 0.9); /* Monokai background */
-          color: #f8f8f2; /* Monokai foreground */
+          border: 2px solid rgba(117, 113, 94, 0.5);
+          background-color: rgba(39, 40, 34, 0.9);
+          color: #f8f8f2;
           font-family: "Monaspace Neon";
           font-size: 14px;
         }
@@ -395,8 +394,8 @@ in {
         #input {
           margin: 5px;
           border: none;
-          color: #f8f8f2; /* Monokai foreground */
-          background-color: rgba(54, 56, 48, 0.9); /*Slightly Lighter Background*/
+          color: #f8f8f2;
+          background-color: rgba(54, 56, 48, 0.9);
           padding: 5px;
         }
 
@@ -413,12 +412,12 @@ in {
         #text {
           margin: 5px;
           border: none;
-          color: #f8f8f2; /* Monokai foreground */
+          color: #f8f8f2;
         }
 
         #entry:selected {
-          background-color: rgba(102, 217, 239, 0.9); /*Blue*/
-          color: #272822; /* Monokai background */
+          background-color: rgba(102, 217, 239, 0.9);
+          color: #272822;
         }
       '';
       settings = {
