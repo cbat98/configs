@@ -199,6 +199,7 @@ in {
         jq
         lazygit
         lf
+        monaspace
         nautilus
         neovim
         nixd
