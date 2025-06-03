@@ -42,7 +42,6 @@ in {
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
-          apply_sens_to_raw = false;
         };
         decoration = {
           rounding = 5;
@@ -208,7 +207,6 @@ in {
         unzip
         vlc
         wl-clipboard
-        wofi
         xfce.thunar
         zip
       ];
@@ -385,6 +383,67 @@ in {
             };
           };
         };
+      };
+    };
+    programs.wofi = {
+      enable = true;
+      style = ''
+        window {
+          margin: 0px;
+          border: 2px solid rgba(100, 114, 125, 0.5);
+          background-color: rgba(30, 30, 30, 0.9);
+          color: #ffffff;
+          font-family: "JetBrainsMono Nerd Font";
+          font-size: 14px;
+        }
+
+        #input {
+          margin: 5px;
+          border: none;
+          color: #ffffff;
+          background-color: rgba(40, 40, 40, 0.9);
+          padding: 5px;
+        }
+
+        #inner-box {
+          margin: 5px;
+          border: none;
+        }
+
+        #scroll {
+          margin: 0px;
+          border: none;
+        }
+
+        #text {
+          margin: 5px;
+          border: none;
+          color: #ffffff;
+        }
+
+        #entry:selected {
+          background-color: rgba(50, 50, 50, 0.9);
+          color: #ffffff;
+        }
+      '';
+      settings = {
+        width = 500; #Width of the window
+        height = 500; #Height of the window
+        # x = 50; #X offset from top left corner of the monitor
+        # y = 50; #Y offset from the top left corner of the monitor
+        anchor = "center"; #Where to anchor wofi window
+        gtk-dark = true; #Use dark theme?
+
+        #Behaviour
+        allow-images = true; #Allow icons for entries.
+        dmenu = true; #Act as a dmenu?
+        sort = true; #Sort entires lexically?
+        insensitive = true; #Case insensitive?
+        matching = "fuzzy"; #Matching algoritm.
+
+        # Other
+        #disable-scroll = false; #Disable the scroll bar?
+        #normal-window = false; #Show wofi window as normal (unmanaged)?
       };
     };
   };
