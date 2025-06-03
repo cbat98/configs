@@ -111,6 +111,9 @@ in {
           name = "tpps/2-ibm-trackpoint";
           sensitivity = 0.3;
         };
+        layerrule = [
+          "blur, waybar"
+        ];
         bind = [
           "$mod, RETURN, exec, kitty"
           "$mod, C, killactive, "
@@ -248,6 +251,73 @@ in {
       };
       waybar = {
         enable = true;
+        style = ''
+          * {
+            border: none;
+            border-radius: 0;
+            font-family: "Monaspace Neon";
+            font-size: 13px;
+            min-height: 0;
+          }
+
+          window#waybar {
+            background: #282a36;
+            color: #f8f8f2;
+            opacity: 0.9;
+            background: rgba(40,42,54,0.8);
+          }
+
+          #workspaces {
+            background: #44475a;
+            color: #f8f8f2;
+            padding: 0px 10px;
+            margin: 3px 5px;
+            border-radius: 10px;
+          }
+
+          #workspaces button {
+            padding: 0px 5px;
+            color: #6272a4;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+          }
+
+          #workspaces button.active {
+            color: #f8f8f2;
+          }
+
+          #workspaces button.occupied {
+            color: #8be9fd;
+          }
+
+          #window {
+            background: transparent;
+            color: #f8f8f2;
+            padding: 0px 10px;
+            margin: 3px 5px;
+          }
+
+          #pulseaudio, #network, #battery, #clock, #cpu, #memory, #tray {
+            background: #44475a;
+            color: #f8f8f2;
+            padding: 0px 10px;
+            margin: 3px 5px;
+            border-radius: 10px;
+          }
+
+          #pulseaudio.muted {
+              color: #ff5555;
+          }
+
+          #battery.discharging {
+            color: #ffb86c;
+          }
+
+          #battery.critical:not(.charging) {
+              color: #ff5555;
+          }
+        '';
         settings = {
           mainBar = {
             spacing = 10;
@@ -267,24 +337,45 @@ in {
               "pulseaudio"
               "network"
               "battery"
+              "cpu"
+              "memory"
               "clock"
             ];
             "battery" = {
-              format = "BAT: {capacity}%";
+              format = " {capacity}%";
+              format-charging = " {capacity}%";
+              format-plugged = " {capacity}%";
+              format-alt = "{time}";
+              states = {
+                warning = 30;
+                critical = 15;
+              };
               weighted-average = true;
             };
             "clock" = {
               interval = 1;
-              format = "{:%d/%m/%Y %H:%M:%S}";
+              format = "󰥔 {:%d/%m/%Y %H:%M:%S}";
               tooltip = false;
             };
             "network" = {
-              format = "{ipaddr} ({essid})";
+              format = "󰤨 {ipaddr} ({essid})";
             };
             "pulseaudio" = {
-              format = "VOL: {volume}%";
-              format-muted = "VOL: MUTE";
+              format = " {volume}%";
+              format-muted = " MUTE";
               on-click = "pavucontrol";
+            };
+            "hyprland/workspaces" = {
+              disable-scroll = true;
+              active-only = false;
+            };
+            "cpu" = {
+              format = "󰍛 {usage}%";
+              interval = 1;
+            };
+            "memory" = {
+              format = "󰍈 {percentage}%";
+              interval = 1;
             };
           };
         };
