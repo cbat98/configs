@@ -6,6 +6,11 @@
 }: let
   configDir = /home/charlie/repos/configs;
   wallpaperUrl = "https://i.redd.it/xjhfbx66k0b91.png";
+  wallpaper = pkgs.fetchurl {
+    url = wallpaperUrl;
+    name = "wallpaper.png";
+    hash = "sha256-B0H0vxJW66TnTDgzQ4JaVqxHfsT4xo0ZcBK3btJ4jr4=";
+  };
 in {
   imports = [
     <home-manager/nixos>
@@ -426,6 +431,14 @@ in {
         sort = true;
         insensitive = true;
         matching = "fuzzy";
+      };
+    };
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        "preload" = ["${wallpaper}"];
+        "wallpaper" = ["eDP-1,${wallpaper}"];
+        "splash" = false;
       };
     };
   };
