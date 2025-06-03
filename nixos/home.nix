@@ -22,7 +22,7 @@ in {
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "kitty";
-        "$fileManager" = "thunar";
+        "$fileManager" = "nautilus";
         exec-once = [
           "waybar"
           "nm-applet"
@@ -200,6 +200,7 @@ in {
         jq
         lazygit
         lf
+        nautilus
         neovim
         nixd
         nodejs_20
@@ -213,7 +214,6 @@ in {
         unzip
         vlc
         wl-clipboard
-        xfce.thunar
         zip
       ];
       stateVersion = "24.05";
