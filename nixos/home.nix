@@ -1,4 +1,3 @@
-# home.nix
 {
   config,
   pkgs,
@@ -190,7 +189,6 @@ in {
         cargo
         deno
         dotnet-sdk_9
-        fastfetch
         fd
         feh
         gccgo14
@@ -201,6 +199,7 @@ in {
         lf
         monaspace
         nautilus
+        neofetch
         neovim
         nixd
         nodejs_20
