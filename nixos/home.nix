@@ -421,8 +421,8 @@ in {
         }
       '';
       settings = {
-        width = 500;
-        height = 500;
+        width = 600;
+        height = 300;
         anchor = "center";
         gtk-dark = true;
         allow-images = true;
