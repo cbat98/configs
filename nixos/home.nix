@@ -211,7 +211,6 @@ in {
         enable = true;
         enableCompletion = true;
         shellAliases = {
-          cat = "bat";
           fs = "du -h --max-depth=1";
           lg = "lazygit";
           ll = "eza -la";
@@ -221,7 +220,6 @@ in {
           eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/material-edit.omp.json)"
         '';
       };
-      bat.enable = true;
       btop.enable = true;
       eza = {
         enable = true;
