@@ -5,6 +5,7 @@
   ...
 }: let
   configDir = /home/charlie/repos/configs;
+  wallpaperUrl = "https://i.redd.it/xjhfbx66k0b91.png";
 in {
   imports = [
     <home-manager/nixos>
