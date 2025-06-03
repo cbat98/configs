@@ -97,8 +97,8 @@ in {
           new_status = "master";
         };
         misc = {
-          force_default_wallpaper = 1;
-          disable_hyprland_logo = false;
+          force_default_wallpaper = -1;
+          disable_hyprland_logo = true;
           focus_on_activate = true;
         };
         input = {
