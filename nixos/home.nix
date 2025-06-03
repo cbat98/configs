@@ -263,63 +263,52 @@ in {
             font-size: 13px;
             min-height: 0;
           }
-
           window#waybar {
-            background: #282a36;
-            color: #f8f8f2;
+            background: #272822; /* Monokai background */
+            color: #f8f8f2; /* Monokai foreground */
             opacity: 0.9;
-            background: rgba(40,42,54,0.8);
           }
-
           #workspaces {
-            background: #44475a;
+            background: #3e3d32; /* Slightly lighter background */
             color: #f8f8f2;
             padding: 0px 10px;
             margin: 3px 5px;
             border-radius: 10px;
           }
-
           #workspaces button {
             padding: 0px 5px;
-            color: #6272a4;
+            color: #75715e; /* Comment color */
             background: transparent;
             border: none;
             border-radius: 5px;
           }
-
           #workspaces button.active {
             color: #f8f8f2;
           }
-
           #workspaces button.occupied {
-            color: #8be9fd;
+            color: #a6e22e; /* Green */
           }
-
           #window {
             background: transparent;
             color: #f8f8f2;
             padding: 0px 10px;
             margin: 3px 5px;
           }
-
-          #pulseaudio, #network, #battery, #clock, #cpu, #memory, #tray {
-            background: #44475a;
+          #pulseaudio, #network, #battery, #clock, #cpu, #memory, #idle_inhibitor, #custom-updates {
+            background: #3e3d32; /* Slightly lighter background */
             color: #f8f8f2;
             padding: 0px 10px;
             margin: 3px 5px;
             border-radius: 10px;
           }
-
           #pulseaudio.muted {
-              color: #ff5555;
+              color: #f92672; /* Red */
           }
-
           #battery.discharging {
-            color: #ffb86c;
+            color: #e6db74; /* Yellow */
           }
-
           #battery.critical:not(.charging) {
-              color: #ff5555;
+              color: #f92672; /* Red */
           }
         '';
         settings = {
@@ -390,18 +379,18 @@ in {
       style = ''
         window {
           margin: 0px;
-          border: 2px solid rgba(100, 114, 125, 0.5);
-          background-color: rgba(30, 30, 30, 0.9);
-          color: #ffffff;
-          font-family: "JetBrainsMono Nerd Font";
+          border: 2px solid rgba(117, 113, 94, 0.5); /*Comment Color Border*/
+          background-color: rgba(39, 40, 34, 0.9); /* Monokai background */
+          color: #f8f8f2; /* Monokai foreground */
+          font-family: "Monaspace Neon";
           font-size: 14px;
         }
 
         #input {
           margin: 5px;
           border: none;
-          color: #ffffff;
-          background-color: rgba(40, 40, 40, 0.9);
+          color: #f8f8f2; /* Monokai foreground */
+          background-color: rgba(54, 56, 48, 0.9); /*Slightly Lighter Background*/
           padding: 5px;
         }
 
@@ -418,32 +407,24 @@ in {
         #text {
           margin: 5px;
           border: none;
-          color: #ffffff;
+          color: #f8f8f2; /* Monokai foreground */
         }
 
         #entry:selected {
-          background-color: rgba(50, 50, 50, 0.9);
-          color: #ffffff;
+          background-color: rgba(102, 217, 239, 0.9); /*Blue*/
+          color: #272822; /* Monokai background */
         }
       '';
       settings = {
-        width = 500; #Width of the window
-        height = 500; #Height of the window
-        # x = 50; #X offset from top left corner of the monitor
-        # y = 50; #Y offset from the top left corner of the monitor
-        anchor = "center"; #Where to anchor wofi window
-        gtk-dark = true; #Use dark theme?
-
-        #Behaviour
-        allow-images = true; #Allow icons for entries.
-        dmenu = true; #Act as a dmenu?
-        sort = true; #Sort entires lexically?
-        insensitive = true; #Case insensitive?
-        matching = "fuzzy"; #Matching algoritm.
-
-        # Other
-        #disable-scroll = false; #Disable the scroll bar?
-        #normal-window = false; #Show wofi window as normal (unmanaged)?
+        width = 500;
+        height = 500;
+        anchor = "center";
+        gtk-dark = true;
+        allow-images = true;
+        dmenu = true;
+        sort = true;
+        insensitive = true;
+        matching = "fuzzy";
       };
     };
   };
