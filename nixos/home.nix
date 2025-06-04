@@ -384,8 +384,8 @@ in {
       style = ''
         window {
           margin: 0px;
-          border: 2px solid rgba(117, 113, 94, 0.5);
-          background-color: rgba(39, 40, 34, 0.9);
+          border: 2px solid rgba(70, 70, 70, 0.5);
+          background-color: #272822;
           color: #f8f8f2;
           font-family: "Monaspace Neon";
           font-size: 14px;
@@ -395,7 +395,7 @@ in {
           margin: 5px;
           border: none;
           color: #f8f8f2;
-          background-color: rgba(54, 56, 48, 0.9);
+          background-color: #3E3D33;
           padding: 5px;
         }
 
@@ -416,7 +416,17 @@ in {
         }
 
         #entry:selected {
-          background-color: rgba(102, 217, 239, 0.9);
+          background-color: #F92672;
+          color: #272822;
+        }
+
+        #entry:active {
+          background-color: #66D9EF; 
+          color: #f8f8f2;
+        }
+
+        #entry:urgent {
+          background-color: #FD971F;
           color: #272822;
         }
       '';
