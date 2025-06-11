@@ -203,8 +203,8 @@ in {
         neovim
         nixd
         nodejs_20
-        pavucontrol
         pamixer
+        pavucontrol
         prusa-slicer
         qbittorrent
         ripgrep
