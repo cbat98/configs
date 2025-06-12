@@ -332,8 +332,8 @@ in {
               "hyprland/window"
             ];
             modules-right = [
-              "pulseaudio"
               "network"
+              "pulseaudio"
               "battery"
               "cpu"
               "memory"
