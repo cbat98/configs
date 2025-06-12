@@ -110,6 +110,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     firefox
+    linux-firmware
     prusa-slicer
     vim
   ];
