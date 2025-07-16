@@ -1,5 +1,6 @@
 return {
   'stevearc/oil.nvim',
+  event='VeryLazy',
   init = function()
     require('oil').setup {
       columns = { 'icon' },
