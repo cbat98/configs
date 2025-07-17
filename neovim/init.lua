@@ -5,5 +5,3 @@ require("config.autocmds")
 require("config.lazy")
 
 require("config.lsp")
-
-print("Hello, world!")
