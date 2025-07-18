@@ -1,5 +1,6 @@
--- Requires C++ compiler on Windows
--- choco install mingw
+-- Requires C/C++ compiler
+-- windows: mingw (via choco)
+-- linux: gcc
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = 'master',
