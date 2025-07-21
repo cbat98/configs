@@ -17,6 +17,26 @@ return {
                         }
                     }
                 })
+                vim.lsp.config('powershell_es', {
+                    settings = {
+                        powershell = {
+                            codeFormatting = {
+                                AddWhitespaceAroundPipe = true,
+                                AutoCorrectAliases = true,
+                                AvoidSemicolonsAsLineTerminators = true,
+                                Preset = 'OTBS',
+                                WhitespaceBeforeOpenBrace = true,
+                                WhitespaceBeforeOpenParen = true,
+                                WhitespaceAroundOperator = true,
+                                WhitespaceAfterSeparator = true,
+                                WhitespaceBetweenParameters = true,
+                                WhitespaceInsideBrace = true,
+                                AlignPropertyValuePairs = true,
+                                UseCorrectCasing = true,
+                            },
+                        }
+                    }
+                })
             end,
         }
     },
