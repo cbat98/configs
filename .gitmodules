@@ -1,6 +1,3 @@
-[submodule "kickstart.nvim"]
-	path = kickstart.nvim
-	url = git@github.com:cbat98/kickstart.nvim.git
 [submodule "wofi"]
 	path = wofi
 	url = ssh://git@github.com/cbat98/wofi.git
