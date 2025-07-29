@@ -16,6 +16,7 @@ return {
     keys = {
         {"<leader>sp", function() require("snacks").picker() end, desc = "[S]earch [P]ickers" },
         {"<leader>sf", function() require("snacks").picker.files() end, desc = "[S]earch [F]iles"},
-        {"<leader>sg", function() require("snacks").picker.grep() end, desc = "[S]earch [G]rep"}
+        {"<leader>sg", function() require("snacks").picker.grep() end, desc = "[S]earch [G]rep"},
+        {"<leader>sr", function() require("snacks").picker.resume() end, desc = "[S]earch [R]esume"}
     }
 }
