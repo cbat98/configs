@@ -4,7 +4,6 @@ return {
     lazy = false,
     opts = {
         bigfile = {},
-        dim = {},
         indent = {
             animate = {
                 enabled = false
