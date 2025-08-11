@@ -18,4 +18,5 @@ $projComplete = (Get-Date).AddSeconds($secondsLeft).ToString("yy-MM-dd HH:mm:ss"
 Write-Host "Completed: $([math]::Round($percentZeroOne * 100, 2))%"
 Write-Host "`nElapsed time: $elapsed"
 
+Write-Host "Estimated remaining time: $([TimeSpan]::FromSeconds($secondsLeft))"
 Write-Host "Estimated completion at:  $projComplete ($([math]::Round($totalSeconds / 100, 2))s per %)"
