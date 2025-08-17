@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   session = "${pkgs.hyprland}/bin/Hyprland";
   username = "charlie";
 in {
@@ -89,14 +89,6 @@ in {
     powerOnBoot = true;
   };
 
-  hardware.sane = {
-    enable = true;
-    extraBackends = [
-      pkgs.hplipWithPlugin
-      pkgs.sane-airscan
-    ];
-  };
-
   security.sudo = {
     enable = true;
     extraConfig = ''
@@ -111,7 +103,6 @@ in {
   environment.systemPackages = with pkgs; [
     firefox
     linux-firmware
-    prusa-slicer
     vim
   ];
 
@@ -146,13 +137,6 @@ in {
     };
   };
 
-  services.prometheus.exporters = {
-    node = {
-      enable = true;
-      enabledCollectors = ["systemd"];
-    };
-  };
-
   services.displayManager.defaultSession = "hyprland";
 
   security.rtkit.enable = true;
@@ -161,17 +145,6 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    daemon = {
-      settings = {
-        userland-proxy = false;
-        experimental = true;
-        ipv6 = false;
-      };
-    };
   };
 
   services.upower = {
@@ -198,13 +171,6 @@ in {
     openFirewall = true;
   };
 
-  services.printing = {
-    enable = true;
-    drivers = [
-      pkgs.hplipWithPlugin
-    ];
-  };
-
   #
   # --- User Configuration -------------------------------------
   #
@@ -213,10 +179,8 @@ in {
     isNormalUser = true;
     description = "Charlie B";
     extraGroups = [
-      "docker"
       "lp"
       "networkmanager"
-      "scanner"
       "wheel"
     ];
   };
