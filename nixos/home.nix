@@ -183,32 +183,19 @@ in {
       username = "charlie";
       homeDirectory = "/home/charlie";
       packages = with pkgs; [
-        alejandra
         alsa-utils
         brightnessctl
-        cargo
-        deno
-        dotnet-sdk_9
         fastfetch
-        fd
         feh
-        gccgo14
         gnome-icon-theme
-        inkscape
         jq
-        lazygit
-        lf
         monaspace
         nautilus
         neovim
-        nixd
-        nodejs_20
         pamixer
         pavucontrol
-        prusa-slicer
         qbittorrent
         ripgrep
-        simple-scan
         tldr
         unzip
         vlc
