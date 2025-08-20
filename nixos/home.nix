@@ -215,7 +215,7 @@ in {
           lt = "eza -TL 2";
         };
         initExtra = ''
-          eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/material-edit.omp.json)"
+          eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
         '';
       };
       btop.enable = true;
@@ -236,7 +236,6 @@ in {
       kitty = {
         enable = true;
         font = {
-          package = pkgs.monaspace;
           name = "Monaspace Neon";
           size = 12;
         };
