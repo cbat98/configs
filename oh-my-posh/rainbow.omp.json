@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "palette": {
+        "superuser": "#DDBB00",
+        "brackets": "#ED6140",
+        "user": "#FFBE28",
+        "at": "#AEC045",
+        "host": "#7AA9A0",
+        "prompt": "#ffffff"
+    },
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "style": "plain",
+                    "template": "{{ if .Root }}[Admin] {{ end }}",
+                    "foreground": "p:superuser",
+                    "type": "session"
+                },
+                {
+                    "style": "plain",
+                    "template": "[<p:user>{{ .UserName }}</><p:at>@</><p:host>{{ .HostName }}</>]<p:prompt>$</> ",
+                    "foreground": "p:brackets",
+                    "type": "session"
+                }
+            ]
+        }
+    ],
+    "version": 3
+}

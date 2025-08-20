@@ -27,6 +27,6 @@ if (Get-Command -Name "nvim") {
     Set-Alias -Name vim -Value Start-CleanNeovim
 }
 
-& 'oh-my-posh.exe' init pwsh --config="$configs\oh-my-posh\material-edit.omp.json" | Invoke-Expression
+& 'oh-my-posh.exe' init pwsh --config="$configs\oh-my-posh\rainbow.omp.json" | Invoke-Expression
 
 Write-Host ""
