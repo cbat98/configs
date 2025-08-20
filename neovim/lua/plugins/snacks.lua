@@ -18,6 +18,8 @@ return {
         {"<leader>sf", function() require("snacks").picker.files() end, desc = "[S]earch [F]iles"},
         {"<leader>sg", function() require("snacks").picker.grep() end, desc = "[S]earch [G]rep"},
         {"<leader>sd", function() require("snacks").picker.diagnostics() end, desc = "[S]earch [D]iagnostics"},
-        {"<leader>sr", function() require("snacks").picker.resume() end, desc = "[S]earch [R]esume"}
+        {"<leader>sr", function() require("snacks").picker.resume() end, desc = "[S]earch [R]esume"},
+        {"<leader>ss", function() require("snacks").picker.lsp_symbols() end, desc = "[S]earch [S]ymbols"},
+        {"<leader>sk", function() require("snacks").picker.keymaps() end, desc = "[S]earch [K]eymaps"}
     }
 }
