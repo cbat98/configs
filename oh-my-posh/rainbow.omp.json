@@ -1,7 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "palette": {
-        "superuser": "#DDBB00",
         "brackets": "#ED6140",
         "user": "#FFBE28",
         "at": "#AEC045",
@@ -15,8 +14,8 @@
             "segments": [
                 {
                     "style": "plain",
-                    "template": "{{ if .Root }}[Admin] {{ end }}",
-                    "foreground": "p:superuser",
+                    "template": "{{ if .Root }}[<p:user>root</>]{{ end }}",
+                    "foreground": "p:brackets",
                     "type": "session"
                 },
                 {
