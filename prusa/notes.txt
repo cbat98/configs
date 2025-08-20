@@ -1,6 +1,0 @@
-E-Steps calibration
-  M92 E420
-
-Generic PLA
-  Extruder temp = 200
-  Bed temp = 60

@@ -1,3 +1,0 @@
-[submodule "wofi"]
-	path = wofi
-	url = ssh://git@github.com/cbat98/wofi.git
