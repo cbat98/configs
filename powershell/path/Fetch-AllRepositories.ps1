@@ -4,6 +4,8 @@ param (
     [Parameter(Mandatory = $false)]
     [switch]$Pull,
     [Parameter(Mandatory = $false)]
+    [switch]$ForcePull,
+    [Parameter(Mandatory = $false)]
     [string]$MainRepositoryFolder = "$repos"
 )
 
@@ -73,6 +75,10 @@ function FormatGitStatus {
     return "↑$($Repo.ahead) ↓$($Repo.behind) ~$($Repo.trackedEdits) ?$($Repo.untrackedEdits)"
 }
 
+if ($ForcePull) {
+    $Pull = $true
+}
+
 return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder `
 | ForEach-Object -Process {
     $repo = $_
@@ -102,8 +108,8 @@ return & $PSScriptRoot\Get-AllRepositories.ps1 -Directory $MainRepositoryFolder 
     $augmentedRepo = ParseGitStatus -RepositoryPath $repo.Path
     $status = FormatGitStatus -Repo $augmentedRepo
 
-    if ($augmentedRepo.Behind -gt 0 -and ($augmentedRepo.TrackedEdits + $augmentedRepo.UntrackedEdits -eq 0)) {
-        if ($Pull) {
+    if ($Pull) {
+        if ($augmentedRepo.Behind -gt 0 -and ($ForcePull -or ($augmentedRepo.TrackedEdits + $augmentedRepo.UntrackedEdits -eq 0))) {
             $command = "git -C $($repo.Path) pull"
             Invoke-Expression -Command $command *>&1 | Out-Null
 
