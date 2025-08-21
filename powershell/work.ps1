@@ -4,10 +4,11 @@ function Get-AllFilesAsList {
 
 function Get-AllFilesTreeDepth {
     param (
-        [Parameter()][string]$depth = 2
+        [Parameter()][string]$Path = "./",
+        [Parameter()][string]$Depth = 2
     )
 
-    Invoke-Expression -Command "eza -TL $depth"
+    Invoke-Expression -Command "eza -TL $depth $Path"
 }
 
 function Start-CleanNeovim {
