@@ -186,6 +186,7 @@ in {
         alsa-utils
         brightnessctl
         fastfetch
+        fd
         feh
         gnome-icon-theme
         jq
