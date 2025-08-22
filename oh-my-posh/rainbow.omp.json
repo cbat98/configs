@@ -4,7 +4,7 @@
     "brackets": "#ED6140",
     "user": "#FFBE28",
     "at": "#AEC045",
-    "host": "#7AA9A0",
+    "host": "#56b0f0",
     "prompt": "#ffffff"
   },
   "blocks": [
@@ -14,7 +14,7 @@
       "segments": [
         {
           "style": "plain",
-          "template": "{{ if .Root }}[<p:user>root</>]{{ end }}",
+          "template": "{{ if .Root }}[root]{{ end }}",
           "foreground": "p:brackets",
           "type": "session"
         },
