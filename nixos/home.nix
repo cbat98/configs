@@ -4,11 +4,11 @@
   ...
 }: let
   configDir = /home/charlie/repos/configs;
-  wallpaperUrl = "https://i.redd.it/xjhfbx66k0b91.png";
+  wallpaperUrl = "https://backiee.com/static/wallpapers/7680x4320/208575.jpg";
   wallpaper = pkgs.fetchurl {
     url = wallpaperUrl;
-    name = "wallpaper.png";
-    hash = "sha256-B0H0vxJW66TnTDgzQ4JaVqxHfsT4xo0ZcBK3btJ4jr4=";
+    name = "mountains.jpg";
+    hash = "sha256-4TyAT60yuQmzsUiIXo5lQogRdnaBmJGSpeLRQyOBsjE=";
   };
 in {
   imports = [
