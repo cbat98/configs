@@ -194,6 +194,7 @@ in {
         nautilus
         neovim
         pamixer
+        gccgo
         pavucontrol
         qbittorrent
         ripgrep
