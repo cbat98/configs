@@ -4,10 +4,11 @@ function Get-AllFilesAsList {
 
 function Get-AllFilesTreeDepth {
     param (
-        [Parameter()][string]$depth = 2
+        [Parameter()][string]$Path = "./",
+        [Parameter()][string]$Depth = 2
     )
 
-    Invoke-Expression -Command "eza -TL $depth"
+    Invoke-Expression -Command "eza -TL $depth $Path"
 }
 
 function Start-CleanNeovim {
@@ -18,6 +19,7 @@ $repos = "D:\repos"
 $configs = "$repos\configs"
 
 $env:path += ";" + "$configs\powershell\path"
+
 
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
 Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
