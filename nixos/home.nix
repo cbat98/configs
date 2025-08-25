@@ -188,13 +188,12 @@ in {
         fastfetch
         fd
         feh
+        gccgo
         gnome-icon-theme
         jq
-        monaspace
         nautilus
         neovim
         pamixer
-        gccgo
         pavucontrol
         qbittorrent
         ripgrep
@@ -238,8 +237,8 @@ in {
       kitty = {
         enable = true;
         font = {
-          name = "Monaspace Neon";
-          size = 12;
+          name = "ComicShannsMono Nerd Font";
+          size = 14;
         };
         extraConfig = ''
           background_opacity 0.8
@@ -252,8 +251,8 @@ in {
           * {
             border: none;
             border-radius: 0;
-            font-family: "Monaspace Neon";
-            font-size: 13px;
+            font-family: "ComicShannsMono Nerd Font";
+            font-size: 14px;
             min-height: 0;
           }
           window#waybar {
@@ -375,7 +374,7 @@ in {
           border: 2px solid rgba(70, 70, 70, 0.5);
           background-color: #272822;
           color: #f8f8f2;
-          font-family: "Monaspace Neon";
+          font-family: "ComicShannsMono Nerd Font Bold";
           font-size: 14px;
         }
 

@@ -106,6 +106,10 @@ in {
     vim
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.comic-shanns-mono
+  ];
+
   #
   # --- Services -----------------------------------------------
   #
