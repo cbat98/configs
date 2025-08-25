@@ -290,7 +290,7 @@ in {
             background: #3e3d32;
             color: #f8f8f2;
             padding: 0px 10px;
-            margin: 3px 5px;
+            margin: 3px 3px;
             border-radius: 10px;
           }
           #pulseaudio.muted {
