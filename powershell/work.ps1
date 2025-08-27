@@ -11,6 +11,16 @@ function Get-AllFilesTreeDepth {
     Invoke-Expression -Command "eza -TL $depth $Path"
 }
 
+function Open-GitRemoteRepo {
+    param (
+        [Parameter()][string]$Remote = "origin",
+        [Parameter()][string]$Path = "./"
+    )
+
+    $remoteUrl = (git -C $path remote get-url $Remote) -replace "ssh://","http://" -replace "22","80"
+    Start-Process -FilePath $remoteUrl
+}
+
 function Start-CleanNeovim {
     Invoke-Expression -Command "nvim --clean $args"
 }
@@ -23,6 +33,7 @@ $env:path += ";" + "$configs\powershell\path"
 
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
 Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
+Set-Alias -Name gitopen -Value Open-GitRemoteRepo
 
 if (Get-Command -Name "nvim") {
     Set-Alias -Name vim -Value Start-CleanNeovim
