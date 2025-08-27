@@ -185,6 +185,7 @@ in {
       packages = with pkgs; [
         alsa-utils
         brightnessctl
+        dnsutils
         fastfetch
         fd
         feh
@@ -193,6 +194,7 @@ in {
         jq
         nautilus
         neovim
+        net-tools
         pamixer
         pavucontrol
         qbittorrent
@@ -211,7 +213,6 @@ in {
         enableCompletion = true;
         shellAliases = {
           fs = "du -h --max-depth=1";
-          lg = "lazygit";
           ll = "eza -la";
           lt = "eza -TL 2";
         };
