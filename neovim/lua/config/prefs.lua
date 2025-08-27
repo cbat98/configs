@@ -35,7 +35,7 @@ vim.o.cursorline = true
 vim.o.scrolloff = 11
 
 -- show color column to indicate line length
-vim.o.colorcolumn = '120'
+vim.o.colorcolumn = '80'
 
 -- disable line wrap
 vim.wo.wrap = false
