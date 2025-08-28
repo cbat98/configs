@@ -287,7 +287,7 @@ in {
             padding: 0px 10px;
             margin: 3px 5px;
           }
-          #pulseaudio, #network, #battery, #clock, #cpu, #memory, #idle_inhibitor, #custom-updates {
+          #pulseaudio, #network, #battery, #clock, #cpu, #memory, #idle_inhibitor, #custom-updates, #tray {
             background: #3e3d32;
             color: #f8f8f2;
             padding: 0px 10px;
@@ -329,6 +329,7 @@ in {
               "cpu"
               "memory"
               "clock"
+              "tray"
             ];
             "battery" = {
               format = " {capacity}%";
@@ -365,6 +366,10 @@ in {
             "memory" = {
               format = "󰍈 {percentage}%";
               interval = 1;
+            };
+            "tray" = {
+              "icon-size" = 18;
+              "spacing" = 9;
             };
           };
         };
