@@ -298,6 +298,9 @@ in {
               color: #f92672;
           }
           #battery.discharging {
+            color: #f8f8f2;
+          }
+          #battery.warning {
             color: #e6db74;
           }
           #battery.critical:not(.charging) {
