@@ -215,6 +215,7 @@ in {
           fs = "du -h --max-depth=1";
           ll = "eza -la";
           lt = "eza -TL 2";
+          please = "sudo";
         };
         initExtra = ''
           eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
