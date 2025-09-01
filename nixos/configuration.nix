@@ -176,6 +176,11 @@ in {
     openFirewall = true;
   };
 
+  services.prometheus.exporters.node = {
+    enable = true;
+    enabledCollectors = [ "systemd" "processes" ];
+  };
+
   virtualisation.podman.enable = true;
 
   #
