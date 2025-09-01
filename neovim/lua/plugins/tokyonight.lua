@@ -3,7 +3,8 @@ return {
   lazy = false,
   event = 'VeryLazy',
   opts = {
-      style = 'night'
+      style = 'night',
+      transparent = true
   },
   init = function()
       vim.cmd.colorscheme 'tokyonight'
