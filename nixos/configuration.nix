@@ -104,6 +104,7 @@ in {
     firefox
     linux-firmware
     vim
+    podman-compose
   ];
 
   fonts.packages = with pkgs; [
@@ -174,6 +175,8 @@ in {
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  virtualisation.podman.enable = true;
 
   #
   # --- User Configuration -------------------------------------
