@@ -246,6 +246,20 @@ in {
           enable_audio_bell no
         '';
       };
+      tmux = {
+        enable = true;
+        prefix = "C-SPACE";
+        baseIndex = 1;
+        extraConfig = ''
+          set -g mode-keys vi
+          set -g status-position top
+          set -g status-justify left
+          set -g status-style "bg=default"
+          set -g status-left "TMUX: "
+          set -g window-status-current-style "fg=blue bold"
+          set -g status-right ""
+        '';
+      };
       waybar = {
         enable = true;
         style = ''
