@@ -8,6 +8,9 @@ return {
         {
             'neovim/nvim-lspconfig',
             init = function()
+                vim.lsp.config('ansiblels', {
+                    filetypes = { 'yaml.ansible', 'yml', 'yaml', 'ansible' }
+                })
                 vim.lsp.config('lua_ls', {
                     settings = {
                         Lua = {
