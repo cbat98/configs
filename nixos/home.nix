@@ -194,6 +194,7 @@ in {
         nautilus
         neovim
         net-tools
+        oh-my-posh
         pamixer
         pavucontrol
         qbittorrent
