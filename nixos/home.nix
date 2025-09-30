@@ -116,10 +116,6 @@ in {
             disable_while_typing = true;
           };
         };
-        gestures = {
-          workspace_swipe = true;
-          workspace_swipe_fingers = 3;
-        };
         device = {
           name = "tpps/2-ibm-trackpoint";
           sensitivity = 0.3;
