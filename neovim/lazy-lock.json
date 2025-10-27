@@ -1,4 +1,5 @@
 {
+  "brainrot.nvim": { "branch": "main", "commit": "37988c5a05dd2f0b67023686211a684c5748e850" },
   "gitsigns.nvim": { "branch": "main", "commit": "20ad4419564d6e22b189f6738116b38871082332" },
   "lazy.nvim": { "branch": "main", "commit": "db067881fff0fd4be8c00e5bde7492e0e1c77a2f" },
   "leap.nvim": { "branch": "main", "commit": "08bb930661843731f42b3a792166482781f1c808" },
