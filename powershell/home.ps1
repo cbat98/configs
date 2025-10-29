@@ -21,6 +21,10 @@ function Open-GitRemoteRepo {
     Start-Process -FilePath $remoteUrl
 }
 
+function Git-Status {
+    Invoke-Expression -Command "git status"
+}
+
 function Start-CleanNeovim {
     Invoke-Expression -Command "nvim --clean $args"
 }
@@ -34,6 +38,7 @@ $env:path += ";" + "$configs\powershell\path"
 Set-Alias -Name lt -Value Get-AllFilesTreeDepth
 Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 Set-Alias -Name gitopen -Value Open-GitRemoteRepo
+Set-Alias -Name gs -Value Git-Status
 
 if (Get-Command -Name "nvim") {
     Set-Alias -Name vim -Value Start-CleanNeovim
