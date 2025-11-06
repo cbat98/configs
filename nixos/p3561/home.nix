@@ -20,6 +20,8 @@ in {
   ];
 
   home-manager.users.charlie = {pkgs, ...}: {
+    nixpkgs.config.allowUnfree = true;
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -181,10 +183,10 @@ in {
         alsa-utils
         brightnessctl
         fastfetch
-        firefox
         fd
         feh
         gccgo
+        google-chrome
         gnome-icon-theme
         jq
         nautilus
