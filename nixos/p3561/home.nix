@@ -15,6 +15,10 @@ in {
     <home-manager/nixos>
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.comic-shanns-mono
+  ];
+
   home-manager.users.charlie = {pkgs, ...}: {
     wayland.windowManager.hyprland = {
       enable = true;
