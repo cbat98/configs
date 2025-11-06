@@ -216,7 +216,7 @@ in {
           please = "sudo";
         };
         initExtra = ''
-          eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
+          eval "$(oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
         '';
       };
       btop.enable = true;
