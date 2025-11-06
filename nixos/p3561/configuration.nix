@@ -68,7 +68,7 @@ in {
   console.keyMap = "uk";
 
   networking = {
-    hostName = "charlie-lt";
+    hostName = "charlie-nixlt02";
     enableIPv6 = false;
     firewall = {
       enable = true;
