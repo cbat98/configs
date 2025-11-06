@@ -211,6 +211,7 @@ in {
         enableCompletion = true;
         shellAliases = {
           fs = "du -h --max-depth=1";
+          gs = "git status";
           ll = "eza -la";
           lt = "eza -TL 2";
           please = "sudo";
