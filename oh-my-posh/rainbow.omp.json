@@ -6,6 +6,7 @@
     "user": "#FFBE28",
     "at": "#6BC26C",
     "host": "#56b0f0",
+    "directory": "#9D48B3",
     "prompt": "#ffffff"
   },
   "blocks": [
@@ -14,16 +15,28 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "session",
           "style": "plain",
           "template": "{{ if .Root }}[root]{{ end }}",
-          "foreground": "p:brackets",
-          "type": "session"
+          "foreground": "p:brackets"
         },
         {
+          "type": "text",
           "style": "plain",
-          "template": "[<p:user>{{ .UserName }}</><p:at>@</><p:host>{{ .HostName }}</>]<p:prompt>$</> ",
-          "foreground": "p:brackets",
-          "type": "session"
+          "template": "[",
+          "foreground": "p:brackets"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "template": "<p:user>{{ .UserName }}</><p:at>@</><p:host>{{ .HostName }}</>",
+          "foreground": "p:brackets"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "]<p:prompt>$</> ",
+          "foreground": "p:brackets"
         }
       ]
     }
