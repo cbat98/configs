@@ -49,6 +49,8 @@ in {
   # --- System Config ------------------------------------------
   #
 
+  hardware.nvidia.open = true;
+
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -110,7 +112,7 @@ in {
 
   services.xserver = {
     enable = true;
-    videoDrivers = ["intel"];
+    videoDrivers = ["intel" "nvidia"];
     xkb = {
       layout = "gb";
       variant = "";
