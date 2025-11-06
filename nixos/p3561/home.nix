@@ -197,6 +197,7 @@ in {
         pavucontrol
         qbittorrent
         ripgrep
+        steam
         tldr
         unzip
         vlc
