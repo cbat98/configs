@@ -186,8 +186,8 @@ in {
         fd
         feh
         gccgo
-        google-chrome
         gnome-icon-theme
+        google-chrome
         jq
         nautilus
         neovim
