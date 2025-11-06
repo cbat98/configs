@@ -50,6 +50,7 @@ in {
   #
 
   hardware.nvidia.open = true;
+  hardware.graphics.enable = true;
 
   time.timeZone = "Europe/London";
 

@@ -19,6 +19,8 @@ in {
     nerd-fonts.comic-shanns-mono
   ];
 
+  programs.steam.enable = true;
+
   home-manager.users.charlie = {pkgs, ...}: {
     nixpkgs.config.allowUnfree = true;
 
@@ -197,7 +199,6 @@ in {
         pavucontrol
         qbittorrent
         ripgrep
-        steam
         tldr
         unzip
         vlc
