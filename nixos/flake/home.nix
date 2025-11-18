@@ -212,9 +212,9 @@ in {
           lt = "eza -TL 2";
           please = "sudo";
         };
-        initExtra = ''
-          eval "$(oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
-        '';
+        # initExtra = ''
+        #   eval "$(oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
+        # '';
       };
       btop.enable = true;
       eza = {
