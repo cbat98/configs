@@ -367,7 +367,7 @@ in {
               format = "󰤨 {ipaddr} ({essid})";
             };
             "pulseaudio" = {
-              format = " {volume}%";
+              format = "  {volume}%";
               format-muted = " MUTE";
               on-click = "pavucontrol";
             };
