@@ -16,7 +16,7 @@ in {
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.comic-shanns-mono
+    nerd-fonts.recursive-mono
   ];
 
   programs.steam.enable = true;
@@ -240,8 +240,8 @@ in {
       kitty = {
         enable = true;
         font = {
-          name = "ComicShannsMono Nerd Font";
-          size = 14;
+          name = "Recursive Mono";
+          size = 12;
         };
         extraConfig = ''
           background_opacity 0.8
@@ -268,7 +268,7 @@ in {
           * {
             border: none;
             border-radius: 0;
-            font-family: "ComicShannsMono Nerd Font";
+            font-family: "Recursive Mono";
             font-size: 14px;
             min-height: 0;
           }
@@ -399,7 +399,7 @@ in {
           border: 2px solid rgba(70, 70, 70, 0.5);
           background-color: #272822;
           color: #f8f8f2;
-          font-family: "ComicShannsMono Nerd Font Bold";
+          font-family: "Recursive Mono";
           font-size: 14px;
         }
 
