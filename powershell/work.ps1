@@ -17,13 +17,21 @@ function Open-GitRemoteRepo {
         [Parameter()][string]$Path = "./"
     )
 
-    $remoteUrl = (git -C $path remote get-url $Remote) -replace "ssh://","http://" -replace "22","80"
+    $remoteUrl = (git -C $path remote get-url $Remote) -replace "ssh://", "http://" -replace "22", "80"
     Start-Process -FilePath $remoteUrl
 }
 
 function Git-Status {
     Invoke-Expression -Command "git status"
 }
+
+function Git-Wrapper {
+    param (
+        [Parameter()][string]$Command
+    )
+
+    Invoke-Expression -Command "git $Command"
+ }
 
 function Start-CleanNeovim {
     Invoke-Expression -Command "nvim --clean $args"
@@ -39,6 +47,7 @@ Set-Alias -Name lt -Value Get-AllFilesTreeDepth
 Set-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 Set-Alias -Name gitopen -Value Open-GitRemoteRepo
 Set-Alias -Name gs -Value Git-Status
+Set-Alias -Name g -Value Git-Wrapper
 
 if (Get-Command -Name "nvim") {
     Set-Alias -Name vim -Value Start-CleanNeovim
