@@ -1,5 +1,5 @@
 return {
-  'ggandor/leap.nvim',
+  url = 'https://codeberg.org/andyg/leap.nvim',
   event = 'VeryLazy',
   config = function()
     vim.keymap.set('n', 's', '<Plug>(leap-forward)')
