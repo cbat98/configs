@@ -56,12 +56,6 @@ in {
             "render_power" = 3;
             color = "rgba(00000099)";
           };
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 1;
-            vibrancy = 0.1696;
-          };
         };
         animations = {
           enabled = true;
@@ -116,9 +110,6 @@ in {
             disable_while_typing = true;
           };
         };
-        layerrule = [
-          "blur, waybar"
-        ];
         bind = [
           "$mod, RETURN, exec, $terminal"
           "$mod, C, killactive, "
