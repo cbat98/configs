@@ -16,8 +16,6 @@ in {
   programs.steam.enable = true;
 
   home-manager.users.charlie = {pkgs, ...}: {
-    nixpkgs.config.allowUnfree = true;
-
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -224,7 +222,7 @@ in {
       };
       git = {
         enable = true;
-        extraConfig = {
+        settings = {
           user.name = "Charlie B";
           user.email = "charlie@charliebatten.co.uk";
           pull.rebase = true;
