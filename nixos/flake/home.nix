@@ -2,12 +2,6 @@
 
 let
   configDir = /home/charlie/repos/configs;
-  wallpaperUrl = "https://backiee.com/static/wallpapers/7680x4320/208575.jpg";
-  wallpaper = pkgs.fetchurl {
-    url = wallpaperUrl;
-    name = "mountains.jpg";
-    hash = "sha256-4TyAT60yuQmzsUiIXo5lQogRdnaBmJGSpeLRQyOBsjE=";
-  };
 in {
   fonts.packages = with pkgs; [
     nerd-fonts.recursive-mono
@@ -437,14 +431,6 @@ in {
         sort = true;
         insensitive = true;
         matching = "fuzzy";
-      };
-    };
-    services.hyprpaper = {
-      enable = true;
-      settings = {
-        "preload" = ["${wallpaper}"];
-        "wallpaper" = [",${wallpaper}"];
-        "splash" = false;
       };
     };
   };
