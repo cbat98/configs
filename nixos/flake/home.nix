@@ -24,6 +24,7 @@ in {
         exec-once = [
           "waybar"
           "nm-applet"
+          "hyprlauncher -d"
         ];
         monitor = [
           "eDP-1,1920x1080@60,0x0,1"
@@ -115,7 +116,7 @@ in {
           "$mod, M, exit, "
           "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating, "
-          "$mod, R, exec, wofi --show drun"
+          "$mod, R, exec, hyprlauncher"
           "$mod, B, togglesplit, "
           "$mod, F, fullscreen"
           "$mod, H, movefocus, l"
@@ -187,6 +188,7 @@ in {
         vlc
         wl-clipboard
         zip
+        inputs.hyprlauncher.packages.${pkgs.system}.hyprlauncher
       ];
       stateVersion = "24.05";
     };
@@ -374,69 +376,27 @@ in {
         };
       };
     };
-    programs.wofi = {
-      enable = true;
-      style = ''
-        window {
-          margin: 0px;
-          border: 2px solid rgba(70, 70, 70, 0.5);
-          background-color: #272822;
-          color: #f8f8f2;
-          font-family: "Recursive Mono";
-          font-size: 14px;
-        }
 
-        #input {
-          margin: 5px;
-          border: none;
-          color: #f8f8f2;
-          background-color: #3E3D33;
-          padding: 5px;
-        }
+    xdg.configFile."hypr/hyprlauncher.conf".text = ''
+      general {
+        // ...
+      }
 
-        #inner-box {
-          margin: 5px;
-          border: none;
-        }
+      ui {
+        window_size = 500 350
+        font_family = Recursive Mono
+        font_size = 14
+      }
 
-        #scroll {
-          margin: 0px;
-          border: none;
-        }
-
-        #text {
-          margin: 5px;
-          border: none;
-          color: #f8f8f2;
-        }
-
-        #entry:selected {
-          background-color: #F92672;
-          color: #272822;
-        }
-
-        #entry:active {
-          background-color: #66D9EF; 
-          color: #f8f8f2;
-        }
-
-        #entry:urgent {
-          background-color: #FD971F;
-          color: #272822;
-        }
-      '';
-      settings = {
-        width = 600;
-        height = 300;
-        anchor = "center";
-        gtk-dark = true;
-        allow-images = true;
-        dmenu = true;
-        sort = true;
-        insensitive = true;
-        matching = "fuzzy";
-      };
-    };
+      style {
+        background_color = rgba(272822ff)
+        text_color = rgba(f8f8f2ff)
+        selection_color = rgba(f92672ff)
+        selection_text_color = rgba(272822ff)
+        border_color = rgba(75715eff)
+        border_size = 2
+      }
+    '';
     services.hyprpaper = {
       enable = true;
       settings = {
