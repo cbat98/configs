@@ -14,7 +14,7 @@ in {
   home-manager.users.charlie = {pkgs, ...}: {
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "kitty";
@@ -186,7 +186,7 @@ in {
         vlc
         wl-clipboard
         zip
-        inputs.hyprlauncher.packages.${pkgs.system}.hyprlauncher
+        inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
       ];
       stateVersion = "24.05";
     };
