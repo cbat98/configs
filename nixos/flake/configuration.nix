@@ -6,7 +6,7 @@
 
 let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --remember --remember-user-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-  session = "${config.programs.hyprland.package}/bin/Hyprland";
+  session = "${config.programs.hyprland.package}/bin/start-hyprland";
   username = "charlie";
 in {
   imports = [ # Include the results of the hardware scan.
