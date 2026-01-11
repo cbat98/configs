@@ -5,8 +5,8 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  session = "${pkgs.hyprland}/bin/Hyprland";
+  tuigreet = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --remember --remember-user-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+  session = "${config.programs.hyprland.package}/bin/Hyprland";
   username = "charlie";
 in {
   imports = [ # Include the results of the hardware scan.
@@ -141,7 +141,7 @@ in {
         user = "${username}";
       };
       default_session = {
-        command = "${tuigreet} --asterisks --remember --remember-user-session --time --cmd ${session}";
+        command = "${tuigreet} --cmd ${session}";
         user = "greeter";
       };
     };
