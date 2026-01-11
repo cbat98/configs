@@ -11,8 +11,14 @@ let
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./home.nix
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      charlie = import ./home.nix;
+    };
+  };
 
   #
   # --- Meta Options -------------------------------------------
@@ -101,6 +107,8 @@ in {
   boot.tmp.cleanOnBoot = true;
 
   boot.kernelParams = ["mem_sleep_default=deep"];
+
+  programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
     linux-firmware
