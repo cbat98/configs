@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, inputs, ... }: 
 
 let
   configDir = /home/charlie/repos/configs;
@@ -18,6 +18,7 @@ in {
   home-manager.users.charlie = {pkgs, ...}: {
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "kitty";
