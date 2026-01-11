@@ -7,9 +7,7 @@ let
     sha256 = "0cdjh4il7lg2ln993641frv13222cn75x228n6rhkf9jmm7q0g71";
   };
 in {
-  fonts.packages = with pkgs; [
-    nerd-fonts.recursive-mono
-  ];
+
 
   programs.steam.enable = true;
 
@@ -224,10 +222,7 @@ in {
       };
       kitty = {
         enable = true;
-        font = {
-          name = "Recursive Mono";
-          size = 12;
-        };
+
         extraConfig = ''
           background_opacity 0.8
           enable_audio_bell no
@@ -253,7 +248,7 @@ in {
           * {
             border: none;
             border-radius: 0;
-            font-family: "Recursive Mono";
+
             font-size: 14px;
             min-height: 0;
           }
@@ -384,7 +379,7 @@ in {
 
       ui {
         window_size = 500 350
-        font_family = Recursive Mono
+
         font_size = 14
       }
 
