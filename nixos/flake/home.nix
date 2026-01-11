@@ -166,6 +166,7 @@ in {
       homeDirectory = "/home/charlie";
       packages = with pkgs; [
         alsa-utils
+        antigravity
         brightnessctl
         fastfetch
         fd
