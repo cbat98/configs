@@ -2,6 +2,10 @@
 
 let
   configDir = /home/charlie/repos/configs;
+  wallpaper = pkgs.fetchurl {
+    url = "https://backiee.com/static/wallpapers/7680x4320/208575.jpg";
+    sha256 = "0cdjh4il7lg2ln993641frv13222cn75x228n6rhkf9jmm7q0g71";
+  };
 in {
   fonts.packages = with pkgs; [
     nerd-fonts.recursive-mono
@@ -431,6 +435,16 @@ in {
         sort = true;
         insensitive = true;
         matching = "fuzzy";
+      };
+    };
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        wallpaper = {
+          monitor = "";
+          path = "${wallpaper}";
+          fit_mode = "cover";
+        };
       };
     };
   };
