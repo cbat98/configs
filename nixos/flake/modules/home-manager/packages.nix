@@ -11,6 +11,7 @@
     gccgo
     gnome-icon-theme
     google-chrome
+    nerd-fonts.caskaydia-cove
     jq
     nautilus
     neovim
