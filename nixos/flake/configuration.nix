@@ -62,6 +62,8 @@ in {
 
   hardware.nvidia.open = true;
   hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   time.timeZone = "Europe/London";
 
@@ -129,6 +131,7 @@ in {
 
   services.resolved.enable = true;
   services.openssh.enable = true;
+  services.blueman.enable = true;
 
   services.getty.autologinUser = "charlie";
 
