@@ -32,6 +32,7 @@
 
     extraConfig = ''
       font_family CaskaydiaCove Nerd Font
+      font_size 13.0
       background_opacity 0.8
       enable_audio_bell no
     '';
