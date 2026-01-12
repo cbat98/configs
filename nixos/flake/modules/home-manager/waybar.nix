@@ -98,15 +98,15 @@
         };
 
         "network" = {
-          format-wifi = "   {essid}";
-          format-ethernet = "󰈀   {ipaddr}";
-          format-disconnected = "󰤮   Disconnected";
+          format-wifi = "  {essid}";
+          format-ethernet = "󰈀  {ipaddr}";
+          format-disconnected = "󰤮  Disconnected";
           tooltip-format = "{ifname} via {gwaddr}";
         };
 
         "pulseaudio" = {
-          format = "{icon}   {volume}%";
-          format-muted = "󰝟   MUTE";
+          format = "{icon}  {volume}%";
+          format-muted = "󰝟  MUTE";
           format-icons = {
             default = [ "󰕿" "󰖀" "󰕾" ];
           };
@@ -114,7 +114,7 @@
         };
 
         "backlight" = {
-          format = "{icon}   {percent}%";
+          format = "{icon}  {percent}%";
           format-icons = [ "󰃞" "󰃟" "󰃠" ];
         };
 
@@ -123,25 +123,25 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}   {capacity}%";
-          format-charging = "󰂄   {capacity}%";
-          format-plugged = "󰂄   {capacity}%";
+          format = "{icon}  {capacity}%";
+          format-charging = "󰂄  {capacity}%";
+          format-plugged = "󰂄  {capacity}%";
           format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
 
         "cpu" = {
-          format = "󰍛   {usage}%";
+          format = "󰍛  {usage}%";
           interval = 2;
         };
 
         "memory" = {
-          format = "󰍈   {percentage}%";
+          format = "󰍈  {percentage}%";
           interval = 2;
         };
 
         "clock" = {
-          format = "󰥔   {:%H:%M}";
-          format-alt = "󰃭   {:%d/%m/%Y}";
+          format = "󰥔  {:%H:%M}";
+          format-alt = "󰃭  {:%d/%m/%Y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 
