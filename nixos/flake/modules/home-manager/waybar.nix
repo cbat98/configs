@@ -7,7 +7,7 @@
       * {
         border: none;
         border-radius: 0;
-        font-family: "CaskaydiaCove Nerd Font";
+        font-family: "Inter", "CaskaydiaCove Nerd Font", sans-serif;
         font-size: 14px;
         min-height: 0;
       }
