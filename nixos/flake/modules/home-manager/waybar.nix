@@ -16,7 +16,7 @@
         color: #f8f8f2;
       }
       #workspaces {
-        background: #3e3d32;
+        background: #424137;
         margin: 4px 4px;
         padding: 0px 5px;
         border-radius: 10px;
@@ -34,14 +34,14 @@
       #window {
         margin: 4px 4px;
         padding: 0px 10px;
-        background: #3e3d32;
+        background: #424137;
         border-radius: 10px;
       }
       #network, #pulseaudio, #backlight, #battery, #cpu, #memory, #clock, #tray {
         padding: 0px 10px;
       }
       .modules-right > widget > box {
-        background: #3e3d32;
+        background: #424137;
         margin: 4px 2px;
         padding: 0px 5px;
         border-radius: 10px;
