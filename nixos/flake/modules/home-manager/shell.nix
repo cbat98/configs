@@ -11,9 +11,12 @@
       lt = "eza -TL 2";
       please = "sudo";
     };
-    # initExtra = ''
-    #   eval "$(oh-my-posh init bash --config ${configDir}/oh-my-posh/rainbow.omp.json)"
-    # '';
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableBashIntegration = true;
+    configFile = "/home/charlie/repos/configs/oh-my-posh/rainbow.omp.json";
   };
   
   programs.btop.enable = true;

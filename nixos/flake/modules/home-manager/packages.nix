@@ -16,7 +16,6 @@
     nautilus
     neovim
     nettools
-    oh-my-posh
     pamixer
     pavucontrol
     qbittorrent
