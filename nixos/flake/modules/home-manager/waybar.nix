@@ -140,9 +140,10 @@
         };
 
         "clock" = {
-          format = "󰥔  {:%H:%M}";
+          format = "󰥔  {:%H:%M:%S}";
           format-alt = "󰃭  {:%d/%m/%Y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          interval = 1;
         };
 
         "tray" = {
