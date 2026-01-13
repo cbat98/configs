@@ -14,6 +14,7 @@
     inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
     inter
     jq
+    magic-wormhole
     nautilus
     neovim
     nerd-fonts.caskaydia-cove
