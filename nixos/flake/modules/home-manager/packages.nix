@@ -11,11 +11,12 @@
     gccgo
     gnome-icon-theme
     google-chrome
+    inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
     inter
-    nerd-fonts.caskaydia-cove
     jq
     nautilus
     neovim
+    nerd-fonts.caskaydia-cove
     nettools
     pamixer
     pavucontrol
@@ -26,6 +27,5 @@
     vlc
     wl-clipboard
     zip
-    inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
   ];
 }
