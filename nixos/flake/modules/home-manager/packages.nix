@@ -6,6 +6,7 @@
     antigravity
     brightnessctl
     fastfetch
+    fastmod
     fd
     feh
     gccgo

@@ -11,6 +11,13 @@
       lt = "eza -TL 2";
       please = "sudo";
     };
+
+    initExtra = ''
+      tw() {
+          local dir="''${1:-.}"
+          fastmod '[ \t]+$' ''' --dir "$dir"
+      }
+    '';
   };
 
   programs.oh-my-posh = {
