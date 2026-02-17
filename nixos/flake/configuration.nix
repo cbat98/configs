@@ -118,6 +118,12 @@ in {
   ];
   
   #
+  # --- Virtualisation -----------------------------------------
+  #
+
+  virtualisation.docker.enable = true;
+
+  #
   # --- Services -----------------------------------------------
   #
 
@@ -178,6 +184,7 @@ in {
       isNormalUser = true;
       extraGroups = [
         "wheel"
+        "docker"
       ];
     };
   };
