@@ -13,6 +13,12 @@ in {
     ./hardware-configuration.nix
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      antigravity = prev.callPackage ./overlays/antigravity/package.nix { };
+    })
+  ];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
