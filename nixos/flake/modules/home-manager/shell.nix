@@ -25,9 +25,9 @@
     enableBashIntegration = true;
     configFile = "/home/charlie/repos/configs/oh-my-posh/rainbow.omp.json";
   };
-  
+
   programs.btop.enable = true;
-  
+
   programs.eza = {
     enable = true;
     enableBashIntegration = true;
