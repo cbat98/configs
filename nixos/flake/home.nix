@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ userConfig, ... }:
 
 {
   imports = [
@@ -6,13 +6,12 @@
     ./modules/home-manager/waybar.nix
     ./modules/home-manager/shell.nix
     ./modules/home-manager/git.nix
-    ./modules/home-manager/theme.nix
     ./modules/home-manager/packages.nix
   ];
 
   home = {
-    username = "charlie";
-    homeDirectory = "/home/charlie";
+    username = userConfig.username;
+    homeDirectory = "/home/${userConfig.username}";
     stateVersion = "24.05";
   };
 }

@@ -36,13 +36,12 @@
 
   programs.kitty = {
     enable = true;
-
-    extraConfig = ''
-      font_family CaskaydiaCove Nerd Font
-      font_size 13.0
-      background_opacity 0.8
-      enable_audio_bell no
-    '';
+    settings = {
+      font_family = "CaskaydiaCove Nerd Font";
+      font_size = 13;
+      background_opacity = "0.8";
+      enable_audio_bell = false;
+    };
   };
 
   programs.tmux = {

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -9,12 +9,12 @@
     fastmod
     fd
     feh
-    gccgo
     gnome-icon-theme
     google-chrome
-    inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
+    hyprlauncher
     inter
     jq
+    libgcc
     magic-wormhole
     nautilus
     neovim
