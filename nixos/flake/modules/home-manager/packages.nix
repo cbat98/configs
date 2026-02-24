@@ -20,6 +20,7 @@
     neovim
     nerd-fonts.caskaydia-cove
     nettools
+    orca-slicer
     pamixer
     pavucontrol
     qbittorrent
