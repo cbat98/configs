@@ -6,7 +6,10 @@
     enableIPv6 = false;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [
+        22
+        5900
+      ];
     };
     networkmanager.enable = true;
     nameservers = [
