@@ -41,6 +41,8 @@ in {
       };
     };
 
+    prometheus.exporters.node.enable = true;
+
     libinput.touchpad.naturalScrolling = true;
   };
 }
