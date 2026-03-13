@@ -12,7 +12,7 @@ in
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "kitty";
-      "$fileManager" = "nautilus";
+      "$fileManagerCmd" = "nautilus --new-window";
       exec-once = [
         "waybar"
         "nm-applet"
@@ -106,7 +106,7 @@ in
         "$mod, RETURN, exec, $terminal"
         "$mod, C, killactive, "
         "$mod, M, exit, "
-        "$mod, E, exec, $fileManager"
+        "$mod, E, exec, $fileManagerCmd"
         "$mod, V, togglefloating, "
         "$mod, R, exec, hyprlauncher"
         "$mod, B, togglesplit, "
