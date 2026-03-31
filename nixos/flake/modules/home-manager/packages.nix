@@ -5,6 +5,7 @@
     alsa-utils
     antigravity
     brightnessctl
+    dotnet-sdk_10
     fastfetch
     fastmod
     fd
