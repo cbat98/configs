@@ -1,12 +1,11 @@
-return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  event = 'VeryLazy',
-  opts = {
-      style = 'night',
-      transparent = true
-  },
-  init = function()
-      vim.cmd.colorscheme 'tokyonight'
-  end
-}
+local M = {}
+
+function M.setup()
+  require("tokyonight").setup({
+    style = "night",
+    transparent = true,
+  })
+  vim.cmd.colorscheme("tokyonight")
+end
+
+return M

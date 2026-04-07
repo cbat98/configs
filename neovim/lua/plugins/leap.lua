@@ -1,8 +1,8 @@
-return {
-  url = 'https://codeberg.org/andyg/leap.nvim',
-  event = 'VeryLazy',
-  config = function()
-    vim.keymap.set('n', 's', '<Plug>(leap-forward)')
-    vim.keymap.set('n', 'S', '<Plug>(leap-backward)')
-  end,
-}
+local M = {}
+
+function M.setup()
+  vim.keymap.set("n", "s", "<Plug>(leap-forward)")
+  vim.keymap.set("n", "S", "<Plug>(leap-backward)")
+end
+
+return M

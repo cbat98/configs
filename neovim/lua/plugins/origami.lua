@@ -1,15 +1,15 @@
-return {
-	"chrisgrieser/nvim-origami",
-	event = "VeryLazy",
-	opts = {
-        foldKeymaps = {
-            setup = true,
-            closeOnlyOnFirstColumn = true,
-            scrollLeftOnCaret = false,
-	    },
+local M = {}
+
+function M.setup()
+  vim.opt.foldlevel = 99
+  vim.opt.foldlevelstart = 99
+  require("origami").setup({
+    foldKeymaps = {
+      setup = true,
+      closeOnlyOnFirstColumn = true,
+      scrollLeftOnCaret = false,
     },
-	init = function()
-		vim.opt.foldlevel = 99
-		vim.opt.foldlevelstart = 99
-	end,
-}
+  })
+end
+
+return M
