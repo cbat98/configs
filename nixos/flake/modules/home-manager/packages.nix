@@ -10,6 +10,7 @@
     fastmod
     fd
     feh
+    filezilla
     gnome-icon-theme
     google-chrome
     hyprlauncher
