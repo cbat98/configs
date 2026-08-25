@@ -55,6 +55,15 @@ function Remove-TrailingWhitespace {
     }
 }
 
+function ListenOn {
+    param (
+        [Parameter()][int32]$PortNum
+    )
+    Write-Host "Creating listener on TCP/$PortNum.."
+    Write-Host "Ctrl+C to stop"
+    [System.Net.Sockets.TcpListener]::new($PortNum).Start(); while ($true) { Start-Sleep -Seconds 1 }
+}
+
 $repos = "D:\repos"
 $configs = "$repos\misc\configs"
 
