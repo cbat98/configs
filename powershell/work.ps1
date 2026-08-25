@@ -64,6 +64,21 @@ function ListenOn {
     [System.Net.Sockets.TcpListener]::new($PortNum).Start(); while ($true) { Start-Sleep -Seconds 1 }
 }
 
+function Quick-TNC {
+    param (
+        [Parameter()][string]$ComputerName,
+        [Parameter()][int32]$Port,
+        [Parameter()][int32]$Timeout = 100
+    )
+
+    $result = (New-Object System.Net.Sockets.TcpClient).ConnectAsync($ComputerName, $Port).Wait($Timeout)
+
+    return [pscustomobject]@{
+        ComputerName = $ComputerName
+        TcpTestSucceeded = $result
+    }
+}
+
 $repos = "D:\repos"
 $configs = "$repos\misc\configs"
 
