@@ -29,14 +29,14 @@ function M.setup()
     end,
   })
 
-  -- powershell-editor-services is only wanted on Windows; the Ansible
-  -- language server only on Linux hosts.
+  -- powershell-editor-services is only wanted on Windows; the Ansible and
+  -- bash language servers only on Linux hosts.
   local ensure_installed = { "lua_ls" }
   if is_windows then
     table.insert(ensure_installed, "powershell_es")
   end
   if is_linux then
-    table.insert(ensure_installed, "ansiblels")
+    vim.list_extend(ensure_installed, { "ansiblels", "bashls" })
   end
 
   require("mason").setup({})
