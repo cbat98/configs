@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "diffs.nvim": {
-      "rev": "0cb16a0e2384f1d3dd6330f6ea517de8e07aa8e8",
-      "src": "https://github.com/barrettruth/diffs.nvim"
-    },
     "gitsigns.nvim": {
       "rev": "8a796a440fde3eeed3f33aecce9dab863b2be218",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

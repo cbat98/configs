@@ -33,7 +33,6 @@ local specs = {
   { src = "https://codeberg.org/andyg/leap.nvim" },
   { src = gh("stevearc/oil.nvim") },
   { src = gh("lewis6991/gitsigns.nvim") },
-  { src = gh("barrettruth/diffs.nvim") },
 }
 
 -- peek.nvim needs deno at build and run time; gate the spec and its config on it.

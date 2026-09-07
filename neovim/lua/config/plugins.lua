@@ -8,7 +8,6 @@ require("plugins.origami").setup()
 require("plugins.leap").setup()
 require("plugins.oil").setup()
 require("plugins.gitsigns").setup()
-require("plugins.diffs").setup()
 
 if vim.g.have_deno then
   require("plugins.peek").setup()
