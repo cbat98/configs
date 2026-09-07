@@ -12,26 +12,7 @@ function M.setup()
       },
     },
   })
-  vim.lsp.config("powershell_es", {
-    settings = {
-      powershell = {
-        codeFormatting = {
-          AddWhitespaceAroundPipe = true,
-          AutoCorrectAliases = true,
-          AvoidSemicolonsAsLineTerminators = true,
-          Preset = "OTBS",
-          WhitespaceBeforeOpenBrace = true,
-          WhitespaceBeforeOpenParen = true,
-          WhitespaceAroundOperator = true,
-          WhitespaceAfterSeparator = true,
-          WhitespaceBetweenParameters = true,
-          WhitespaceInsideBrace = true,
-          AlignPropertyValuePairs = true,
-          UseCorrectCasing = true,
-        },
-      },
-    },
-  })
+  -- powershell_es uses nvim-lspconfig / PowerShell Editor Services defaults for now.
 
   -- powershell-editor-services is only wanted on Windows.
   local ensure_installed = { "lua_ls" }
