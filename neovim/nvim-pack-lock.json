@@ -20,10 +20,6 @@
       "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "nvim-origami": {
-      "rev": "e5b527f41d18c2ee5af868e1a3939b60f15fdb90",
-      "src": "https://github.com/chrisgrieser/nvim-origami"
-    },
     "nvim-treesitter": {
       "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -31,10 +27,6 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "peek.nvim": {
-      "rev": "5820d937d5414baea5f586dc2a3d912a74636e5b",
-      "src": "https://github.com/toppair/peek.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",

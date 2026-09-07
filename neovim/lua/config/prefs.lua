@@ -34,6 +34,10 @@ vim.o.colorcolumn = '80'
 
 vim.o.wrap = false
 
+-- start with all folds open
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+
 -- convert tabs to spaces
 vim.o.expandtab = true
 vim.o.tabstop = 4

@@ -10,13 +10,10 @@ vim.api.nvim_create_autocmd("PackChanged", {
     if kind ~= "install" and kind ~= "update" then
       return
     end
-    local name = ev.data.spec.name
-    if name == "nvim-treesitter" then
+    if ev.data.spec.name == "nvim-treesitter" then
       pcall(function()
         vim.cmd.TSUpdate()
       end)
-    elseif name == "peek.nvim" then
-      vim.system({ "deno", "task", "--quiet", "build:fast" }, { cwd = ev.data.path }):wait()
     end
   end,
 })
@@ -29,17 +26,9 @@ local specs = {
   { src = gh("folke/tokyonight.nvim") },
   { src = gh("folke/snacks.nvim") },
   { src = gh("folke/which-key.nvim") },
-  { src = gh("chrisgrieser/nvim-origami"), name = "nvim-origami" },
   { src = "https://codeberg.org/andyg/leap.nvim" },
   { src = gh("stevearc/oil.nvim") },
   { src = gh("lewis6991/gitsigns.nvim") },
 }
-
--- peek.nvim needs deno at build and run time; gate the spec and its config on it.
-vim.g.have_deno = vim.fn.executable("deno") == 1
-
-if vim.g.have_deno then
-  table.insert(specs, { src = gh("toppair/peek.nvim") })
-end
 
 vim.pack.add(specs, { load = true, confirm = false })
