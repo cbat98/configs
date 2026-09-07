@@ -22,11 +22,13 @@ Everything is used on both Linux and Windows unless noted.
 |------|-----|--------------|---------|
 | Neovim **0.12+** | uses `vim.pack`, `vim.lsp.config`, treesitter `main` | `neovim` | `winget install Neovim.Neovim` |
 | `git`, `curl`, `tar` | `vim.pack` clones, treesitter downloads | `git` (curl/tar in base) | `winget install Git.Git` (curl/tar ship with Win10+) |
-| C compiler | compiles treesitter parsers | `base-devel` | `scoop install zig` (nvim-treesitter picks it up) |
-| **tree-sitter CLI** | treesitter `main` branch builds parsers with it | `tree-sitter-cli` | `npm i -g tree-sitter-cli` or `scoop install tree-sitter` |
+| C compiler | compiles treesitter parsers | `base-devel` | `winget install zig.zig` (nvim-treesitter picks it up) |
+| **tree-sitter CLI** | treesitter `main` branch builds parsers with it | `tree-sitter-cli` | `npm i -g tree-sitter-cli` |
 | Node.js + npm | mason installs the language servers (bash / ansible) | `nodejs npm` | `winget install OpenJS.NodeJS` |
 | `ripgrep`, `fd` | `snacks.picker` grep / file search | `ripgrep fd` | `winget install BurntSushi.ripgrep.MSVC sharkdp.fd` |
-| A Nerd Font | icons in the picker / statusline | any Nerd Font | any Nerd Font |
+| A Nerd Font | icons in the picker / statusline | any Nerd Font | `winget install DEVCOM.JetBrainsMonoNerdFont` |
+
+Windows package installs prefer `winget`; `npm` is only used where winget has no package.
 
 Language servers are installed automatically by mason on first launch:
 
@@ -70,10 +72,10 @@ Used mainly on Windows; works under `pwsh` on Linux too.
 
 ### Requirements
 
-- PowerShell 7+ (`pwsh`)
-- [`oh-my-posh`](https://ohmyposh.dev) — `winget install JanDeDobbeleer.OhMyPosh` / `yay -S oh-my-posh-bin`
-- `eza` — used by the `ll` / `lt` helpers
-- `git`
+- PowerShell 7+ (`pwsh`) — `winget install Microsoft.PowerShell`
+- [`oh-my-posh`](https://ohmyposh.dev) — `winget install JanDeDobbeleer.OhMyPosh` (Linux: `yay -S oh-my-posh-bin`)
+- `eza` — `winget install eza-community.eza` — used by the `ll` / `lt` helpers
+- `git` — `winget install Git.Git`
 - A Nerd Font (the prompt theme uses glyphs)
 
 ### Install
