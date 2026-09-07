@@ -26,6 +26,7 @@ local specs = {
   { src = gh("folke/tokyonight.nvim") },
   { src = gh("folke/snacks.nvim") },
   { src = gh("folke/which-key.nvim") },
+  { src = gh("chrisgrieser/nvim-origami"), name = "nvim-origami" },
   { src = "https://codeberg.org/andyg/leap.nvim" },
   { src = gh("stevearc/oil.nvim") },
   { src = gh("lewis6991/gitsigns.nvim") },
