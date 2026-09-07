@@ -4,7 +4,7 @@ Personal dotfiles: Neovim, PowerShell, oh-my-posh, Vimium.
 
 ```
 neovim/      Neovim config (native vim.pack, LSP, treesitter)
-powershell/  PowerShell profile + scripts added to PATH
+powershell/  PowerShell profiles (common.ps1 + per-machine) + scripts added to PATH
 oh-my-posh/  prompt themes (rainbow.omp.json is the active one)
 vimium/      Vimium browser-extension settings to import by hand
 old/         archived NixOS config, no longer used
@@ -80,22 +80,38 @@ Used mainly on Windows; works under `pwsh` on Linux too.
 
 ### Install
 
-Point your `$PROFILE` at the relevant script. Adjust the path to wherever this repo is cloned:
+Symlink `$PROFILE` to the relevant machine script. Adjust the target to wherever
+this repo is cloned:
 
 ```powershell
-# in $PROFILE  (run `notepad $PROFILE`)
-. "$HOME\repos\configs\powershell\home.ps1"     # home machine
-# or
-. "$HOME\repos\configs\powershell\work.ps1"     # work machine
+# as admin or with Developer Mode on
+New-Item -ItemType SymbolicLink -Path $PROFILE -Force `
+    -Target "$HOME\repos\configs\powershell\home.ps1"   # or work.ps1
 ```
 
-Each script:
+`$PROFILE` may not exist yet — create its parent first if needed:
+`New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)`.
 
-- adds `powershell/path/` to `PATH` (the `*.ps1` helpers become commands),
-- initialises oh-my-posh with `oh-my-posh/rainbow.omp.json`,
-- defines aliases (`gs`, `g`, `lt`, `tw`, …).
+Structure:
 
-`home.ps1` and `work.ps1` differ only in machine-specific paths.
+- `home.ps1` / `work.ps1` set the machine-specific `$repos` / `$configs` paths
+  (and, on work, an extra `PATH` entry plus an auto-generated shell-integration
+  block), then dot-source `common.ps1`.
+- `common.ps1` holds everything shared: it adds `powershell/path/` to `PATH` (the
+  `*.ps1` helpers become commands), defines the shell shorthands (`ll`, `lt`,
+  `gs`, `g`, `gitopen`, `tw`, `vim`, `npp`), and initialises oh-my-posh with
+  `oh-my-posh/rainbow.omp.json`.
+
+Because `$PROFILE` is the symlink, editing it edits the tracked repo file.
+
+Where a helper lives follows one rule:
+
+- **Alias** — only a new name for a single command, no logic (`npp`).
+- **Function in `common.ps1`** — a terse shorthand you reach for most sessions,
+  that is trivial or needs to touch the live session. Named short and lowercase.
+- **Script in `path/`** — anything with real parameters, worth a `Get-Help`, or
+  that runs fine as its own process. Named `Verb-Noun`. A shorthand may wrap one
+  (`tw` → `Remove-TrailingWhitespace.ps1`).
 
 ### Secrets
 
