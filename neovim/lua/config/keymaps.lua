@@ -9,3 +9,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- selectively remove whitespace errors
 vim.keymap.set('n', '<leader>tw', '<cmd>%s/\\s\\+$//gc<CR>', { desc = '[T]rim [W]hitespace' })
 vim.keymap.set('n', '<leader>cm', '<cmd>%s###gn<CR>', { desc = '[C]ount [M]atches' })
+
+-- update plugins (opens a confirmation buffer; :w to apply)
+vim.keymap.set('n', '<leader>pu', vim.pack.update, { desc = '[P]lugins: [U]pdate' })

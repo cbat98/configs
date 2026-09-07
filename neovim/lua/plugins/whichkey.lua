@@ -5,6 +5,7 @@ function M.setup()
   wk.setup({})
   wk.add({
     { "<leader>c", group = "[C]ount" },
+    { "<leader>p", group = "[P]lugins" },
     { "<leader>s", group = "[S]earch" },
     { "<leader>t", group = "[T]rim" },
   })
