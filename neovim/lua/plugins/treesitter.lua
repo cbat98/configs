@@ -7,7 +7,6 @@ local ensure_installed = {
   "c",
   "diff",
   "json",
-  "jsonc",
   "lua",
   "luadoc",
   "markdown",
