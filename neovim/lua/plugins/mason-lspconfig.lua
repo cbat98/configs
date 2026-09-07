@@ -1,9 +1,6 @@
 local M = {}
 
 function M.setup()
-  vim.lsp.config("ansiblels", {
-    filetypes = { "yaml.ansible", "yml", "yaml", "ansible" },
-  })
   vim.lsp.config("lua_ls", {
     settings = {
       Lua = {
