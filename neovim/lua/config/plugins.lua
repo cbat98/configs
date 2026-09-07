@@ -9,7 +9,6 @@ require("plugins.leap").setup()
 require("plugins.oil").setup()
 require("plugins.gitsigns").setup()
 require("plugins.diffs").setup()
-require("plugins.markdown-toc").setup()
 
 if vim.g.have_deno then
   require("plugins.peek").setup()

@@ -12,10 +12,6 @@
       "rev": "e20f33507bd2d6c671b7273f797f2d3cf521ac61",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
-    "markdown-toc.nvim": {
-      "rev": "869af35bce0c27e2006f410fa3f706808db4843d",
-      "src": "https://github.com/hedyhli/markdown-toc.nvim"
-    },
     "mason-lspconfig.nvim": {
       "rev": "037398b9ce4a53ba48d5f94765c641a1fd16d906",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
