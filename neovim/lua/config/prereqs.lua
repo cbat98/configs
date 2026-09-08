@@ -4,11 +4,12 @@ local function executable(name)
   return vim.fn.executable(name) == 1
 end
 
-local function has_c_compiler()
-  return executable("cc")
-    or executable("gcc")
-    or executable("clang")
-    or executable("zig")
+local function has_treesitter_compiler()
+  if is_windows then
+    -- init.lua sets TARGET/CC for gcc; cl.exe works without that (VS Build Tools).
+    return executable("gcc") or executable("cl")
+  end
+  return executable("cc") or executable("gcc") or executable("clang")
 end
 
 local function neovim_version_ok()
@@ -79,8 +80,11 @@ function M.feature_flags()
 
   if not executable("tree-sitter") then
     warn("treesitter", "tree-sitter", "treesitter parser builds use the tree-sitter CLI")
-  elseif not has_c_compiler() then
-    warn("treesitter", "cc", "treesitter parser builds need a C compiler")
+  elseif not has_treesitter_compiler() then
+    local why = is_windows
+      and "treesitter parser builds need gcc (MinGW) or cl.exe (VS Build Tools)"
+      or "treesitter parser builds need a C compiler"
+    warn("treesitter", "cc", why)
   end
 
   if not executable("rg") then
@@ -95,6 +99,10 @@ function M.feature_flags()
   end
 
   return features, warnings
+end
+
+function M.has_treesitter_compiler()
+  return has_treesitter_compiler()
 end
 
 function M.run()

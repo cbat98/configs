@@ -29,14 +29,19 @@ function M.check()
   else
     report("warn", "tree-sitter CLI is missing; syntax highlighting via treesitter is disabled")
   end
-  if vim.fn.executable("cc") == 1
-    or vim.fn.executable("gcc") == 1
-    or vim.fn.executable("clang") == 1
-    or vim.fn.executable("zig") == 1
-  then
-    report("ok", "C compiler is available")
+  if prereqs.has_treesitter_compiler() then
+    if vim.fn.has("win32") == 1 and vim.fn.executable("gcc") == 1 then
+      report("ok", "gcc is available (MinGW; TARGET/CC set in init.lua)")
+    elseif vim.fn.has("win32") == 1 and vim.fn.executable("cl") == 1 then
+      report("ok", "cl.exe is available (MSVC)")
+    else
+      report("ok", "C compiler is available")
+    end
   else
-    report("warn", "no C compiler found; treesitter parser builds will fail")
+    local msg = vim.fn.has("win32") == 1
+      and "no gcc or cl.exe found; treesitter parser builds will fail (winget install BrechtSanders.WinLibs.POSIX.UCRT)"
+      or "no C compiler found; treesitter parser builds will fail"
+    report("warn", msg)
   end
 
   vim.health.start("Snacks picker")
