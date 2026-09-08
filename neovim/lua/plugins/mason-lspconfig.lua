@@ -30,12 +30,13 @@ function M.setup()
   })
 
   -- powershell-editor-services is only wanted on Windows; the Ansible and
-  -- bash language servers only on Linux hosts.
+  -- bash language servers only on Linux hosts (npm required for the latter).
+  local features = vim.g.nvim_features or {}
   local ensure_installed = { "lua_ls" }
   if is_windows then
     table.insert(ensure_installed, "powershell_es")
   end
-  if is_linux then
+  if is_linux and features.mason_npm_lsps then
     vim.list_extend(ensure_installed, { "ansiblels", "bashls" })
   end
 
