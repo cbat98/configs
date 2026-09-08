@@ -22,13 +22,43 @@ Everything is used on both Linux and Windows unless noted.
 |------|-----|--------------|---------|
 | Neovim **0.12+** | uses `vim.pack`, `vim.lsp.config`, treesitter `main` | `neovim` | `winget install Neovim.Neovim` |
 | `git`, `curl`, `tar` | `vim.pack` clones, treesitter downloads | `git` (curl/tar in base) | `winget install Git.Git` (curl/tar ship with Win10+) |
-| C compiler | compiles treesitter parsers | `base-devel` | `winget install zig.zig` (nvim-treesitter picks it up) |
+| C compiler (`gcc`) | compiles treesitter parsers | `base-devel` | `winget install BrechtSanders.WinLibs.POSIX.UCRT` |
 | **tree-sitter CLI** | treesitter `main` branch builds parsers with it | `tree-sitter-cli` | `npm i -g tree-sitter-cli` |
 | Node.js + npm | mason installs the language servers (bash / ansible) | `nodejs npm` | `winget install OpenJS.NodeJS` |
 | `ripgrep`, `fd` | `snacks.picker` grep / file search | `ripgrep fd` | `winget install BurntSushi.ripgrep.MSVC sharkdp.fd` |
 | A Nerd Font | icons in the picker / statusline | any Nerd Font | `winget install DEVCOM.JetBrainsMonoNerdFont` |
 
 Windows package installs prefer `winget`; `npm` is only used where winget has no package.
+
+#### Treesitter parsers on Windows
+
+The `tree-sitter` CLI (installed via npm) is built for MSVC, so by default it looks
+for `cl.exe`. We use **MinGW-w64** (`gcc`) instead — smaller than Visual Studio
+Build Tools and enough for compiling parsers.
+
+1. Install WinLibs (adds `gcc` to `PATH`):
+
+   ```powershell
+   winget install BrechtSanders.WinLibs.POSIX.UCRT
+   ```
+
+   Any MinGW-w64 distribution works as long as `gcc` is on `PATH`; WinLibs is
+   what we install via winget.
+
+2. Start Neovim from a **new terminal** so it picks up the updated `PATH`.
+
+`neovim/init.lua` sets these before plugins load when `gcc` is found:
+
+- `TARGET=x86_64-pc-windows-gnu` — the MSVC-built `tree-sitter` binary otherwise
+  targets MSVC and passes flags `gcc` cannot handle
+- `CC=gcc`
+
+If parser builds still fail, run `:checkhealth nvim-config` and confirm `gcc` is
+listed under Treesitter. Rebuild parsers with `:TSUpdate`.
+
+**Alternative:** install [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/)
+with the "Desktop development with C++" workload and remove the `TARGET`/`CC`
+block from `init.lua` if you prefer the native MSVC toolchain.
 
 Language servers are installed automatically by mason on first launch:
 
