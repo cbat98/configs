@@ -12,10 +12,12 @@ DIRS=(
 	"$HOME/apps/netbox-docker"
 	"$HOME/repos/Platform.NetBox.Configuration"
 	"$HOME/repos/Platform.FortiGate.Configuration"
+	"$HOME/repos/Platform.A10.Configuration"
 )
 
 CMDS=(
     "docker compose up --force-recreate"
+    "git fetch && git status"
     "git fetch && git status"
     "git fetch && git status"
 )
