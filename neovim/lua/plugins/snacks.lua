@@ -3,12 +3,7 @@ local M = {}
 function M.setup()
   require("snacks").setup({
     bigfile = {},
-    indent = {
-      animate = {
-        enabled = false,
-      },
-    },
-    notifier = {},
+    indent = {},
     picker = {},
     quickfile = {},
   })

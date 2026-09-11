@@ -1,18 +1,14 @@
 local M = {}
 
--- Parsers to keep installed. `install` is async and a no-op when already present;
--- `:TSUpdate` (wired up in config/pack.lua on PackChanged) keeps them current.
+-- Parsers to keep installed. Neovim 0.12 bundles c, lua, markdown, vim, and vimdoc.
+-- `install` is async and a no-op when already present; `:TSUpdate` (wired up in
+-- config/pack.lua on PackChanged) keeps them current.
 local ensure_installed = {
   "bash",
-  "c",
   "diff",
   "json",
-  "lua",
   "luadoc",
-  "markdown",
   "powershell",
-  "vim",
-  "vimdoc",
   "yaml",
 }
 

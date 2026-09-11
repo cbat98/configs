@@ -2,7 +2,19 @@ local M = {}
 
 function M.setup()
   local wk = require("which-key")
-  wk.setup({})
+  wk.setup({
+    plugins = {
+      presets = {
+        operators = false,
+        motions = false,
+        text_objects = false,
+        windows = false,
+        nav = false,
+        z = false,
+        g = false,
+      },
+    },
+  })
   wk.add({
     { "<leader>c", group = "[C]ount" },
     { "<leader>p", group = "[P]lugins" },

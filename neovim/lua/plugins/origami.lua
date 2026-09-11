@@ -5,9 +5,7 @@ function M.setup()
   vim.opt.foldlevelstart = 99
   require("origami").setup({
     foldKeymaps = {
-      setup = true,
       closeOnlyOnFirstColumn = true,
-      scrollLeftOnCaret = false,
     },
   })
 end
