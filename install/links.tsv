@@ -1,0 +1,14 @@
+# Link manifest for install.sh / Install.ps1.
+# Columns are tab-separated: source (relative to repo root), linux target, windows target.
+# "-" means "not linked on this OS". Paths may use ~ (linux) or %VAR% (windows).
+#
+# source	linux	windows
+neovim	~/.config/nvim	%LOCALAPPDATA%\nvim
+powershell/home.ps1	-	%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+bash/bashrc	~/.bashrc	-
+bash/bashrc.d	~/.bashrc.d	-
+git/gitconfig	~/.gitconfig	%USERPROFILE%\.gitconfig
+bin	~/bin	-
+tmux/tmux.conf	~/.tmux.conf	-
+konsole/konsolerc	~/.config/konsolerc	-
+konsole/data/Charlie.profile	~/.local/share/konsole/Charlie.profile	-

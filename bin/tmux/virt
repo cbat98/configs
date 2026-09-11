@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=lib.sh
+source "$_SCRIPT_DIR/lib.sh"
+
+SESSION_NAME=virtualisation
+
+DIRS=(
+	"$HOME/repos/Platform.Virtualisation.VMRequests"
+	"$HOME/repos/Platform.Virtualisation.Automation"
+	"$HOME/repos/ansible_collections"
+	"$HOME/repos/AD.Automation"
+	"$HOME/repos/Platform.Virtualisation.ImageMgmt"
+)
+
+CMDS=(
+    "git fetch && git status"
+    "git fetch && git status"
+    "git fetch && git status"
+    "git fetch && git status"
+    "git fetch && git status"
+)
+
+FOCUS_INDEX=1
+
+tmux_launch_multi_window_session "$SESSION_NAME" DIRS CMDS "$FOCUS_INDEX"

@@ -1,0 +1,15 @@
+[include]
+	path = ~/.gitconfig.local
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+	conflictStyle = diff3
+[rebase]
+	autoStash = true
+[core]
+    editor = nvim
