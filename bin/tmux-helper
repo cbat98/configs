@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+_self=$(readlink -f "${BASH_SOURCE[0]}")
+_REPO_ROOT=$(cd "$(dirname "$_self")" && pwd)
+TMUX_DIR="$_REPO_ROOT/tmux"
+
+usage() {
+	echo "usage: tmux-helper <command> [args...]" >&2
+	echo "commands:" >&2
+	if [[ ! -d "$TMUX_DIR" ]]; then
+		echo "  (tmux directory missing: $TMUX_DIR)" >&2
+		return
+	fi
+	local f names=()
+	shopt -s nullglob
+	for f in "$TMUX_DIR"/*; do
+		[[ -f "$f" && -x "$f" ]] || continue
+		[[ "$(basename "$f")" == lib.sh ]] && continue
+		names+=("$(basename "$f")")
+	done
+	shopt -u nullglob
+	while IFS= read -r line; do
+		printf '  %s\n' "$line" >&2
+	done < <(printf '%s\n' "${names[@]}" | sort -u)
+}
+
+if (($# < 1)) || [[ "$1" == -h || "$1" == --help ]]; then
+	usage
+	(($# < 1)) && exit 1
+	exit 0
+fi
+
+cmd=$1
+shift
+target="$TMUX_DIR/$cmd"
+
+if [[ "$(basename "$target")" == lib.sh ]]; then
+	echo "tmux-helper: invalid command: $cmd" >&2
+	exit 1
+fi
+
+if [[ ! -f "$target" ]]; then
+	echo "tmux-helper: unknown command: $cmd" >&2
+	usage
+	exit 1
+fi
+
+if [[ ! -x "$target" ]]; then
+	echo "tmux-helper: not executable: $cmd" >&2
+	exit 1
+fi
+
+exec "$target" "$@"

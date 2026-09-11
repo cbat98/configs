@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=lib.sh
+source "$_SCRIPT_DIR/lib.sh"
+
+SESSION_NAME=fortigate
+
+DIRS=(
+	"$HOME/apps/netbox-docker"
+	"$HOME/repos/Platform.NetBox.Configuration"
+	"$HOME/repos/Platform.FortiGate.Configuration"
+)
+
+CMDS=(
+    "docker compose up --force-recreate"
+    "git fetch && git status"
+    "git fetch && git status"
+)
+
+FOCUS_INDEX=0
+
+SPLIT_TARGETS=(
+	0
+)
+
+SPLIT_DIRS=(
+	"$HOME/apps/netbox-mcp"
+)
+
+SPLIT_CMDS=(
+	"docker compose up"
+)
+
+tmux_launch_multi_window_session "$SESSION_NAME" DIRS CMDS "$FOCUS_INDEX" SPLIT_TARGETS SPLIT_DIRS SPLIT_CMDS

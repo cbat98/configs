@@ -1,0 +1,245 @@
+#!/usr/bin/env bash
+# Find git repos under a directory, git fetch --prune each, optionally git pull --ff-only when
+# safe (strictly behind upstream, no tracked local changes), then print ahead/behind and dirty counts.
+# By default deletes local branches whose upstream was removed on the remote (after fetch
+# --prune). Match upstream:track as "gone" or "[gone]" (Git 2.47+). Pass --no-prune-gone-local to skip.
+
+set -euo pipefail
+
+usage() {
+	echo "usage: $(basename "$0") [options] [DIR]" >&2
+	echo "  Discover git repositories under DIR (default: ~/repos)." >&2
+	echo "  Run git fetch --prune in each, then print a table: branch, upstream, ahead/behind," >&2
+	echo "  and counts of modified tracked paths vs untracked paths (git status --porcelain)," >&2
+	echo "  plus PULL: - (none), ok (pulled --ff-only), or FAIL." >&2
+	echo "  After a successful fetch, if the branch is strictly behind upstream (fast-forward)," >&2
+	echo "  and there are no local changes to tracked files, runs: git pull --ff-only" >&2
+	echo >&2
+	echo "Options:" >&2
+	echo "      --no-prune-gone-local   Skip deleting local branches whose upstream was removed" >&2
+	echo "                              on the remote (default is to prune them with git branch -d)." >&2
+	echo "  -F, --force-prune-gone      Use git branch -D for unmerged gone branches (destructive)." >&2
+}
+
+sanitize_tsv() {
+	# Tabs/newlines would break column alignment.
+	local s=$1
+	s=${s//$'\t'/ }
+	s=${s//$'\n'/ }
+	s=${s//$'\r'/ }
+	printf '%s' "$s"
+}
+
+# Print 0 as "-" so non-zero counts stand out (matches N/A upstream cells).
+dash_zero() {
+	case "${1:-}" in
+		0) printf '-' ;;
+		*) printf '%s' "$1" ;;
+	esac
+}
+
+prune_gone_local=true
+force_prune_gone=false
+positional=()
+while (($#)); do
+	case "$1" in
+		-h | --help)
+			usage
+			exit 0
+			;;
+		--no-prune-gone-local)
+			prune_gone_local=false
+			shift
+			;;
+		-F | --force-prune-gone)
+			force_prune_gone=true
+			shift
+			;;
+		--)
+			shift
+			positional+=("$@")
+			break
+			;;
+		-*)
+			echo "error: unknown option: $1" >&2
+			usage
+			exit 1
+			;;
+		*)
+			positional+=("$1")
+			shift
+			;;
+	esac
+done
+
+if ((${#positional[@]} > 1)); then
+	echo "error: too many arguments (expected at most one directory)" >&2
+	exit 1
+fi
+
+raw_root=${positional[0]:-"$HOME/repos"}
+if [[ ! -d "$raw_root" ]]; then
+	echo "error: not a directory: $raw_root" >&2
+	exit 1
+fi
+root=$(readlink -f "$raw_root")
+
+mapfile -t gitdirs < <(find "$root" -type d -name .git 2>/dev/null | LC_ALL=C sort)
+
+if ((${#gitdirs[@]} == 0)); then
+	echo "no git repositories found under $root" >&2
+	exit 0
+fi
+
+rows=()
+fetch_fail_messages=()
+pull_fail_messages=()
+prune_gone_fail_messages=()
+
+for gitdir in "${gitdirs[@]}"; do
+	repo=$(dirname "$gitdir")
+	repo_disp=$(realpath --relative-to="$root" "$repo" 2>/dev/null || printf '%s' "$repo")
+
+	if fetch_out=$(git -C "$repo" fetch --prune 2>&1); then
+		fetch_st=ok
+	else
+		fetch_st=FAIL
+		fetch_fail_messages+=("$repo"$'\n'"$fetch_out"$'\n')
+	fi
+
+	branch=$(git -C "$repo" branch --show-current 2>/dev/null || true)
+	if [[ -z "${branch:-}" ]]; then
+		short=$(git -C "$repo" rev-parse --short HEAD 2>/dev/null || echo "?")
+		branch="detached@${short}"
+	fi
+
+	upstream_disp="-"
+	ahead="-"
+	behind="-"
+	if git -C "$repo" rev-parse --verify '@{u}' >/dev/null 2>&1; then
+		counts=$(git -C "$repo" rev-list --left-right --count HEAD...'@{u}' 2>/dev/null || echo $'0\t0')
+		ahead=${counts%%$'\t'*}
+		behind=${counts##*$'\t'}
+		upstream_disp=$(git -C "$repo" rev-parse --abbrev-ref '@{u}' 2>/dev/null || echo "?")
+	fi
+
+	tracked=0
+	untracked=0
+	while IFS= read -r line || [[ -n "$line" ]]; do
+		[[ -z "$line" ]] && continue
+		if [[ "$line" == '??'* ]]; then
+			untracked=$((untracked + 1))
+		else
+			tracked=$((tracked + 1))
+		fi
+	done < <(git -C "$repo" status --porcelain=v1 2>/dev/null || true)
+
+	pull_disp="-"
+
+	# Fast-forward only: no local commits ahead, remote has commits we lack, nothing to overwrite.
+	if [[ "$fetch_st" == ok ]] &&
+		[[ -n "$(git -C "$repo" branch --show-current 2>/dev/null)" ]] &&
+		git -C "$repo" rev-parse --verify '@{u}' >/dev/null 2>&1 &&
+		[[ "$ahead" =~ ^[0-9]+$ && "$behind" =~ ^[0-9]+$ ]] &&
+		((tracked == 0 && behind > 0 && ahead == 0)); then
+		if pull_out=$(git -C "$repo" pull --ff-only 2>&1); then
+			pull_disp=ok
+			counts=$(git -C "$repo" rev-list --left-right --count HEAD...'@{u}' 2>/dev/null || echo $'0\t0')
+			ahead=${counts%%$'\t'*}
+			behind=${counts##*$'\t'}
+			tracked=0
+			untracked=0
+			while IFS= read -r line || [[ -n "$line" ]]; do
+				[[ -z "$line" ]] && continue
+				if [[ "$line" == '??'* ]]; then
+					untracked=$((untracked + 1))
+				else
+					tracked=$((tracked + 1))
+				fi
+			done < <(git -C "$repo" status --porcelain=v1 2>/dev/null || true)
+		else
+			pull_disp=FAIL
+			pull_fail_messages+=("$repo"$'\n'"$pull_out"$'\n')
+		fi
+	fi
+
+	prune_gone_disp="-"
+	if [[ "$prune_gone_local" == true ]]; then
+		if [[ "$fetch_st" != ok ]]; then
+			prune_gone_disp="skip:fetch"
+		else
+			cur_branch=$(git -C "$repo" branch --show-current 2>/dev/null || true)
+			prune_deleted=0
+			prune_skipped_current=0
+			prune_fail=0
+			while IFS=$'\t' read -r gb_track gb_name || [[ -n "${gb_name:-}" ]]; do
+				[[ -z "${gb_track:-}" ]] && continue
+				# Git 2.47+ reports %(upstream:track) as "[gone]"; older git used plain "gone".
+				[[ "$gb_track" != gone && "$gb_track" != '[gone]' ]] && continue
+				[[ -z "${gb_name:-}" ]] && continue
+				if [[ -n "$cur_branch" && "$gb_name" == "$cur_branch" ]]; then
+					prune_skipped_current=$((prune_skipped_current + 1))
+					continue
+				fi
+				del_flag=-d
+				[[ "$force_prune_gone" == true ]] && del_flag=-D
+				if del_out=$(git -C "$repo" branch "$del_flag" "$gb_name" 2>&1); then
+					prune_deleted=$((prune_deleted + 1))
+				else
+					prune_fail=$((prune_fail + 1))
+					prune_gone_fail_messages+=("$repo: branch $gb_name"$'\n'"$del_out"$'\n')
+				fi
+			done < <(
+				git -C "$repo" for-each-ref refs/heads/ \
+					--format='%(upstream:track)'$'\t''%(refname:short)' 2>/dev/null || true
+			)
+			pg_parts=()
+			((prune_deleted > 0)) && pg_parts+=("del:$prune_deleted")
+			((prune_skipped_current > 0)) && pg_parts+=("skip_cur:$prune_skipped_current")
+			((prune_fail > 0)) && pg_parts+=("fail:$prune_fail")
+			if ((${#pg_parts[@]} > 0)); then
+				prune_gone_disp=$(IFS=','; echo "${pg_parts[*]}")
+			else
+				prune_gone_disp=ok
+			fi
+		fi
+	fi
+
+	row="$(sanitize_tsv "$repo_disp")"$'\t'"$fetch_st"$'\t'"$(sanitize_tsv "$branch")"$'\t'"$(sanitize_tsv "$upstream_disp")"$'\t'"$(dash_zero "$ahead")"$'\t'"$(dash_zero "$behind")"$'\t'"$(dash_zero "$tracked")"$'\t'"$(dash_zero "$untracked")"$'\t'"$pull_disp"
+	if [[ "$prune_gone_local" == true ]]; then
+		row+=$'\t'"$(sanitize_tsv "$prune_gone_disp")"
+	fi
+	rows+=("$row")
+done
+
+printf 'Repos under %s (%d repositories)\n\n' "$root" "${#gitdirs[@]}"
+
+header="REPO"$'\t'"FETCH"$'\t'"BRANCH"$'\t'"UPSTREAM"$'\t'"AHEAD"$'\t'"BEHIND"$'\t'"TRK"$'\t'"UTR"$'\t'"PULL"
+if [[ "$prune_gone_local" == true ]]; then
+	header+=$'\t'"PRUNE_GONE"
+fi
+if command -v column >/dev/null 2>&1; then
+	{
+		printf '%s\n' "$header"
+		printf '%s\n' "${rows[@]}"
+	} | column -t -s $'\t'
+else
+	printf '%s\n' "$header"
+	printf '%s\n' "${rows[@]}"
+fi
+
+if ((${#fetch_fail_messages[@]} > 0)); then
+	printf '\n' >&2
+	printf 'fetch failures:\n' >&2
+	printf '%s\n' "${fetch_fail_messages[@]}" >&2
+fi
+if ((${#pull_fail_messages[@]} > 0)); then
+	printf '\n' >&2
+	printf 'pull failures (git pull --ff-only):\n' >&2
+	printf '%s\n' "${pull_fail_messages[@]}" >&2
+fi
+if ((${#prune_gone_fail_messages[@]} > 0)); then
+	printf '\n' >&2
+	printf 'prune-gone-local failures (git branch -d/-D):\n' >&2
+	printf '%s\n' "${prune_gone_fail_messages[@]}" >&2
+fi

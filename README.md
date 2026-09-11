@@ -1,16 +1,50 @@
 # configs
 
-Personal dotfiles: Neovim, PowerShell, oh-my-posh, Vimium.
+Personal dotfiles: Neovim, PowerShell, bash, git, tmux, konsole, oh-my-posh, Vimium.
 
 ```
 neovim/      Neovim config (native vim.pack, LSP, treesitter)
 powershell/  PowerShell profiles (common.ps1 + per-machine) + scripts added to PATH
+bash/        .bashrc + .bashrc.d/ (Linux only)
+git/         .gitconfig (+ template for the gitignored .gitconfig.local)
+tmux/        .tmux.conf (Linux only)
+konsole/     konsolerc + profile for the Konsole terminal emulator (Linux only)
+bin/         shell scripts symlinked onto PATH as ~/bin (Linux only)
 oh-my-posh/  prompt themes (rainbow.omp.json is the active one)
 vimium/      Vimium browser-extension settings to import by hand
+install/     links.tsv manifest + install.sh / Install.ps1 (see below)
 old/         archived NixOS config, no longer used
 ```
 
 Everything is used on both Linux and Windows unless noted.
+
+---
+
+## Install
+
+Everything in this repo that lives at a fixed path is symlinked into place —
+nothing is copied — so editing the linked path edits the tracked file
+directly. `install/links.tsv` is the single source of truth for what links
+where; `-` in a column means "not linked on that OS".
+
+```sh
+# Linux
+./install/install.sh
+
+# Windows (PowerShell, as Administrator or with Developer Mode on)
+.\install\Install.ps1              # links powershell/home.ps1 as $PROFILE
+.\install\Install.ps1 -Profile work
+```
+
+Both scripts are idempotent: a link that's already correct is left alone, and
+anything real in the way is renamed to `<path>.bak-<timestamp>` rather than
+overwritten. To add a new linked file, add a row to `links.tsv` and re-run.
+
+Not covered by the manifest, since neither can be symlinked:
+
+- **Vimium** — see the [Vimium](#vimium) section below, import by hand.
+- **oh-my-posh** — referenced by path from the PowerShell profiles and the
+  bash init line below; no separate linking needed.
 
 ---
 
@@ -68,17 +102,8 @@ Language servers are installed automatically by mason on first launch:
 
 ### Install
 
-Symlink the `neovim/` directory to Neovim's config location:
-
-```sh
-# Linux
-ln -s "$PWD/neovim" ~/.config/nvim
-
-# Windows (PowerShell, as admin or with Developer Mode on)
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\neovim"
-```
-
-Then start `nvim`. First launch will:
+Linked by the [top-level installer](#install) (`neovim/` → `~/.config/nvim` on
+Linux, `%LOCALAPPDATA%\nvim` on Windows). Then start `nvim`. First launch will:
 
 1. clone all plugins (`vim.pack`),
 2. compile treesitter parsers,
@@ -110,17 +135,10 @@ Used mainly on Windows; works under `pwsh` on Linux too.
 
 ### Install
 
-Symlink `$PROFILE` to the relevant machine script. Adjust the target to wherever
-this repo is cloned:
-
-```powershell
-# as admin or with Developer Mode on
-New-Item -ItemType SymbolicLink -Path $PROFILE -Force `
-    -Target "$HOME\repos\configs\powershell\home.ps1"   # or work.ps1
-```
-
-`$PROFILE` may not exist yet — create its parent first if needed:
-`New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)`.
+Linked by the [top-level installer](#install): `.\install\Install.ps1` links
+`powershell/home.ps1` as `$PROFILE`; `.\install\Install.ps1 -Profile work`
+links `work.ps1` instead. The installer creates `$PROFILE`'s parent directory
+if it doesn't exist yet.
 
 Structure:
 
@@ -150,12 +168,42 @@ Where a helper lives follows one rule:
 
 ---
 
+## bash
+
+Linux only. `bash/bashrc` → `~/.bashrc`, `bash/bashrc.d/` → `~/.bashrc.d/`
+(everything in there gets sourced). `custom.sh` holds shell functions and
+aliases, and also inits oh-my-posh (see below); `ansible.sh` sets
+Ansible-related environment variables.
+
+## git
+
+`git/gitconfig` → `~/.gitconfig`. It includes `~/.gitconfig.local`, which is
+git-ignored and per-machine — copy `git/gitconfig.local.template` there and
+fill in `[user]`.
+
+## tmux
+
+Linux only. `tmux/tmux.conf` → `~/.tmux.conf`.
+
+## konsole
+
+Linux only. Settings for the [Konsole](https://konsole.kde.org) terminal
+emulator: `konsole/konsolerc` → `~/.config/konsolerc`,
+`konsole/data/Charlie.profile` → `~/.local/share/konsole/Charlie.profile`.
+
+## bin
+
+Linux only. Shell scripts linked as `~/bin`, which `.bashrc` puts on `PATH` —
+each script becomes a command. `git-repos-fetch-status` and `tmux-helper` /
+`tmux/` (`forti`, `lib.sh`, `virt`) back the `virt` tmux-session helper.
+
+---
+
 ## oh-my-posh
 
-`oh-my-posh/rainbow.omp.json` is the active theme (referenced by the PowerShell
-profiles). The other `*.omp.json` files are alternatives kept for reference.
-
-On Linux the shell that loads it lives outside this repo — init it yourself:
+`oh-my-posh/rainbow.omp.json` is the active theme (referenced by the
+PowerShell profiles and, on Linux, `bash/bashrc.d/custom.sh`). The other
+`*.omp.json` files are alternatives kept for reference.
 
 ```sh
 eval "$(oh-my-posh init bash --config ~/repos/configs/oh-my-posh/rainbow.omp.json)"
