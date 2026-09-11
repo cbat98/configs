@@ -30,7 +30,6 @@ local specs = {
   { src = "https://codeberg.org/andyg/leap.nvim" },
   { src = gh("stevearc/oil.nvim") },
   { src = gh("lewis6991/gitsigns.nvim") },
-  { src = gh("nvim-tree/nvim-web-devicons") },
   { src = gh("nvim-lualine/lualine.nvim") },
   { src = gh("mawkler/modicator.nvim") },
 }
