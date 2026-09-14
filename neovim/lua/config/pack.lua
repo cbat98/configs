@@ -23,7 +23,7 @@ local specs = {
   { src = gh("mason-org/mason.nvim") },
   { src = gh("mason-org/mason-lspconfig.nvim") },
   { src = gh("nvim-treesitter/nvim-treesitter") },
-  { src = gh("folke/tokyonight.nvim") },
+  { src = gh("catppuccin/nvim"), name = "catppuccin.nvim" },
   { src = gh("folke/snacks.nvim") },
   { src = gh("folke/which-key.nvim") },
   { src = gh("chrisgrieser/nvim-origami"), name = "nvim-origami" },

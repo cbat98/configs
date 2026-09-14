@@ -1,7 +1,7 @@
 -- Plugin configuration loader. Each module under lua/plugins/ exposes M.setup().
 local features = vim.g.nvim_features or {}
 
-require("plugins.tokyonight").setup()
+require("plugins.catppuccin").setup()
 
 if features.treesitter then
   require("plugins.treesitter").setup()
