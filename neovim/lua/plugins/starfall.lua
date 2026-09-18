@@ -7,6 +7,7 @@ function M.setup()
         shooting_spawn_chance = 0.02,
         min_life              = 70,
         max_life              = 100,
+        margin                = 16,
         ignore_filetypes      = {
             "TelescopePrompt", "TelescopeResults", "NvimTree", "neo-tree",
             "lazy", "mason", "help", "dashboard", "alpha", "starter",
