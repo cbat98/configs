@@ -17,5 +17,7 @@ require("plugins.origami").setup()
 require("plugins.leap").setup()
 require("plugins.oil").setup()
 require("plugins.gitsigns").setup()
+require("plugins.starfall").setup()
+
 require('modicator').setup()
 require("lualine").setup()
