@@ -33,6 +33,7 @@ local specs = {
   { src = gh("nvim-lualine/lualine.nvim") },
   { src = gh("mawkler/modicator.nvim") },
   { src = gh("RedEye-Developers/starfall.nvim") },
+  { src = gh("dstein64/vim-startuptime") },
 }
 
 vim.pack.add(specs, { load = true, confirm = false })
